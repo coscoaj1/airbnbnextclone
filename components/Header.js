@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
+import DateRangePicker from './DateRangePicker';
 import globe from '../public/images/icons8-globe-50.png';
 import blackGlobe from '../public/images/icons8-globe-24.png';
 import userIcon from '../public/images/profile-user.png';
@@ -9,6 +10,7 @@ import logo from '../public/images/airbnb-48.ico';
 import redLogo from '../public/images/airbnb-red-icon.png';
 import searchIcon from '../public/images/search-12-32.png';
 import locationicon from '../public/images/locationicon.png';
+import DateRangePickerEndDate from './DateRangePickerEndDate';
 
 const url = 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities';
 
@@ -22,29 +24,36 @@ function Header() {
 	const [cities, setCities] = useState(null);
 	const [input, setInput] = useState('');
 	const [navbar, setNavbar] = useState(false);
+	const [showCalendar, setShowCalendar] = useState(false);
+	const [startDate, setStartDate] = useState(new Date());
+	const [endDate, setEndDate] = useState('');
 
-	// const hook = () => {
-	// 	const config = {
-	// 		headers: {
-	// 			'x-rapidapi-host': 'wft-geo-db.p.rapidapi.com',
-	// 			'x-rapidapi-key': `${process.env.REACT_APP_CITY_API_KEY}`,
-	// 		},
-	// 	};
+	const hook = () => {
+		const config = {
+			headers: {
+				'x-rapidapi-host': 'wft-geo-db.p.rapidapi.com',
+				'x-rapidapi-key': `${process.env.NEXT_PUBLIC_CITY_API_KEY}`,
+			},
+		};
 
-	// 	axios
-	// 		.get(
-	// 			`${url}?limit=5&countryIds=US&minPopulation=100000&namePrefix=${input}`,
-	// 			config
-	// 		)
-	// 		.then((response) => {
-	// 			setCities(response.data.data);
-	// 		});
-	// };
+		axios
+			.get(
+				`${url}?limit=5&countryIds=US&minPopulation=100000&namePrefix=${input}`,
+				config
+			)
+			.then((response) => {
+				setCities(response.data.data);
+			});
+	};
 
-	// useEffect(hook, [input]);
+	useEffect(hook, [input]);
 
 	const handleChange = (e) => {
 		setInput(e.target.value);
+	};
+
+	const toggleShowCalendar = () => {
+		setShowCalendar(!showCalendar);
 	};
 
 	useEffect(() => {
@@ -65,7 +74,7 @@ function Header() {
 			<header className="max-w-7xl mx-auto">
 				<div className="flex flex-row  w-full">
 					<div className="flex-5 flex flex-row items-center">
-						<div className={navbar ? 'ml-8 mt-2' : 'flex ml-8'}>
+						<div className={navbar ? 'ml-10 mt-2' : 'flex ml-10'}>
 							<Image
 								src={navbar ? redLogo : logo}
 								width={32}
@@ -94,7 +103,9 @@ function Header() {
 						</button>
 					</div>
 					<div className="flex items-center justify-end flex-5">
-						<button className="mx-3 pt-1 text-xs">Become a host</button>
+						<button className="mx-3 pt-1 text-xs font-light">
+							Become a host
+						</button>
 						<button>
 							<div
 								className="w-4 mr-3 pt-2
@@ -133,19 +144,29 @@ function Header() {
 							></input>
 						</div>
 						<div className="bdr-header"></div>
-						<button className="btn-header" onClick={handleClick}>
+						<div className="btn-header">
 							<ul>
 								<li>Check in</li>
-								<li className="font-light">Add dates</li>
+								<DateRangePicker
+									selected={startDate}
+									onChange={(date) => setStartDate(date)}
+									endDate={endDate}
+								/>
 							</ul>
-						</button>
+						</div>
 						<div className="bdr-header"></div>
-						<button className="btn-header" onClick={handleClick}>
+						<div className="btn-header">
 							<ul>
 								<li>Check out</li>
-								<li className="font-light">Add dates</li>
+								<DateRangePickerEndDate
+									selected={endDate}
+									startDate={startDate}
+									minDate={startDate}
+									onChange={(date) => setEndDate(date)}
+									endDate={endDate}
+								/>
 							</ul>
-						</button>
+						</div>
 						<div className="bdr-header"></div>
 						<button className="btn-header" onClick={handleClick}>
 							<ul>

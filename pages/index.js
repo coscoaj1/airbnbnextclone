@@ -35,7 +35,6 @@ export default function Home() {
 				<Discover />
 				<TabsList />
 				<Footer />
-				<FormikContainer />
 			</div>
 		</div>
 	);

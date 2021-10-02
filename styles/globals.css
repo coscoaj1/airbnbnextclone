@@ -4,7 +4,7 @@
 
 @layer components {
 	.btn-header {
-		@apply flex flex-row items-center hover:bg-gray-100 focus:shadow-2xl focus:border-gray-300 rounded-full px-10;
+		@apply text-center my-auto hover:bg-gray-100 focus:shadow-2xl focus:border-gray-300 rounded-full px-6;
 	}
 
 	.bdr-header {
@@ -31,7 +31,7 @@
 	}
 
 	.navbar-active {
-		@apply hidden sm:block fixed top-0 z-10 bg-white w-full;
+		@apply hidden sm:block fixed top-0 z-10 bg-white w-full font-light;
 	}
 
 	.navbar {
