@@ -64,13 +64,18 @@ function Header() {
 		<div className={navbar ? 'navbar-active' : 'navbar'}>
 			<header className="max-w-7xl mx-auto">
 				<div className="flex flex-row  w-full">
-					<div className="flex-5 flex flex-row">
-						<div className={navbar ? 'ml-8 mt-4 w-7 h-8' : 'ml-8 w-7 h-8'}>
-							<Image src={navbar ? redLogo : logo} alt="logo" />
+					<div className="flex-5 flex flex-row items-center">
+						<div className={navbar ? 'ml-8 mt-2' : 'flex ml-8'}>
+							<Image
+								src={navbar ? redLogo : logo}
+								width={32}
+								height={32}
+								alt="logo"
+							/>
 						</div>
-						<span className="hidden md:block font-semibold text-lg pl-1">
+						<div className="hidden md:block font-semibold text-lg pl-1">
 							airbnb
-						</span>
+						</div>
 					</div>
 					<div className="flex-6 w-84">
 						<button
@@ -80,7 +85,7 @@ function Header() {
 									: 'hidden'
 							}
 						>
-							<span className="pl-2">Start your search</span>
+							<span className="font-light pl-2">Start your search</span>
 							<span className="bg-red-500 relative rounded-full w-6 h-6 ml-20">
 								<div className="relative w-3 top-1.5 left-1.5">
 									<Image src={searchIcon} />
