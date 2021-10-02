@@ -10,22 +10,22 @@ export default function Bottombar() {
 			className="z-10 fixed bottom-0 w-full bg-white flex items-center justify-center
                     p-2 text-xxs mt-2 sm:hidden "
 		>
-			<ul>
-				<img className="mx-auto w-4" src={searchIcon} alt="magnifying glass" />
-				<li className="px-7">
+			<ul className="mx-auto w-5">
+				<Image className="" src={searchIcon} alt="magnifying glass" />
+				<li className="-ml-1">
 					<a href="#explore">Explore</a>
 				</li>
 			</ul>
-			<ul>
-				<img className="mx-auto w-4" src={heartIcon} alt="heart icon" />
-				<li className="px-7">
+			<ul className="mx-auto w-5">
+				<Image src={heartIcon} alt="heart icon" />
+				<li className="-ml-2">
 					<a href="#Wishlists">Wishlists</a>
 				</li>
 			</ul>
-			<ul>
-				<img className="mx-auto w-4" src={user} alt="user logo" />
-				<li className="px-7">
-					<a href="#Log in">Log in</a>
+			<ul className="mx-auto w-5">
+				<Image src={user} alt="user logo" />
+				<li className="-ml-.5">
+					<a href="#Log in">Login</a>
 				</li>
 			</ul>
 		</nav>
