@@ -155,11 +155,14 @@ function Header() {
 						</button>
 						<button className="mr-2">
 							<div className="bg-red-500 relative rounded-full w-10 h-10">
-								<img
-									className="absolute top-1/3 left-1/3 w-3 "
-									src={searchIcon}
-									alt="search icon"
-								/>
+								<div className="absolute top-3.5 left-3.5">
+									<Image
+										width={16}
+										height={16}
+										src={searchIcon}
+										alt="search icon"
+									/>
+								</div>
 							</div>
 						</button>
 					</div>

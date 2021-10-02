@@ -13,29 +13,27 @@ function Hero() {
 			<div className="relative">
 				<div className="hidden lg:block ">
 					<Image
-						className="center relative h-full w-full"
+						className="h-full w-full"
 						src={Hero1440}
-						layout="responsive"
 						width={2560}
 						height={1440}
 					/>
 				</div>
-				<div className="hidden lg:hidden sm:block">
+				<div className="relative hidden lg:hidden sm:block">
 					<Image
-						className="center relative h-full"
-						src={Hero960}
+						className="center relative"
 						layout="responsive"
+						src={Hero960}
 						width={960}
 						height={720}
 					/>
 				</div>
-				<div className="sm:hidden block">
+				<div className="relative sm:hidden block">
 					<Image
-						className="center relative h-full"
-						src={mobileHero}
 						layout="responsive"
-						width={320}
-						height={416}
+						src={mobileHero}
+						width={800}
+						height={1000}
 					/>
 				</div>
 
