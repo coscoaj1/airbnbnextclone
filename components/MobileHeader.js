@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import searchIcon from '../public/images/magnifying-glass.png';
 
 export default function MobileHeader() {
@@ -6,7 +7,7 @@ export default function MobileHeader() {
 
 	useEffect(() => {
 		window.addEventListener('scroll', changeHeader);
-		window.removeEventListener('scroll', changeHeader);
+		return () => window.removeEventListener('scroll', changeHeader);
 	});
 
 	const changeHeader = () => {
@@ -22,7 +23,8 @@ export default function MobileHeader() {
 			<button
 				className={mobileNav ? 'mobileNavButton-active' : 'mobileNavButton'}
 			>
-				<img className="w-4" src={searchIcon} alt="" /> Where are you going?
+				<Image width={18} height={18} src={searchIcon} alt="" /> Where are you
+				going?
 			</button>
 		</div>
 	);
