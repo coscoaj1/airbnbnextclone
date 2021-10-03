@@ -113,7 +113,7 @@ function Header() {
 							</ul>
 						</div>
 						<div className="bdr-header"></div>
-						<div className=" focus:shadow-2xl focus:border-gray-300 px-8">
+						<div className="flex flex-4 my-auto focus:border-gray-300  px-2 py-1">
 							<GuestsDropDown />
 						</div>
 					</div>
