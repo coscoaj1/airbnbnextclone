@@ -2,12 +2,12 @@ import React from 'react';
 import searchIcon from '../public/images/search-12-32.png';
 import GuestsCounter from './GuestsCounter';
 import Image from 'next/image';
-import { Menu } from '@headlessui/react';
+import { Popover } from '@headlessui/react';
 
 function GuestsDropDown() {
 	return (
-		<Menu>
-			<Menu.Button className="flex">
+		<Popover>
+			<Popover.Button className="flex">
 				<ul>
 					<li className="pt-3 pr-2">Guests</li>
 					<li className="font-light text-left">Add+</li>
@@ -24,10 +24,8 @@ function GuestsDropDown() {
 						</div>
 					</div>
 				</button>
-			</Menu.Button>
-			<Menu.Items className="w-82 bg-white rounded-3xl text-sm transform translate-y-4 -translate-x-52 ">
-				<Menu.Item>
-					{({ active }) => (
+			</Popover.Button>
+			<Popover.Panel className="flex flex-col w-82 bg-white rounded-3xl text-sm transform translate-y-4 -translate-x-52 ">
 						<div
 							className="flex justify-between  px-6 py-4 
                         "
@@ -42,10 +40,6 @@ function GuestsDropDown() {
 							</div>
 							<GuestsCounter />
 						</div>
-					)}
-				</Menu.Item>
-				<Menu.Item>
-					{({ active }) => (
 						<div className="flex justify-between px-6">
 							<div>
 								<ul>
@@ -57,9 +51,6 @@ function GuestsDropDown() {
 							</div>
 							<GuestsCounter />
 						</div>
-					)}
-				</Menu.Item>
-				<Menu.Item>
 					<div className="flex justify-between px-6 py-4">
 						<div>
 							<ul>
@@ -69,9 +60,8 @@ function GuestsDropDown() {
 						</div>
 						<GuestsCounter />
 					</div>
-				</Menu.Item>
-			</Menu.Items>
-		</Menu>
+			</Popover.Panel>
+		</Popover>
 	);
 }
 
