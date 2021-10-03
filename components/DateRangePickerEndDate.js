@@ -11,14 +11,14 @@ function DateRangePickerEndDate({
 }) {
 	return (
 		<DatePicker
-			className="text-center outline-none"
+			className="text-center outline-none group-hover:bg-gray-50"
 			selected={selected}
 			onChange={onChange}
 			startDate={startDate}
 			endDate={endDate}
 			selectsEnd
 			placeholderText="Add dates"
-			minDate={startDate}
+			minDate={minDate}
 		/>
 	);
 }

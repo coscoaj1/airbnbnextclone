@@ -2,15 +2,14 @@ import axios from 'axios';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import DateRangePicker from './DateRangePicker';
-import globe from '../public/images/icons8-globe-50.png';
-import blackGlobe from '../public/images/icons8-globe-24.png';
-import userIcon from '../public/images/profile-user.png';
-import menuIcon from '../public/images/icons8-menu-24.png';
-import logo from '../public/images/airbnb-48.ico';
-import redLogo from '../public/images/airbnb-red-icon.png';
+import LogoHeader from './LogoHeader';
+import HeaderTabs from './HeaderTabs';
+
 import searchIcon from '../public/images/search-12-32.png';
+
 import locationicon from '../public/images/locationicon.png';
 import DateRangePickerEndDate from './DateRangePickerEndDate';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
 
 const url = 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities';
 
@@ -24,9 +23,9 @@ function Header() {
 	const [cities, setCities] = useState(null);
 	const [input, setInput] = useState('');
 	const [navbar, setNavbar] = useState(false);
-	const [showCalendar, setShowCalendar] = useState(false);
 	const [startDate, setStartDate] = useState(new Date());
 	const [endDate, setEndDate] = useState('');
+	const [open, setOpen] = useState(true);
 
 	const hook = () => {
 		const config = {
@@ -48,12 +47,15 @@ function Header() {
 
 	useEffect(hook, [input]);
 
-	const handleChange = (e) => {
-		setInput(e.target.value);
+	const handleClickAway = () => {
+		setOpen(!open);
 	};
 
-	const toggleShowCalendar = () => {
-		setShowCalendar(!showCalendar);
+	const handleLocationSelect = () => {};
+
+	const handleChange = (e) => {
+		setInput(e.target.value);
+		setOpen(open);
 	};
 
 	useEffect(() => {
@@ -72,66 +74,9 @@ function Header() {
 	return (
 		<div className={navbar ? 'navbar-active' : 'navbar'}>
 			<header className="max-w-7xl mx-auto">
-				<div className="flex flex-row  w-full">
-					<div className="flex-5 flex flex-row items-center">
-						<div className={navbar ? 'ml-10 mt-2' : 'flex ml-10'}>
-							<Image
-								src={navbar ? redLogo : logo}
-								width={32}
-								height={32}
-								alt="logo"
-							/>
-						</div>
-						<div className="hidden md:block font-semibold text-lg pl-1">
-							airbnb
-						</div>
-					</div>
-					<div className="flex-6 w-84">
-						<button
-							className={
-								navbar
-									? 'flex justify-between items-center my-3 py-2 px-2 rounded-full border border-gray-300 shadow-md text-xs font-normal'
-									: 'hidden'
-							}
-						>
-							<span className="font-light pl-2">Start your search</span>
-							<span className="bg-red-500 relative rounded-full w-6 h-6 ml-20">
-								<div className="relative w-3 top-1.5 left-1.5">
-									<Image src={searchIcon} />
-								</div>
-							</span>
-						</button>
-					</div>
-					<div className="flex items-center justify-end flex-5">
-						<button className="mx-3 pt-1 text-xs font-light">
-							Become a host
-						</button>
-						<button>
-							<div
-								className="w-4 mr-3 pt-2
-							"
-							>
-								<Image src={navbar ? blackGlobe : globe} alt="globe icon" />
-							</div>
-						</button>
-						<div className="flex flex-row mr-6 bg-white rounded-full border items-center">
-							<button className="w-4 pt-1 ml-2 z-10">
-								<Image src={menuIcon} alt="" />
-							</button>
-							<button className="w-5 mx-2 mt-1">
-								<Image src={userIcon} alt="" />
-							</button>
-						</div>
-					</div>
-				</div>
+				<LogoHeader navbar={navbar} />
+				<HeaderTabs navbar={navbar} />
 
-				<div className={navbar ? 'navsearch-active' : 'navsearch'}>
-					<button className="mx-8">
-						<span>Places to stay</span>
-					</button>
-					<button className="mx-8">Experiences</button>
-					<button className="mx-8">Online Experiences</button>
-				</div>
 				<form>
 					<div className={navbar ? 'formdiv-active' : 'formdiv'}>
 						<div className="flex flex-col justify-center h-full ml-4 pr-2 group btn-header ">
@@ -139,7 +84,7 @@ function Header() {
 							<input
 								onChange={handleChange}
 								type="text"
-								className="group-hover:bg-gray-200 outline-none"
+								className="group-hover:bg-gray-50 outline-none"
 								placeholder="Where are you going?"
 							></input>
 						</div>
@@ -190,23 +135,33 @@ function Header() {
 				</form>
 			</header>
 			{input.length > 0 ? (
-				<div className="absolute ml-40 transform translate-x-2 bg-white shadow-lg rounded-2xl w-1/3 p-2 mt-2 text-black text-base font-light">
-					<ul>
-						{cities.map((city) => {
-							return (
-								<li className="flex flex-row items-center">
-									<img
-										src={locationicon}
-										className="w-8 m-1 p-2 border border-gray-200"
-										alt=""
-									></img>
-
-									<p>{city.city}</p>
-								</li>
-							);
-						})}
-					</ul>
-				</div>
+				<ClickAwayListener onClickAway={handleClickAway}>
+					{open ? (
+						<div className="absolute ml-40 transform translate-x-2 bg-white shadow-lg rounded-2xl w-1/3 p-2 mt-2 text-black text-base font-light">
+							<ul>
+								{cities.map((city) => {
+									return (
+										<li className="flex flex-row items-center gap-1">
+											<div className="border border-gray-200 rounded-lg py-2 px-3 m-1">
+												<Image
+													src={locationicon}
+													width={18}
+													height={18}
+													alt=""
+												></Image>
+											</div>
+											<button onClick={handleLocationSelect}>
+												{city.city}
+											</button>
+										</li>
+									);
+								})}
+							</ul>
+						</div>
+					) : (
+						<></>
+					)}
+				</ClickAwayListener>
 			) : null}
 		</div>
 	);
