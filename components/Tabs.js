@@ -20,7 +20,10 @@ function Tabs({ children }) {
             "
 			>
 				{children.map((tab) => (
-					<li className={tab.props.label === activeTab ? 'currentTab' : ''}>
+					<li
+						key={tab.props.label}
+						className={tab.props.label === activeTab ? 'currentTab' : ''}
+					>
 						<button onClick={(e) => handleClick(e, tab.props.label)}>
 							{tab.props.label}
 						</button>
@@ -30,7 +33,7 @@ function Tabs({ children }) {
 			<div>
 				{children.map((item) => {
 					if (item.props.label === activeTab) {
-						return <div>{item.props.children}</div>;
+						return <div key={item.props.label}>{item.props.children}</div>;
 					} else {
 						return null;
 					}

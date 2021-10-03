@@ -30,7 +30,7 @@ function Discover() {
 			</h2>
 			<div className="flex flex-row gap-4 items-center justify-center ">
 				{discoverList.map((card) => (
-					<DiscoverCard card={card} />
+					<DiscoverCard key={card.title} card={card} />
 				))}
 			</div>
 		</div>

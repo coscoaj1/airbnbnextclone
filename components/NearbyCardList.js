@@ -63,7 +63,7 @@ export default function NearbyCardList() {
 				lg:grid-cols-4 grid-rows-2 lg:grid-rows-2 "
 			>
 				{nearbyList.map((card) => (
-					<NearbyCard card={card} />
+					<NearbyCard key={card.name} card={card} />
 				))}
 			</div>
 		</div>

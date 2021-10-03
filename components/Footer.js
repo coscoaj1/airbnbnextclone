@@ -12,13 +12,15 @@ import {
 
 function Footer() {
 	return (
-		<div className="bg-pink-50 hidden sm:block">
+		<div className=" hidden sm:block">
 			<div className="flex flex-col md:flex-row text-tiny mx-auto max-w-7xl py-8 border-b border-gray-300">
 				<div className="footer-div">
 					<p className="py-4">ABOUT</p>
 					<ul className="footer-ul">
 						{aboutList.map((item) => (
-							<li className="footer-li">{item}</li>
+							<li key={item} className="footer-li">
+								{item}
+							</li>
 						))}
 					</ul>
 				</div>
@@ -26,7 +28,9 @@ function Footer() {
 					<p className="py-4">COMMUNITY</p>
 					<ul className="footer-ul">
 						{communityList.map((item) => (
-							<li className="footer-li ">{item}</li>
+							<li key={item} className="footer-li ">
+								{item}
+							</li>
 						))}
 					</ul>
 				</div>
@@ -34,7 +38,9 @@ function Footer() {
 					<p className="py-4">HOST</p>
 					<ul className="footer-ul">
 						{hostList.map((item) => (
-							<li className="footer-li">{item}</li>
+							<li key={item} className="footer-li">
+								{item}
+							</li>
 						))}
 					</ul>
 				</div>
@@ -42,7 +48,9 @@ function Footer() {
 					<p className="py-4">SUPPORT</p>
 					<ul className="footer-ul">
 						{supportList.map((item) => (
-							<li className="footer-li">{item}</li>
+							<li key={item} className="footer-li">
+								{item}
+							</li>
 						))}
 					</ul>
 				</div>

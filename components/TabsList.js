@@ -13,9 +13,9 @@ function TabsList() {
 			<div label="Destinations for arts & culture">
 				<div className="tabslist-div">
 					{usCities.map((item) => (
-						<ul className="tabslist-ul">
-							<li className="">{item.city}</li>
-							<li className="text-gray-500">{item.state}</li>
+						<ul key={item.id} className="tabslist-ul">
+							<li className="">{item.City}</li>
+							<li className="text-gray-500">{item.State}</li>
 						</ul>
 					))}
 				</div>
@@ -23,9 +23,9 @@ function TabsList() {
 			<div label="Destinations for Outdoor adventure">
 				<div className="tabslist-div">
 					{outdoorCities.map((item) => (
-						<ul className="tabslist-ul">
-							<li>{item.city}</li>
-							<li className="text-gray-500">{item.state}</li>
+						<ul key={item.id} className="tabslist-ul">
+							<li>{item.City}</li>
+							<li className="text-gray-500">{item.State}</li>
 						</ul>
 					))}
 				</div>
@@ -33,9 +33,9 @@ function TabsList() {
 			<div label="Mountain cabins">
 				<div className="tabslist-div">
 					{mountainCabins.map((item) => (
-						<ul className="tabslist-ul">
-							<li>{item.city}</li>
-							<li className="text-gray-500">{item.state}</li>
+						<ul key={item.id} className="tabslist-ul">
+							<li>{item.City}</li>
+							<li className="text-gray-500">{item.State}</li>
 						</ul>
 					))}
 				</div>
@@ -43,9 +43,9 @@ function TabsList() {
 			<div label="Beach destinations">
 				<div className="tabslist-div">
 					{beachDestinations.map((item) => (
-						<ul className="tabslist-ul">
-							<li>{item.city}</li>
-							<li className="text-gray-500">{item.state}</li>
+						<ul key={item.id} className="tabslist-ul">
+							<li>{item.City}</li>
+							<li className="text-gray-500">{item.State}</li>
 						</ul>
 					))}
 				</div>
@@ -54,9 +54,9 @@ function TabsList() {
 			<div label="Popular destinations">
 				<div className="tabslist-div">
 					{popularDestinations.map((item) => (
-						<ul className="tabslist-ul">
-							<li>{item.city}</li>
-							<li className="text-gray-500">{item.state}</li>
+						<ul key={item.id} className="tabslist-ul">
+							<li>{item.City}</li>
+							<li className="text-gray-500">{item.State}</li>
 						</ul>
 					))}
 				</div>
@@ -64,7 +64,7 @@ function TabsList() {
 			<div label="Unique Stays">
 				<div className="tabslist-div">
 					{uniqueStays.map((item) => (
-						<ul className="tabslist-ul">
+						<ul key={item.id} className="tabslist-ul">
 							<li>{item.city}</li>
 							<li className="text-gray-500">{item.state}</li>
 						</ul>

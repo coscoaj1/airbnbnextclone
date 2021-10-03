@@ -56,6 +56,8 @@ function Header() {
 	const handleChange = (e) => {
 		setInput(e.target.value);
 		setOpen(open);
+		console.log(cities);
+		console.log(open);
 	};
 
 	useEffect(() => {
@@ -141,7 +143,10 @@ function Header() {
 							<ul>
 								{cities.map((city) => {
 									return (
-										<li className="flex flex-row items-center gap-1">
+										<li
+											key={city.city}
+											className="flex flex-row items-center gap-1"
+										>
 											<div className="border border-gray-200 rounded-lg py-2 px-3 m-1">
 												<Image
 													src={locationicon}

@@ -1,9 +1,9 @@
 [
-	{ "city": "Cabins", "state": "United States" },
-	{ "city": "Beach Houses", "state": "Virginia" },
-	{ "city": "Treehouses", "state": "Wisconsin" },
-	{ "city": "Campers and RVs", "state": "Massachusetts" },
-	{ "city": "Glamping", "state": "United States" },
-	{ "city": "Lakehouses", "state": "United States" },
-	{ "city": "Tiny Houses", "state": "United States" }
+	{ "id": 301, "city": "Cabins", "state": "United States" },
+	{ "id": 302, "city": "Beach Houses", "state": "Virginia" },
+	{ "id": 303, "city": "Treehouses", "state": "Wisconsin" },
+	{ "id": 304, "city": "Campers and RVs", "state": "Massachusetts" },
+	{ "id": 305, "city": "Glamping", "state": "United States" },
+	{ "id": 306, "city": "Lakehouses", "state": "United States" },
+	{ "id": 307, "city": "Tiny Houses", "state": "United States" }
 ]
