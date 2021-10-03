@@ -4,7 +4,7 @@
 
 @layer components {
 	.btn-header {
-		@apply text-center my-auto hover:bg-gray-50 group focus:shadow-2xl focus:border-gray-300 rounded-full px-6;
+		@apply text-center my-auto hover:bg-gray-50 group focus:shadow-2xl focus:border-gray-300 rounded-full px-6 py-2;
 	}
 
 	.bdr-header {

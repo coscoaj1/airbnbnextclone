@@ -4,9 +4,7 @@ import React, { useState, useEffect } from 'react';
 import DateRangePicker from './DateRangePicker';
 import LogoHeader from './LogoHeader';
 import HeaderTabs from './HeaderTabs';
-
-import searchIcon from '../public/images/search-12-32.png';
-
+import GuestsDropDown from './GuestsDropDown';
 import locationicon from '../public/images/locationicon.png';
 import DateRangePickerEndDate from './DateRangePickerEndDate';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
@@ -55,7 +53,7 @@ function Header() {
 
 	const handleChange = (e) => {
 		setInput(e.target.value);
-		setOpen(open);
+		setOpen(true);
 		console.log(cities);
 		console.log(open);
 	};
@@ -115,24 +113,9 @@ function Header() {
 							</ul>
 						</div>
 						<div className="bdr-header"></div>
-						<button className="btn-header" onClick={handleClick}>
-							<ul>
-								<li>Guests</li>
-								<li className="font-light">Add guests</li>
-							</ul>
-						</button>
-						<button className="mr-2">
-							<div className="bg-red-500 relative rounded-full w-10 h-10">
-								<div className="absolute top-3.5 left-3.5">
-									<Image
-										width={16}
-										height={16}
-										src={searchIcon}
-										alt="search icon"
-									/>
-								</div>
-							</div>
-						</button>
+						<div className=" focus:shadow-2xl focus:border-gray-300 px-8">
+							<GuestsDropDown />
+						</div>
 					</div>
 				</form>
 			</header>
