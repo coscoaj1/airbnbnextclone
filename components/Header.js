@@ -8,6 +8,7 @@ import GuestsDropDown from './GuestsDropDown';
 import locationicon from '../public/images/locationicon.png';
 import DateRangePickerEndDate from './DateRangePickerEndDate';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
+import RangePicker from './RangePicker';
 
 const url = 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities';
 
@@ -89,14 +90,15 @@ function Header() {
 							></input>
 						</div>
 						<div className="bdr-header"></div>
-						<div className="btn-header">
+						<div className="">
 							<ul>
 								<li>Check in</li>
-								<DateRangePicker
+								<RangePicker />
+								{/* <DateRangePicker
 									selected={startDate}
 									onChange={(date) => setStartDate(date)}
 									endDate={endDate}
-								/>
+								/> */}
 							</ul>
 						</div>
 						<div className="bdr-header"></div>
