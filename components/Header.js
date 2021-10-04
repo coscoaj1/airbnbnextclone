@@ -1,12 +1,10 @@
 import axios from 'axios';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
-import DateRangePicker from './DateRangePicker';
 import LogoHeader from './LogoHeader';
 import HeaderTabs from './HeaderTabs';
 import GuestsDropDown from './GuestsDropDown';
 import locationicon from '../public/images/locationicon.png';
-import DateRangePickerEndDate from './DateRangePickerEndDate';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import RangePicker from './RangePicker';
 
@@ -105,13 +103,13 @@ function Header() {
 						<div className="btn-header">
 							<ul>
 								<li>Check out</li>
-								<DateRangePickerEndDate
+								{/* <DateRangePickerEndDate
 									selected={endDate}
 									startDate={startDate}
 									minDate={startDate}
 									onChange={(date) => setEndDate(date)}
 									endDate={endDate}
-								/>
+								/> */}
 							</ul>
 						</div>
 						<div className="bdr-header"></div>

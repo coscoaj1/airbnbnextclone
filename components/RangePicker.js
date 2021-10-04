@@ -4,13 +4,16 @@ import {
 	monthNamesFull,
 	weekdayNamesShort,
 } from '../public/data/calendarUtils';
+import Right from '../public/images/chevron-right-svgrepo-com (2).svg'
+import Left from '../public/images/chevron-left-svgrepo-com.svg'
+
 
 function Calendar(props) {
 	return <div className="w-full">{props.children}</div>;
 }
 
 function Month(props) {
-	return <div className="grid grid-cols-7 gap-1">{props.children}</div>;
+	return <div className="grid grid-cols-7 gap-5">{props.children}</div>;
 }
 
 function DayOfMonth(props) {
@@ -35,7 +38,7 @@ function DayOfMonth(props) {
 }
 
 function DayOfMonthEmpty(props) {
-	return <div className="col-span-1 text-center">{props.children}</div>;
+	return <div className="col-span-1 text-center text-xs">{props.children}</div>;
 }
 
 function RangeDatepicker(props) {
@@ -118,55 +121,51 @@ function RangeDatepicker(props) {
 	if (calendars.length) {
 		return (
 			<Calendar onMouseLeave={onMouseLeave}>
-				<div className="flex justify-between">
-					<button {...getBackProps({ calendars })}>Back</button>
-					<button {...getForwardProps({ calendars })}>Next</button>
-				</div>
-				<div className="flex flex-col sm:flex-row sm:justify-around w-96 bg-white text-lg text-black">
-					{calendars.map((calendar) => (
-						<Month key={`${calendar.month}${calendar.year}`}>
-							<div className="col-span-7 flex justify-center py-2">
-								{monthNamesFull[calendar.month]} {calendar.year}
-							</div>
-
-							{weekdayNamesShort.map((weekday) => (
-								<DayOfMonthEmpty
-									key={`${calendar.month}${calendar.year}${weekday}`}
-								>
-									{weekday}
-								</DayOfMonthEmpty>
-							))}
-
-							{calendar.weeks.map((week, windex) =>
-								week.map((dateObj, index) => {
-									let key = `${calendar.month}${calendar.year}${windex}${index}`;
-									if (!dateObj) {
-										return <DayOfMonthEmpty key={key} />;
-									}
-
-									let { date, selected, selectable, today } = dateObj;
-
-									return (
-										<DayOfMonth
-											key={key}
-											{...getDateProps({
-												dateObj,
-												onMouseEnter: () => onMouseEnter(date),
-											})}
-											selected={selected}
-											unavailable={!selectable}
-											today={today}
-											isInRange={isInRange(date)}
-										>
-											{date.getDate()}
-										</DayOfMonth>
-									);
-								})
-							)}
-						</Month>
-					))}
-				</div>
-			</Calendar>
+					<div className="flex justify-around text-black transform translate-y-10 z-10">
+						<button className="transform -translate-x-1" {...getBackProps({ calendars })}><Left/></button>
+						<button {...getForwardProps({ calendars })}><Right /></button>
+					</div>
+					<div className="flex flex-col sm:flex-row sm:justify-around max-w-2xl rounded-3xl mx-auto bg-white text-lg text-black">
+						{calendars.map((calendar) => (
+							<Month key={`${calendar.month}${calendar.year}`}>
+								<div className="col-span-7 flex justify-center py-10">
+									{monthNamesFull[calendar.month]} {calendar.year}
+								</div>
+								{weekdayNamesShort.map((weekday) => (
+									<DayOfMonthEmpty
+										key={`${calendar.month}${calendar.year}${weekday}`}
+									>
+										{weekday}
+									</DayOfMonthEmpty>
+								))}
+								{calendar.weeks.map((week, windex) =>
+									week.map((dateObj, index) => {
+										let key = `${calendar.month}${calendar.year}${windex}${index}`;
+										if (!dateObj) {
+											return <DayOfMonthEmpty key={key} />;
+										}
+										let { date, selected, selectable, today } = dateObj;
+										return (
+											<DayOfMonth
+												key={key}
+												{...getDateProps({
+													dateObj,
+													onMouseEnter: () => onMouseEnter(date),
+												})}
+												selected={selected}
+												unavailable={!selectable}
+												today={today}
+												isInRange={isInRange(date)}
+											>
+												{date.getDate()}
+											</DayOfMonth>
+										);
+									})
+								)}
+							</Month>
+						))}
+					</div>
+								</Calendar>
 		);
 	}
 

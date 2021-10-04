@@ -29,11 +29,11 @@ export const monthNamesShort = [
 ];
 
 export const weekdayNamesShort = [
-	'Mon',
-	'Tue',
-	'Wed',
-	'Thu',
-	'Fri',
-	'Sat',
-	'Sun',
+	'Su',
+	'Mo',
+	'Tu',
+	'We',
+	'Th',
+	'Fr',
+	'Sa',
 ];
