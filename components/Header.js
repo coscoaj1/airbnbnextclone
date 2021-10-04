@@ -16,13 +16,14 @@ const handleClick = (e) => {
 //GET city http formatting:
 //?countryIds=US&minPopulation=100000&namePrefix=L
 
-function Header() {
+function Header({selected}) {
 	const [cities, setCities] = useState(null);
 	const [input, setInput] = useState('');
 	const [navbar, setNavbar] = useState(false);
 	const [startDate, setStartDate] = useState(new Date());
 	const [endDate, setEndDate] = useState('');
 	const [open, setOpen] = useState(true);
+	const [showCalendar, setShowCalendar] = useState(false)
 
 	const hook = () => {
 		const config = {
@@ -70,6 +71,10 @@ function Header() {
 		}
 	};
 
+	const handleShowCalendar = (e) => {
+		e.preventDefault()
+		setShowCalendar(!showCalendar)
+	}
 	return (
 		<div className={navbar ? 'navbar-active' : 'navbar'}>
 			<header className="max-w-7xl mx-auto">
@@ -88,28 +93,20 @@ function Header() {
 							></input>
 						</div>
 						<div className="bdr-header"></div>
-						<div className="">
-							<ul>
-								<li>Check in</li>
+						<div className="btn-header">
+							
+								<div>Check in</div>
+								
+								<button onClick={handleShowCalendar}className="font-light">Enter dates</button>
+								{selected}
 
-								{/* <DateRangePicker
-									selected={startDate}
-									onChange={(date) => setStartDate(date)}
-									endDate={endDate}
-								/> */}
-							</ul>
+							
 						</div>
 						<div className="bdr-header"></div>
 						<div className="btn-header">
 							<ul>
 								<li>Check out</li>
-								{/* <DateRangePickerEndDate
-									selected={endDate}
-									startDate={startDate}
-									minDate={startDate}
-									onChange={(date) => setEndDate(date)}
-									endDate={endDate}
-								/> */}
+							
 							</ul>
 						</div>
 						<div className="bdr-header"></div>
@@ -151,7 +148,9 @@ function Header() {
 					)}
 				</ClickAwayListener>
 			) : null}
-			<RangePicker />
+			{showCalendar ? (
+			<RangePicker />) : null
+}
 		</div>
 	);
 }
