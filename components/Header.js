@@ -93,7 +93,7 @@ function Header() {
 						<div className="">
 							<ul>
 								<li>Check in</li>
-								<RangePicker />
+
 								{/* <DateRangePicker
 									selected={startDate}
 									onChange={(date) => setStartDate(date)}
@@ -153,6 +153,7 @@ function Header() {
 					)}
 				</ClickAwayListener>
 			) : null}
+			<RangePicker />
 		</div>
 	);
 }

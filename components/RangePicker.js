@@ -122,7 +122,7 @@ function RangeDatepicker(props) {
 					<button {...getBackProps({ calendars })}>Back</button>
 					<button {...getForwardProps({ calendars })}>Next</button>
 				</div>
-				<div className="flex flex-col sm:flex-row sm:justify-around">
+				<div className="flex flex-col sm:flex-row sm:justify-around w-96 bg-white text-lg text-black">
 					{calendars.map((calendar) => (
 						<Month key={`${calendar.month}${calendar.year}`}>
 							<div className="col-span-7 flex justify-center py-2">
