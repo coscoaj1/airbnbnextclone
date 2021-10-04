@@ -5,7 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 function DateRangePicker({ startDate, selected, onChange }) {
 	return (
 		<DatePicker
-			className="text-center outline-none group-hover:bg-gray-50"
+			className="text-center outline-none group-hover:bg-gray-50  "
 			selected={selected}
 			onChange={onChange}
 			placeholderText="Enter dates"

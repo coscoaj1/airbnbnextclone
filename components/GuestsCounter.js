@@ -1,6 +1,6 @@
 import React, { useState, useReducer } from 'react';
 import Minus from '../public/images/minus-svgrepo-com.svg';
-import Plus from '../public/images/plus-svgrepo-com.svg';
+import Plus from '../public/images/icons8-plus-+.svg';
 import Image from 'next/image';
 
 const initialCount = { count: 0 };
@@ -30,21 +30,20 @@ function GuestsCounter({ totalGuests, setTotalGuests }) {
 					}}
 				>
 					<div className="guestsButton">
-						<Minus width={34} height={34} />
+						<Minus width={29} height={29} />
 					</div>
 				</button>
 			)}
-			<div className="text-lg">{state.count}</div>
+			<div className="font-light text-xs">{state.count}</div>
 			<button
 				onClick={(e) => {
 					e.preventDefault();
 					dispatch({ type: 'increment' });
 					setTotalGuests(totalGuests + 1);
-					console.log(totalGuests);
 				}}
 			>
 				<div className="guestsButton">
-					<Plus height={36} width={36} />
+					<Plus height={35} width={35} />
 				</div>
 			</button>
 		</div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import searchIcon from '../public/images/search-12-32.png';
+import searchIcon from '../public/images/Untitledsearch (1).png';
 import GuestsCounter from './GuestsCounter';
 import Image from 'next/image';
 import { Popover } from '@headlessui/react';
@@ -15,12 +15,16 @@ function GuestsDropDown() {
 						{(() => {
 							switch (totalGuests) {
 								case null:
-									return <div className="h-full">Add</div>;
+									return <div className="h-full  text-gray-400">Add</div>;
 								case 1:
-									return <div className="font-light">{totalGuests} Guest</div>;
+									return (
+										<div className="text left font-light">
+											{totalGuests} Guest
+										</div>
+									);
 								default:
 									return (
-										<div className="font-light text-left">
+										<div className="text-left font-light">
 											{totalGuests} Guests
 										</div>
 									);
@@ -30,7 +34,7 @@ function GuestsDropDown() {
 					{totalGuests ? (
 						<div className="col-start-2 col-span-1">
 							<button
-								className="place-items-center w-4 border border-gray-800 rounded-full transform translate-y-3"
+								className="w-4 h-4 border border-gray-800 rounded-full transform translate-y-3"
 								onClick={() => setTotalGuests(null)}
 							>
 								x
@@ -84,11 +88,9 @@ function GuestsDropDown() {
 					</div>
 				</Popover.Panel>
 			</Popover>
-			<div className=" col-start-3 place-items-end pt-1 ">
-				<div className="bg-red-500 relative rounded-full w-10 h-10">
-					<div className="absolute top-3.5 left-3.5">
-						<Image width={16} height={16} src={searchIcon} alt="search icon" />
-					</div>
+			<div className=" col-start-3  mr-1">
+				<div className="relative  w-12 h-12">
+					<Image width={108} height={108} src={searchIcon} alt="search icon" />
 				</div>
 			</div>
 		</div>

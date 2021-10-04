@@ -130,8 +130,8 @@
 }
 
 .guestsButton {
-	fill: gray;
+	fill: rgb(168, 168, 168);
 }
 .guestsButton :hover {
-	fill: black;
+	fill: rgb(44, 44, 44);
 }
