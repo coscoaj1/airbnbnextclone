@@ -26,7 +26,7 @@ function LogoHeader({ navbar }) {
 				<button
 					className={
 						navbar
-							? 'flex justify-between items-center my-3 py-2 px-2 rounded-full border border-gray-300 shadow-md text-xs font-normal'
+							? 'flex justify-between items-center my-3 py-2 px-2 rounded-full border border-gray-300 shadow-md text-sm font-normal'
 							: 'hidden'
 					}
 				>
@@ -39,7 +39,7 @@ function LogoHeader({ navbar }) {
 				</button>
 			</div>
 			<div className="flex items-center justify-end flex-5">
-				<button className="mx-3 pt-1 text-xs font-light">Become a host</button>
+				<button className="mx-3 pt-1 text-sm font-light">Become a host</button>
 				<button>
 					<div
 						className="w-4 mr-3 pt-2

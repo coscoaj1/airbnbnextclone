@@ -12,23 +12,23 @@ function Calendar(props) {
 }
 
 function Month(props) {
-	return <div className="grid grid-cols-7 gap-5">{props.children}</div>;
+	return <div className="grid grid-cols-7 gap-1">{props.children}</div>;
 }
 
 function DayOfMonth(props) {
-	const { selected, unavailable, today, isInRange } = props;
+	const { selected, unavailable, today, isinrange } = props;
 
-	let cellStyle = 'hover:border-black border-2 border-gray-50 rounded-full';
+	let cellStyle = 'hover:border-black border-2 border-white rounded-full';
 	if (today)
-		cellStyle = 'hover:border-black border-2 border-gray-50 rounded-full';
+		cellStyle = 'hover:border-black border-2 border-white rounded-full';
 	if (selected) cellStyle = 'rounded-full text-white bg-black';
-	if (isInRange) cellStyle = 'bg-gray-200';
+	if (isinrange) cellStyle = 'bg-gray-200';
 	if (unavailable) cellStyle = 'opacity-25 cursor-not-allowed';
 
 	return (
 		<button
 			type="button"
-			className={`${cellStyle} col-span-1 text-center rounded-md`}
+			className={`${cellStyle} col-span-1 text-center rounded-full w-12 h-12 text-smbase`}
 			{...props}
 		>
 			{props.children}
@@ -120,26 +120,20 @@ function RangeDatepicker(props) {
 	if (calendars.length) {
 		return (
 			<Calendar onMouseLeave={onMouseLeave}>
-				<div className="flex justify-around text-black transform translate-y-10 z-10">
-					<button
-						className="transform -translate-x-1"
-						{...getBackProps({ calendars })}
-					>
-						<Left />
-					</button>
-					<button {...getForwardProps({ calendars })}>
-						<Right />
-					</button>
-				</div>
-				<div className="flex flex-col sm:flex-row sm:justify-around max-w-2xl rounded-3xl mx-auto bg-white text-lg text-black">
+				<div className="flex flex-col sm:flex-row sm:justify-around mt-3 mb-3 max-w-4xl h-96 rounded-3xl mx-auto bg-white text-lg text-black overflow-y-scroll">
+					<div>
+						<button className="pt-20 pl-8"{...getBackProps({ calendars })}>
+							<Left />
+						</button>
+					</div>
 					{calendars.map((calendar) => (
 						<Month key={`${calendar.month}${calendar.year}`}>
-							<div className="col-span-7 flex justify-center py-10">
+							<div className="col-span-7 flex justify-center pt-20 pb-6">
 								{monthNamesFull[calendar.month]} {calendar.year}
 							</div>
 							{weekdayNamesShort.map((weekday) => (
 								<DayOfMonthEmpty
-									key={`${calendar.month}${calendar.year}${weekday}`}
+								key={`${calendar.month}${calendar.year}${weekday}`}
 								>
 									{weekday}
 								</DayOfMonthEmpty>
@@ -161,8 +155,8 @@ function RangeDatepicker(props) {
 											selected={selected}
 											unavailable={!selectable ? 1 : 0}
 											today={today ? 1 : 0}
-											isInRange={isInRange(date)}
-										>
+											isinrange={isInRange(date) ? 1 : 0}
+											>
 											{date.getDate()}
 										</DayOfMonth>
 									);
@@ -170,6 +164,14 @@ function RangeDatepicker(props) {
 							)}
 						</Month>
 					))}
+											<div>
+												<button
+													className="pt-20 pr-8"
+													{...getForwardProps({ calendars })}
+												>
+													<Right />
+												</button>
+											</div>
 				</div>
 			</Calendar>
 		);
