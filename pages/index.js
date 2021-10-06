@@ -34,8 +34,8 @@ export default function Home() {
 				<TryHosting />
 				<Discover />
 				<TabsList />
-				<Footer />
 			</div>
+				<Footer />
 		</div>
 	);
 }

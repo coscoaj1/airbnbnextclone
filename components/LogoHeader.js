@@ -41,13 +41,10 @@ function LogoHeader({ navbar }) {
 				</button>
 			</div>
 			<div className="flex items-center justify-end flex-5">
-				<button className="mx-3 pt-1 text-sm font-light">Become a host</button>
+				<button className="mx-2 pt-1 text-sm font-light hover:bg-gray-50 hover:bg-opacity-20 px-2 rounded-lg">Become a host</button>
 				<button>
-					<div
-						className="w-5 mr-3 pt-2
-							"
-					>
-						<Image src={navbar ? blackGlobe : globe} alt="globe icon" />
+					<div className="ml-2 mr-5 px-2 pt-2 hover:bg-gray-50 hover:bg-opacity-20 rounded-full">
+						<Image src={navbar ? blackGlobe : globe} alt="globe icon" width={20} height={20} />
 					</div>
 				</button>
 				<div className="flex flex-row mr-6 bg-white rounded-full px-0.5 py-0.5 border items-center">

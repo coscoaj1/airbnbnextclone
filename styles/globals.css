@@ -19,7 +19,7 @@
     @apply flex flex-wrap  h-auto md:block font-light text-sm;
   }
   .footer-li {
-    @apply py-1 cursor-pointer flex-3;
+    @apply py-1 cursor-pointer flex-3 leading-6;
   }
 
   .tabslist-div {

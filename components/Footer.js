@@ -13,7 +13,7 @@ import {
 
 function Footer() {
 	return (
-		<div className=" hidden sm:block">
+		<div className="hidden sm:block bg-gray-100 w-full px-16">
 			<div className="flex flex-col md:flex-row text-sm mx-auto max-w-7xl py-8 border-b border-gray-300">
 				<div className="footer-div">
 					<p className="py-4 uppercase text-xs">About</p>
