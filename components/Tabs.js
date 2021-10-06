@@ -10,12 +10,12 @@ function Tabs({ children }) {
 
 	return (
 		<div className="mx-auto max-w-7xl">
-			<h2 className="text-xl font-medium py-4">
+			<h2 className="text-2xl font-medium py-4">
 				Inspiration for future getaways
 			</h2>
 			<ul
 				className="flex flex-row gap-6 list-none border-b
-                text-xs text-gray-500 font-light 
+                text-sm text-gray-500 font-light 
 
             "
 			>

@@ -17,7 +17,7 @@ function LiveAnywhereCard({ card }) {
 					height={500}
 				/>
 			</div>
-			<p>{card.title}</p>
+			<p className="text-lg">{card.title}</p>
 		</div>
 	);
 }

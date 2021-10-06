@@ -64,7 +64,7 @@ function LiveAnywhere() {
 				</span>
 			</div>
 			<h2 className="text-xl sm:text-2xl md:text-3xl font-bold">
-				Live Anywhere
+				Live anywhere
 			</h2>
 			<div
 				ref={ref}
