@@ -104,7 +104,8 @@ function Header({ selected }) {
 						<div className="btn-header">
 							<ul>
 								<li>Check out</li>
-								<button className=" text-sm font-light">Add dates</button>
+								<button onClick={handleShowCalendar}
+								className=" text-sm font-light">Add dates</button>
 							</ul>
 						</div>
 						<div className="bdr-header"></div>
