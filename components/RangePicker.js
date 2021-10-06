@@ -12,7 +12,7 @@ function Calendar(props) {
 }
 
 function Month(props) {
-	return <div className="grid grid-cols-7 ">{props.children}</div>;
+	return <div className="grid grid-cols-7 py-12">{props.children}</div>;
 }
 
 function DayOfMonth(props) {
