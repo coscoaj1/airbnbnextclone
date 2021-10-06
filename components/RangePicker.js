@@ -12,7 +12,7 @@ function Calendar(props) {
 }
 
 function Month(props) {
-	return <div className="grid grid-cols-7 gap-1">{props.children}</div>;
+	return <div className="grid grid-cols-7 ">{props.children}</div>;
 }
 
 function DayOfMonth(props) {
@@ -28,7 +28,7 @@ function DayOfMonth(props) {
 	return (
 		<button
 			type="button"
-			className={`${cellStyle} col-span-1 text-center rounded-full w-12 h-12 text-smbase`}
+			className={`${cellStyle} col-span-1 text-center rounded-full w-12 h-12 text-sm`}
 			{...props}
 		>
 			{props.children}
@@ -120,20 +120,20 @@ function RangeDatepicker(props) {
 	if (calendars.length) {
 		return (
 			<Calendar onMouseLeave={onMouseLeave}>
-				<div className="flex flex-col sm:flex-row sm:justify-around mt-3 mb-3 max-w-4xl h-96 rounded-3xl mx-auto bg-white text-lg text-black overflow-y-scroll">
+				<div className="flex flex-col mt-3 mb-3 max-w-3xl h-xxl rounded-3xl mx-auto bg-white  text-black">
 					<div>
-						<button className="pt-20 pl-8"{...getBackProps({ calendars })}>
+						<button className="pt-20 pl-6" {...getBackProps({ calendars })}>
 							<Left />
 						</button>
 					</div>
 					{calendars.map((calendar) => (
 						<Month key={`${calendar.month}${calendar.year}`}>
-							<div className="col-span-7 flex justify-center pt-20 pb-6">
+							<div className="col-span-7 flex justify-center pt-10 pb-6">
 								{monthNamesFull[calendar.month]} {calendar.year}
 							</div>
 							{weekdayNamesShort.map((weekday) => (
 								<DayOfMonthEmpty
-								key={`${calendar.month}${calendar.year}${weekday}`}
+									key={`${calendar.month}${calendar.year}${weekday}`}
 								>
 									{weekday}
 								</DayOfMonthEmpty>
@@ -156,7 +156,7 @@ function RangeDatepicker(props) {
 											unavailable={!selectable ? 1 : 0}
 											today={today ? 1 : 0}
 											isinrange={isInRange(date) ? 1 : 0}
-											>
+										>
 											{date.getDate()}
 										</DayOfMonth>
 									);
@@ -164,14 +164,11 @@ function RangeDatepicker(props) {
 							)}
 						</Month>
 					))}
-											<div>
-												<button
-													className="pt-20 pr-8"
-													{...getForwardProps({ calendars })}
-												>
-													<Right />
-												</button>
-											</div>
+					<div>
+						<button className="pt-20 pr-6" {...getForwardProps({ calendars })}>
+							<Right />
+						</button>
+					</div>
 				</div>
 			</Calendar>
 		);

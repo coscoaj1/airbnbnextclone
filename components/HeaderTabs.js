@@ -3,11 +3,11 @@ import React from 'react';
 function HeaderTabs({ navbar }) {
 	return (
 		<div className={navbar ? 'navsearch-active' : 'navsearch'}>
-			<button className="mx-8">
+			<button className="mx-8 font-light">
 				<span>Places to stay</span>
 			</button>
-			<button className="mx-8">Experiences</button>
-			<button className="mx-8">Online Experiences</button>
+			<button className="mx-8 font-light">Experiences</button>
+			<button className="mx-8 font-light">Online Experiences</button>
 		</div>
 	);
 }
