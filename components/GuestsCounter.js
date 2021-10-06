@@ -20,7 +20,7 @@ function GuestsCounter({ totalGuests, setTotalGuests }) {
 	const [state, dispatch] = useReducer(reducer, initialCount);
 
 	return (
-		<div className="flex gap-3 items-center">
+		<div className="flex gap-4 items-center">
 			{state.count > 0 && (
 				<button
 					onClick={(e) => {
@@ -34,7 +34,7 @@ function GuestsCounter({ totalGuests, setTotalGuests }) {
 					</div>
 				</button>
 			)}
-			<div className="font-light text-xs">{state.count}</div>
+			<div className="font-light">{state.count}</div>
 			<button
 				onClick={(e) => {
 					e.preventDefault();

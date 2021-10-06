@@ -42,7 +42,7 @@ function GuestsDropDown() {
 						</div>
 					) : null}
 				</Popover.Button>
-				<Popover.Panel className="flex flex-col w-82 bg-white rounded-3xl  text-base transform translate-y-4 -translate-x-52 ">
+				<Popover.Panel className="flex flex-col w-96 bg-white rounded-3xl  text-base transform translate-y-4 -translate-x-52 ">
 					<div className="flex justify-between px-6 py-4">
 						<div>
 							<ul>

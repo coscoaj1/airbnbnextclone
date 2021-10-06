@@ -20,7 +20,9 @@ function LogoHeader({ navbar }) {
 						alt="logo"
 					/>
 				</div>
-				<div className="hidden md:block font-semibold text-lg pl-1">airbnb</div>
+				<div className="hidden md:block font-semibold text-2xl pl-1">
+					airbnb
+				</div>
 			</div>
 			<div className="flex-6 w-84">
 				<button
@@ -42,17 +44,17 @@ function LogoHeader({ navbar }) {
 				<button className="mx-3 pt-1 text-sm font-light">Become a host</button>
 				<button>
 					<div
-						className="w-4 mr-3 pt-2
+						className="w-5 mr-3 pt-2
 							"
 					>
 						<Image src={navbar ? blackGlobe : globe} alt="globe icon" />
 					</div>
 				</button>
-				<div className="flex flex-row mr-6 bg-white rounded-full border items-center">
-					<button className="w-4 pt-1 ml-2 z-10">
+				<div className="flex flex-row mr-6 bg-white rounded-full px-0.5 py-0.5 border items-center">
+					<button className="w-4 mt-1 ml-2 z-10">
 						<Image src={menuIcon} alt="" />
 					</button>
-					<button className="w-5 mx-2 mt-1">
+					<button className="w-7 mx-2 mt-1">
 						<Image src={userIcon} alt="" />
 					</button>
 				</div>
