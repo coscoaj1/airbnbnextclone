@@ -120,7 +120,7 @@ function RangeDatepicker(props) {
 	if (calendars.length) {
 		return (
 			<Calendar onMouseLeave={onMouseLeave}>
-				<div className="flex flex-col mt-3 mb-3 max-w-3xl h-xxl rounded-3xl mx-auto bg-white  text-black">
+				<div className="flex mt-3 mb-3 max-w-3xl h-xxl rounded-3xl mx-auto bg-white  text-black">
 					<div>
 						<button className="pt-20 pl-6" {...getBackProps({ calendars })}>
 							<Left />
@@ -128,7 +128,7 @@ function RangeDatepicker(props) {
 					</div>
 					{calendars.map((calendar) => (
 						<Month key={`${calendar.month}${calendar.year}`}>
-							<div className="col-span-7 flex justify-center pt-10 pb-6">
+							<div className="col-span-7 flex justify-center pt-20 pb-6">
 								{monthNamesFull[calendar.month]} {calendar.year}
 							</div>
 							{weekdayNamesShort.map((weekday) => (
