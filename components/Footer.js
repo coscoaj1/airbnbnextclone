@@ -45,7 +45,7 @@ function Footer() {
 						))}
 					</ul>
 				</div>
-				<div className="flex-2  md:border-none">
+				<div className="flex-2 md:border-none">
 					<p className="py-4 uppercase text-xs">Support</p>
 					<ul className="footer-ul">
 						{supportList.map((item) => (
