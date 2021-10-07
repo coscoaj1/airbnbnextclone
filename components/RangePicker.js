@@ -18,9 +18,6 @@ function Month(props) {
 function DayOfMonth(props) {
 	const { selected, unavailable, today, isinrange } = props;
 
-	
-
-
 	let cellStyle = 'hover:border-black border-2 border-white rounded-full';
 	if (today)
 		cellStyle = 'hover:border-black border-2 border-white rounded-full';
@@ -45,7 +42,6 @@ function DayOfMonthEmpty(props) {
 
 function RangeDatepicker(props) {
 	const [hoveredDate, setHoveredDate] = useState(null);
-	
 
 	let { calendars, getBackProps, getForwardProps, getDateProps } =
 		useDayzed(props);
@@ -120,13 +116,10 @@ function RangeDatepicker(props) {
 
 		return false;
 	}
-	
-
 
 	if (calendars.length) {
 		return (
-			<Calendar onMouseLeave={onMouseLeave}
-			>
+			<Calendar onMouseLeave={onMouseLeave}>
 				<div className="flex mt-3 mb-3 max-w-3xl h-xxl rounded-3xl mx-auto bg-white  text-black">
 					<div>
 						<button className="pt-20 pl-6" {...getBackProps({ calendars })}>
@@ -151,15 +144,14 @@ function RangeDatepicker(props) {
 									if (!dateObj) {
 										return <DayOfMonthEmpty key={key} />;
 									}
-									let { date, selected, selectable, today, } = dateObj;
+									let { date, selected, selectable, today } = dateObj;
 									return (
 										<DayOfMonth
-										
-										key={key}
-										{...getDateProps({
-											dateObj,
-											onMouseEnter: () => onMouseEnter(date),
-										})}
+											key={key}
+											{...getDateProps({
+												dateObj,
+												onMouseEnter: () => onMouseEnter(date),
+											})}
 											selected={selected}
 											unavailable={!selectable ? 1 : 0}
 											today={today ? 1 : 0}
@@ -186,51 +178,17 @@ function RangeDatepicker(props) {
 }
 
 function Range(props) {
-	const [selectedDates, setSelectedDates] = useState([]);
-	const [date] = useState(new Date());
-
-	function _handleOnDateSelected({ selected, selectable, date }) {
-		if (!selectable) return;
-
-		let dateTime = date.getTime();
-		let newDates = [...selectedDates];
-		if (selectedDates.length) {
-			if (selectedDates.length === 1) {
-				let firstTime = selectedDates[0].getTime();
-
-				if (firstTime < dateTime) newDates.push(date);
-				else newDates.unshift(date);
-
-				setSelectedDates(newDates);
-			} else if (newDates.length === 2) {
-				setSelectedDates([date]);
-			}
-		} else {
-			newDates.push(date);
-			setSelectedDates(newDates);
-			
-			
-		}
-	}
-	
 	let minDate = new Date();
 	minDate.setDate(minDate.getDate() - 1);
-
 	return (
 		<>
 			<RangeDatepicker
 				minDate={minDate}
-				date={date}
-				selected={selectedDates}
-				onDateSelected={_handleOnDateSelected}
+				date={props.date}
+				selected={props.selected}
+				onDateSelected={props.onDateSelected}
 				monthsToDisplay={2}
 			/>
-			{/* {selectedDates.length === 2 && (
-        <div style={{ paddingTop: 20, textAlign: "center" }}>
-          <p>Selected:</p>
-          <p>{`${selectedDates[0].toLocaleDateString()} - ${selectedDates[1].toLocaleDateString()}`}</p>
-        </div>
-      )} */}
 		</>
 	);
 }
@@ -238,3 +196,12 @@ function Range(props) {
 export default Range;
 
 // this component was forked then customized from lorenzobersano on codesandbox.io
+
+{
+	/* {selectedDates.length === 2 && (
+<div style={{ paddingTop: 20, textAlign: "center" }}>
+<p>Selected:</p>
+<p>{`${selectedDates[0].toLocaleDateString()} - ${selectedDates[1].toLocaleDateString()}`}</p>
+</div>
+)} */
+}

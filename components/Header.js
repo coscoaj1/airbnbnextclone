@@ -20,11 +20,13 @@ function Header({ selected }) {
 	const [navbar, setNavbar] = useState(false);
 	const [startDate, setStartDate] = useState(new Date());
 	const [endDate, setEndDate] = useState('');
-	const [location, setLocation] = useState('')
+	const [location, setLocation] = useState('');
 	const [open, setOpen] = useState(true);
 	const [showCalendar, setShowCalendar] = useState(false);
-	
-	const startRef = useRef()
+	const [selectedDates, setSelectedDates] = useState([]);
+	const [date] = useState(new Date());
+
+	const startRef = useRef();
 
 	const hook = () => {
 		const config = {
@@ -45,13 +47,13 @@ function Header({ selected }) {
 	};
 
 	useEffect(hook, [input]);
-	
+
 	const handleClickAway = () => {
 		setOpen(!open);
 	};
 
 	const handleLocationSelect = (city) => {
-		setLocation(city.city)
+		setLocation(city.city);
 	};
 
 	const handleChange = (e) => {
@@ -77,9 +79,28 @@ function Header({ selected }) {
 		setShowCalendar(!showCalendar);
 	};
 
-	const handleDateSelected = () => {
-		console.log('selected')
+	function _handleOnDateSelected({ selected, selectable, date }) {
+		if (!selectable) return;
+
+		let dateTime = date.getTime();
+		let newDates = [...selectedDates];
+		if (selectedDates.length) {
+			if (selectedDates.length === 1) {
+				let firstTime = selectedDates[0].getTime();
+
+				if (firstTime < dateTime) newDates.push(date);
+				else newDates.unshift(date);
+
+				setSelectedDates(newDates);
+			} else if (newDates.length === 2) {
+				setSelectedDates([date]);
+			}
+		} else {
+			newDates.push(date);
+			setSelectedDates(newDates);
+		}
 	}
+	console.log(selectedDates);
 
 	return (
 		<div className={navbar ? 'navbar-active' : 'navbar'}>
@@ -102,26 +123,40 @@ function Header({ selected }) {
 						<div className="bdr-header"></div>
 						<div className="btn-header">
 							<div>Check in</div>
-
-							<button
-								onClick={handleShowCalendar}
-								className=" text-sm font-light"
-							>
-								Add dates
-							</button>
-							{selected}
-						</div>
-						<div className="bdr-header"></div>
-						<div className="btn-header">
-							<ul>
-								<li>Check out</li>
+							{selectedDates.length > 0 ? (
+								<button
+									onClick={handleShowCalendar}
+									className=" text-sm font-light"
+								>
+									{selectedDates[0].toLocaleString().split(',')[0]}
+								</button>
+							) : (
 								<button
 									onClick={handleShowCalendar}
 									className=" text-sm font-light"
 								>
 									Add dates
 								</button>
-							</ul>
+							)}
+						</div>
+						<div className="bdr-header"></div>
+						<div className="btn-header">
+							<div>Check out</div>
+							{selectedDates.length > 1 ? (
+								<button
+									onClick={handleShowCalendar}
+									className=" text-sm font-light"
+								>
+									{selectedDates[1].toLocaleString().split(',')[0]}
+								</button>
+							) : (
+								<button
+									onClick={handleShowCalendar}
+									className=" text-sm font-light"
+								>
+									Add dates
+								</button>
+							)}
 						</div>
 						<div className="bdr-header"></div>
 						<div className="flex flex-4 my-auto focus:border-gray-300  px-2 py-1">
@@ -149,7 +184,10 @@ function Header({ selected }) {
 													alt=""
 												></Image>
 											</div>
-											<button value={city} onClick={() => handleLocationSelect(city)}>
+											<button
+												value={city}
+												onClick={() => handleLocationSelect(city)}
+											>
 												{city.city}
 											</button>
 										</li>
@@ -162,7 +200,13 @@ function Header({ selected }) {
 					)}
 				</ClickAwayListener>
 			) : null}
-			{showCalendar ? <RangePicker /> : null}
+			{showCalendar ? (
+				<RangePicker
+					date={date}
+					selected={selectedDates}
+					onDateSelected={_handleOnDateSelected}
+				/>
+			) : null}
 		</div>
 	);
 }
