@@ -55,7 +55,10 @@ const nearbyList = [
 
 export default function NearbyCardList() {
 	return (
-		<div className="relative mt-4 mx-auto h-full max-w-7xl">
+		<div
+			className="relative mt-4 mx-12 
+		 h-full"
+		>
 			<p className="text-lg sm:text-xl md:text-3xl font-bold">Explore nearby</p>
 			<div
 				id="cardlist"

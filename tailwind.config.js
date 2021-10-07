@@ -1,6 +1,6 @@
 const colors = require('tailwindcss/colors');
 module.exports = {
-	purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+	purge: ['./**/*.{js,jsx,ts,tsx}', './public/index.html'],
 	darkMode: false, // or 'media' or 'class'
 	theme: {
 		screens: {
@@ -40,6 +40,7 @@ module.exports = {
 		extend: {
 			colors: {
 				fuchsia: colors.fuchsia,
+				footerPink: '#f7f7f7',
 			},
 			boxShadow: {
 				'3xl': '-3px 8px 13px -1px rgba(0, 0, 0, 0.3)',
@@ -59,7 +60,7 @@ module.exports = {
 				4: '0 1 25%',
 				5: '1 0 140px',
 				6: '0 1 auto',
-				7: '0 1 50%'
+				7: '0 1 50%',
 			},
 		},
 	},

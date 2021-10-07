@@ -10,9 +10,9 @@ import menuIcon from '../public/images/icons8-menu-24.png';
 
 function LogoHeader({ navbar }) {
 	return (
-		<div className="flex flex-row  w-full">
+		<div className="relative flex flex-row mx-24">
 			<div className="flex-5 flex flex-row items-center">
-				<div className={navbar ? 'ml-10 mt-2' : 'flex ml-10'}>
+				<div className={navbar ? 'mt-2' : 'flex '}>
 					<Image
 						src={navbar ? redLogo : logo}
 						width={32}
@@ -33,18 +33,25 @@ function LogoHeader({ navbar }) {
 					}
 				>
 					<span className="font-light pl-2">Start your search</span>
-					<span className="bg-red-500 relative rounded-full w-6 h-6 ml-20">
-						<div className="relative w-3 top-1.5 left-1.5">
+					<span className="bg-red-500 relative rounded-full w-7 h-7 ml-20">
+						<div className="relative w-3 top-1.5 left-2">
 							<Image src={searchIcon} />
 						</div>
 					</span>
 				</button>
 			</div>
 			<div className="flex items-center justify-end flex-5">
-				<button className="mx-2 pt-1 text-sm font-light hover:bg-gray-50 hover:bg-opacity-20 px-2 rounded-lg">Become a host</button>
+				<button className="mx-2 pt-1 text-sm font-light hover:bg-gray-50 hover:bg-opacity-20 px-2 rounded-lg">
+					Become a host
+				</button>
 				<button>
 					<div className="ml-2 mr-5 px-2 pt-2 hover:bg-gray-50 hover:bg-opacity-20 rounded-full">
-						<Image src={navbar ? blackGlobe : globe} alt="globe icon" width={20} height={20} />
+						<Image
+							src={navbar ? blackGlobe : globe}
+							alt="globe icon"
+							width={20}
+							height={20}
+						/>
 					</div>
 				</button>
 				<div className="flex flex-row mr-6 bg-white rounded-full border items-center">

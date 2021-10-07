@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image'
+import Image from 'next/image';
 import globeIcon from '../public/images/icons8-globe-24.png';
 import facebookIcon from '../public/images/icons8-facebook-f-30.png';
 import twitterIcon from '../public/images/icons8-twitter-30.png';
@@ -13,7 +13,7 @@ import {
 
 function Footer() {
 	return (
-		<div className="hidden sm:block bg-gray-100 w-full px-16">
+		<div className="hidden sm:block bg-footerPink w-full px-16">
 			<div className="flex flex-col md:flex-row text-sm mx-auto max-w-7xl py-8 border-b border-gray-300">
 				<div className="footer-div">
 					<p className="py-4 uppercase text-xs">About</p>
@@ -84,7 +84,7 @@ function Footer() {
 						</button>
 						<button>
 							<span>
-								<Image alt=""width={20} height={20} src={twitterIcon} />
+								<Image alt="" width={20} height={20} src={twitterIcon} />
 							</span>
 						</button>
 						<button>

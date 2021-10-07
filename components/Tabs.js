@@ -9,7 +9,7 @@ function Tabs({ children }) {
 	};
 
 	return (
-		<div className="mx-auto max-w-7xl">
+		<div className="mx-12">
 			<h2 className="text-2xl font-medium py-4">
 				Inspiration for future getaways
 			</h2>

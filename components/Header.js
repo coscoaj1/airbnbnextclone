@@ -7,7 +7,6 @@ import GuestsDropDown from './GuestsDropDown';
 import locationicon from '../public/images/locationicon.png';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import RangePicker from './RangePicker';
-import Calendar from './Calendar';
 
 const url = 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities';
 
@@ -73,7 +72,7 @@ function Header({ selected }) {
 	};
 	return (
 		<div className={navbar ? 'navbar-active' : 'navbar'}>
-			<header className="max-w-7xl mx-auto">
+			<header className="mx-auto">
 				<LogoHeader navbar={navbar} />
 				<HeaderTabs navbar={navbar} />
 
@@ -104,8 +103,12 @@ function Header({ selected }) {
 						<div className="btn-header">
 							<ul>
 								<li>Check out</li>
-								<button onClick={handleShowCalendar}
-								className=" text-sm font-light">Add dates</button>
+								<button
+									onClick={handleShowCalendar}
+									className=" text-sm font-light"
+								>
+									Add dates
+								</button>
 							</ul>
 						</div>
 						<div className="bdr-header"></div>

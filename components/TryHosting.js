@@ -5,7 +5,7 @@ import tryHostingDesktopImg from '../public/images/tryHostingDesktop.webp';
 
 function TryHosting() {
 	return (
-		<div className="relative items-center my-5 mx-1.5 max-w-7xl">
+		<div className="relative items-center my-5 mx-12">
 			<div className="hidden sm:block w-full h-auto">
 				<Image
 					className="rounded-xl"
@@ -23,7 +23,9 @@ function TryHosting() {
 				className="flex flex-col items-center sm:h-4/5 w-full sm:items-start 
                 sm:justify-center px-20 text-white absolute top-8"
 			>
-				<h2 className="text-3xl md:text-5xl md:leading-relaxed font-medium">Try hosting</h2>
+				<h2 className="text-3xl md:text-5xl md:leading-relaxed font-medium">
+					Try hosting
+				</h2>
 				<p className="font-light sm:px-0 text-base md:text-lg">
 					Earn extra income and unlock new <br /> opportunities by sharing your
 					space.
