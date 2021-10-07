@@ -47,9 +47,9 @@ function LogoHeader({ navbar }) {
 						<Image src={navbar ? blackGlobe : globe} alt="globe icon" width={20} height={20} />
 					</div>
 				</button>
-				<div className="flex flex-row mr-6 bg-white rounded-full px-0.5 py-0.5 border items-center">
-					<button className="w-4 mt-1 ml-2 z-10">
-						<Image src={menuIcon} alt="" />
+				<div className="flex flex-row mr-6 bg-white rounded-full border items-center">
+					<button className="w-4 h-auto mt-3 mb-1 ml-2 z-10">
+						<Image src={menuIcon} width={16} height={16} alt="" />
 					</button>
 					<button className="w-7 mx-2 mt-1">
 						<Image src={userIcon} alt="" />
