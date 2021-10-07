@@ -17,3 +17,28 @@ const hook = () => {
 };
 
 useEffect(hook, [input]);
+
+const hook = () => {
+	const config = {
+		headers: {
+			'X-CSCAPI-KEY': `${process.env.NEXT_PUBLIC_CITIES_API_KEY}`,
+		},
+	};
+	axios
+		.get('https://api.countrystatecity.in/v1/countries/US/cities', config)
+		.then((response) => {
+			setCities(response.data);
+			console.log(response.data);
+		});
+};
+useEffect(hook, [input]);
+
+const handleFilter = (e) => {
+	setOpen(true);
+	setInput(e.target.value);
+	const newFilter = cities.filter((value) => {
+		return value.City.toLowerCase().includes(input.toLowerCase());
+	});
+	setFilteredData(newFilter);
+	console.log(filteredData);
+};

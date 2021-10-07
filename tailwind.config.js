@@ -41,6 +41,7 @@ module.exports = {
 			colors: {
 				fuchsia: colors.fuchsia,
 				footerPink: '#f7f7f7',
+				buttonPink: '#ebebeb',
 			},
 			boxShadow: {
 				'3xl': '-3px 8px 13px -1px rgba(0, 0, 0, 0.3)',

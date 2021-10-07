@@ -7,14 +7,13 @@ import GuestsDropDown from './GuestsDropDown';
 import locationicon from '../public/images/locationicon.png';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import RangePicker from './RangePicker';
+import cityList from '../public/data/beachtowns.json';
 
 const url = 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities';
 
 const handleClick = (e) => {
 	e.preventDefault();
 };
-//GET city http formatting:
-//?countryIds=US&minPopulation=100000&namePrefix=L
 
 function Header({ selected }) {
 	const [cities, setCities] = useState(null);
@@ -24,22 +23,28 @@ function Header({ selected }) {
 	const [endDate, setEndDate] = useState('');
 	const [open, setOpen] = useState(true);
 	const [showCalendar, setShowCalendar] = useState(false);
+	const [filter, setFilter] = useState('');
+	const [filteredData, setFilteredData] = useState([]);
 
 	const hook = () => {
 		const config = {
 			headers: {
-				'X-CSCAPI-KEY': `${process.env.NEXT_PUBLIC_CITIES_API_KEY}`,
+				'x-rapidapi-host': 'wft-geo-db.p.rapidapi.com',
+				'x-rapidapi-key': `${process.env.NEXT_PUBLIC_CITY_API_KEY}`,
 			},
 		};
+
 		axios
-			.get('https://api.countrystatecity.in/v1/countries/US/cities', config)
+			.get(
+				`${url}?limit=5&countryIds=US&minPopulation=50000&namePrefix=${input}`,
+				config
+			)
 			.then((response) => {
-				setCities(response.data);
-				console.log(response.data);
+				setCities(response.data.data);
 			});
 	};
-	useEffect(hook, [input]);
 
+	useEffect(hook, [input]);
 	const handleClickAway = () => {
 		setOpen(!open);
 	};
@@ -49,8 +54,6 @@ function Header({ selected }) {
 	const handleChange = (e) => {
 		setInput(e.target.value);
 		setOpen(true);
-		console.log(cities);
-		console.log(open);
 	};
 
 	useEffect(() => {
@@ -70,6 +73,7 @@ function Header({ selected }) {
 		e.preventDefault();
 		setShowCalendar(!showCalendar);
 	};
+
 	return (
 		<div className={navbar ? 'navbar-active' : 'navbar'}>
 			<header className="mx-auto">
@@ -83,7 +87,7 @@ function Header({ selected }) {
 							<input
 								onChange={handleChange}
 								type="text"
-								className="group-hover:bg-gray-50 outline-none"
+								className="outline-none"
 								placeholder="Where are you going?"
 							></input>
 						</div>

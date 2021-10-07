@@ -8,11 +8,11 @@ import CancelX from '../public/images/12555439561530177266.svg';
 function GuestsDropDown() {
 	const [totalGuests, setTotalGuests] = useState(null);
 	return (
-		<div className="grid grid-cols-3 h-24">
+		<div className="grid grid-cols-3 h-24 ">
 			<Popover>
-				<Popover.Button className="grid grid-cols-2 w-24">
-					<div className="col-span-1 text-left px-4">
-						<div className="pt-2.5 h-full col-span-1 text-xs tracking-wider">
+				<Popover.Button className="grid grid-cols-2 w-24 ">
+					<div className="col-span-1 text-left px-4 bg-opacity-40 ">
+						<div className="pt-2.5 h-full col-span-1 text-xs tracking-wider ">
 							Guests
 						</div>
 						{(() => {

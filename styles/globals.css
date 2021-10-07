@@ -4,7 +4,7 @@
 
 @layer components {
 	.btn-header {
-		@apply flex-4 text-left text-xs tracking-wider my-auto hover:bg-gray-50  focus:shadow-2xl focus:border-gray-300 rounded-full px-6 py-2;
+		@apply flex-4 h-full text-left text-xs tracking-wider my-auto hover:shadow-lg focus:shadow-2xl focus:border-gray-300 rounded-full px-6 py-3;
 	}
 
 	.bdr-header {
