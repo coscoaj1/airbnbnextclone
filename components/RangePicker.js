@@ -18,6 +18,9 @@ function Month(props) {
 function DayOfMonth(props) {
 	const { selected, unavailable, today, isinrange } = props;
 
+	
+
+
 	let cellStyle = 'hover:border-black border-2 border-white rounded-full';
 	if (today)
 		cellStyle = 'hover:border-black border-2 border-white rounded-full';
@@ -42,6 +45,7 @@ function DayOfMonthEmpty(props) {
 
 function RangeDatepicker(props) {
 	const [hoveredDate, setHoveredDate] = useState(null);
+	
 
 	let { calendars, getBackProps, getForwardProps, getDateProps } =
 		useDayzed(props);
@@ -116,10 +120,13 @@ function RangeDatepicker(props) {
 
 		return false;
 	}
+	
+
 
 	if (calendars.length) {
 		return (
-			<Calendar onMouseLeave={onMouseLeave}>
+			<Calendar onMouseLeave={onMouseLeave}
+			>
 				<div className="flex mt-3 mb-3 max-w-3xl h-xxl rounded-3xl mx-auto bg-white  text-black">
 					<div>
 						<button className="pt-20 pl-6" {...getBackProps({ calendars })}>
@@ -144,14 +151,15 @@ function RangeDatepicker(props) {
 									if (!dateObj) {
 										return <DayOfMonthEmpty key={key} />;
 									}
-									let { date, selected, selectable, today } = dateObj;
+									let { date, selected, selectable, today, } = dateObj;
 									return (
 										<DayOfMonth
-											key={key}
-											{...getDateProps({
-												dateObj,
-												onMouseEnter: () => onMouseEnter(date),
-											})}
+										
+										key={key}
+										{...getDateProps({
+											dateObj,
+											onMouseEnter: () => onMouseEnter(date),
+										})}
 											selected={selected}
 											unavailable={!selectable ? 1 : 0}
 											today={today ? 1 : 0}
@@ -200,9 +208,11 @@ function Range(props) {
 		} else {
 			newDates.push(date);
 			setSelectedDates(newDates);
+			
+			
 		}
 	}
-
+	
 	let minDate = new Date();
 	minDate.setDate(minDate.getDate() - 1);
 

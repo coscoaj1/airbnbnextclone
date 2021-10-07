@@ -1,13 +1,12 @@
 import axios from 'axios';
 import Image from 'next/image';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import LogoHeader from './LogoHeader';
 import HeaderTabs from './HeaderTabs';
 import GuestsDropDown from './GuestsDropDown';
 import locationicon from '../public/images/locationicon.png';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import RangePicker from './RangePicker';
-import cityList from '../public/data/beachtowns.json';
 
 const url = 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities';
 
@@ -21,10 +20,11 @@ function Header({ selected }) {
 	const [navbar, setNavbar] = useState(false);
 	const [startDate, setStartDate] = useState(new Date());
 	const [endDate, setEndDate] = useState('');
+	const [location, setLocation] = useState('')
 	const [open, setOpen] = useState(true);
 	const [showCalendar, setShowCalendar] = useState(false);
-	const [filter, setFilter] = useState('');
-	const [filteredData, setFilteredData] = useState([]);
+	
+	const startRef = useRef()
 
 	const hook = () => {
 		const config = {
@@ -45,11 +45,14 @@ function Header({ selected }) {
 	};
 
 	useEffect(hook, [input]);
+	
 	const handleClickAway = () => {
 		setOpen(!open);
 	};
 
-	const handleLocationSelect = () => {};
+	const handleLocationSelect = (city) => {
+		setLocation(city.city)
+	};
 
 	const handleChange = (e) => {
 		setInput(e.target.value);
@@ -74,6 +77,10 @@ function Header({ selected }) {
 		setShowCalendar(!showCalendar);
 	};
 
+	const handleDateSelected = () => {
+		console.log('selected')
+	}
+
 	return (
 		<div className={navbar ? 'navbar-active' : 'navbar'}>
 			<header className="mx-auto">
@@ -87,6 +94,7 @@ function Header({ selected }) {
 							<input
 								onChange={handleChange}
 								type="text"
+								value={location}
 								className="outline-none"
 								placeholder="Where are you going?"
 							></input>
@@ -141,7 +149,7 @@ function Header({ selected }) {
 													alt=""
 												></Image>
 											</div>
-											<button onClick={handleLocationSelect}>
+											<button value={city} onClick={() => handleLocationSelect(city)}>
 												{city.city}
 											</button>
 										</li>
