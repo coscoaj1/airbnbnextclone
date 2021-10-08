@@ -3,7 +3,7 @@ import searchIcon from '../public/images/Untitledsearch (1).png';
 import GuestsCounter from './GuestsCounter';
 import Image from 'next/image';
 import { Popover } from '@headlessui/react';
-import CancelX from '../public/images/12555439561530177266.svg';
+import CancelX from '../public/images/x-svgrepo-com (1).svg';
 
 function GuestsDropDown() {
 	const [totalGuests, setTotalGuests] = useState(null);
@@ -36,8 +36,8 @@ function GuestsDropDown() {
 					</div>
 					{totalGuests ? (
 						<div className="grid grid-cols-1 col-start-2 col-span-1 place-items-end">
-							<button className="pt-4" onClick={() => setTotalGuests(null)}>
-								<CancelX width={19} />
+							<button className="mt-3 w-6 h-6 bg-gray-200 hover:bg-gray-300 rounded-full" onClick={() => setTotalGuests(null)}>
+								<CancelX className=" rounded-full" />
 							</button>
 						</div>
 					) : null}
