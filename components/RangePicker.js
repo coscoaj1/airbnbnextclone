@@ -120,55 +120,55 @@ function RangeDatepicker(props) {
 	if (calendars.length) {
 		return (
 			<Calendar onMouseLeave={onMouseLeave}>
-				<div className="flex mt-3 mb-3 max-w-3xl h-xxl rounded-3xl mx-auto bg-white  text-black">
-					<div>
-						<button className="pt-20 pl-6" {...getBackProps({ calendars })}>
-							<Left />
-						</button>
-					</div>
-					{calendars.map((calendar) => (
-						<Month key={`${calendar.month}${calendar.year}`}>
-							<div className="col-span-7 flex justify-center pt-20 pb-6">
-								{monthNamesFull[calendar.month]} {calendar.year}
-							</div>
-							{weekdayNamesShort.map((weekday) => (
-								<DayOfMonthEmpty
-									key={`${calendar.month}${calendar.year}${weekday}`}
-								>
-									{weekday}
-								</DayOfMonthEmpty>
-							))}
-							{calendar.weeks.map((week, windex) =>
-								week.map((dateObj, index) => {
-									let key = `${calendar.month}${calendar.year}${windex}${index}`;
-									if (!dateObj) {
-										return <DayOfMonthEmpty key={key} />;
-									}
-									let { date, selected, selectable, today } = dateObj;
-									return (
-										<DayOfMonth
-											key={key}
-											{...getDateProps({
-												dateObj,
-												onMouseEnter: () => onMouseEnter(date),
-											})}
-											selected={selected}
-											unavailable={!selectable ? 1 : 0}
-											today={today ? 1 : 0}
-											isinrange={isInRange(date) ? 1 : 0}
-										>
-											{date.getDate()}
-										</DayOfMonth>
-									);
-								})
-							)}
-						</Month>
-					))}
-					<div>
-						<button className="pt-20 pr-6" {...getForwardProps({ calendars })}>
-							<Right />
-						</button>
-					</div>
+				<div className="flex mt-3 mb-3 max-w-3xl max-h-lg rounded-3xl mx-auto bg-white  text-black overflow-y-auto">
+						<div>
+							<button className="pt-20 pl-6" {...getBackProps({ calendars })}>
+								<Left />
+							</button>
+						</div>
+						{calendars.map((calendar) => (
+							<Month key={`${calendar.month}${calendar.year}`}>
+								<div className="col-span-7 flex justify-center pt-20 pb-6">
+									{monthNamesFull[calendar.month]} {calendar.year}
+								</div>
+								{weekdayNamesShort.map((weekday) => (
+									<DayOfMonthEmpty
+										key={`${calendar.month}${calendar.year}${weekday}`}
+									>
+										{weekday}
+									</DayOfMonthEmpty>
+								))}
+								{calendar.weeks.map((week, windex) =>
+									week.map((dateObj, index) => {
+										let key = `${calendar.month}${calendar.year}${windex}${index}`;
+										if (!dateObj) {
+											return <DayOfMonthEmpty key={key} />;
+										}
+										let { date, selected, selectable, today } = dateObj;
+										return (
+											<DayOfMonth
+												key={key}
+												{...getDateProps({
+													dateObj,
+													onMouseEnter: () => onMouseEnter(date),
+												})}
+												selected={selected}
+												unavailable={!selectable ? 1 : 0}
+												today={today ? 1 : 0}
+												isinrange={isInRange(date) ? 1 : 0}
+											>
+												{date.getDate()}
+											</DayOfMonth>
+										);
+									})
+								)}
+							</Month>
+						))}
+						<div>
+							<button className="pt-20 pr-6" {...getForwardProps({ calendars })}>
+								<Right />
+							</button>
+						</div>
 				</div>
 			</Calendar>
 		);
