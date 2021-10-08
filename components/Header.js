@@ -100,7 +100,6 @@ function Header({ selected }) {
 			setSelectedDates(newDates);
 		}
 	}
-	console.log(selectedDates);
 
 	return (
 		<div className={navbar ? 'navbar-active' : 'navbar'}>
@@ -115,7 +114,7 @@ function Header({ selected }) {
 							<input
 								onChange={handleChange}
 								type="text"
-								value={location}
+								value={location ? location : input}
 								className="outline-none"
 								placeholder="Where are you going?"
 							></input>
