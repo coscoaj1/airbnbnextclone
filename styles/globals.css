@@ -6,6 +6,12 @@
 	.btn-header {
 		@apply flex-4 h-full text-left text-xs tracking-wider my-auto hover:shadow-3xl  hover:bg-gray-50  focus:border-gray-300 rounded-full px-6 py-3;
 	}
+	.btn-header-focus {
+		@apply flex-4 h-full text-left text-xs tracking-wider my-auto shadow-3xl  hover:bg-gray-50  focus:border-gray-300 rounded-full px-6 py-3;
+	}
+	.btn-location-focus {
+		@apply flex-4 h-full text-left text-xs tracking-wider my-auto shadow-3xl  hover:bg-gray-50  focus:border-gray-300 rounded-full px-6 py-3;
+	}
 
 	.bdr-header {
 		@apply border-r border-gray-300 h-8 self-center;
@@ -16,7 +22,7 @@
 	}
 
 	.footer-ul {
-		@apply flex flex-wrap  h-auto md:block font-light text-sm;
+		@apply flex flex-wrap  h-auto md:block  text-sm;
 	}
 	.footer-li {
 		@apply py-1 cursor-pointer flex-3 leading-6;
@@ -27,11 +33,11 @@
 	}
 
 	.tabslist-ul {
-		@apply w-1/4 py-2 text-sm font-light my-1;
+		@apply w-1/4 py-2 text-sm my-1;
 	}
 
 	.navbar-active {
-		@apply hidden sm:block fixed top-0 z-10 bg-white w-full font-light;
+		@apply hidden sm:block fixed top-0 z-10 bg-white w-full;
 	}
 
 	.navbar {
@@ -71,30 +77,41 @@
 
 @layer base {
 	@font-face {
-		font-family: 'CircularStd-Book';
+		font-family: 'PlusJakartaSans-Light';
+		font-weight: 300;
+		src: local('PlusJakartaSans'),
+			url('../public/fonts/PlusJakartaSans-Light.woff') format('Web Open Font');
+	}
+}
+@layer base {
+	@font-face {
+		font-family: 'PlusJakartaSans-Regular';
 		font-weight: 400;
-		src: local('CircularStd-Book'),
-			url('../public/fonts/CircularStd-Book.otf') format('opentype');
+		src: local('PlusJakartaSans'),
+			url('../public/fonts/PlusJakartaSans-Regular.woff')
+				format('Web Open Font');
 	}
 }
 @font-face {
-	font-family: 'CircularStd-Book';
-	font-weight: 300;
-	src: local('CircularStd-Light'),
-		url('../public/fonts/CircularStd-Light.otf') format('opentype');
-}
-@font-face {
-	font-family: 'CircularStd-Book';
+	font-family: 'PlusJakartaSans-Medium';
 	font-weight: 500;
-	src: local('CircularStd-Medium'),
-		url('../public/fonts/CircularStd-Medium.otf') format('opentype');
+	src: local('PlusJakartaSans'),
+		url('../public/fonts/PlusJakartaSans-Medium.woff') format('Web Open Font');
 }
 @font-face {
-	font-family: 'CircularStd-Book';
-	font-weight: 700;
-	src: local('CircularStd-Bold'),
-		url('../public/fonts/CircularStd-Bold.otf') format('opentype');
+	font-family: 'PlusJakartaSans-Bold';
+	font-weight: 600;
+	src: local('PlusJakartaSans'),
+		url('../public/fonts/PlusJakartaSans-Bold.woff') format('Web Open Font');
 }
+@font-face {
+	font-family: 'PlusJakartaSans-ExtraBold';
+	font-weight: 700;
+	src: local('PlusJakartaSans'),
+		url('../public/fonts/PlusJakartaSans-ExtraBold.woff')
+			format('Web Open Font');
+}
+
 #cardlist {
 	grid-auto-rows: 0;
 	overflow-y: hidden;
@@ -139,5 +156,5 @@
 input::placeholder {
 	color: black;
 	font-size: 14px;
-	font-weight: 300;
+	font-weight: 400;
 }

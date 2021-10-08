@@ -12,7 +12,7 @@ function GuestsDropDown() {
 			<Popover>
 				<Popover.Button className="grid grid-cols-2 w-24 ">
 					<div className="col-span-1 text-left px-4 bg-opacity-40 ">
-						<div className="pt-2.5 h-full col-span-1 text-xs tracking-wider ">
+						<div className="pt-2.5 h-full col-span-1 text-xs font-medium tracking-wider ">
 							Guests
 						</div>
 						{(() => {

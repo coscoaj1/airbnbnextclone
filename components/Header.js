@@ -18,13 +18,13 @@ function Header({ selected }) {
 	const [cities, setCities] = useState(null);
 	const [input, setInput] = useState('');
 	const [navbar, setNavbar] = useState(false);
-	const [startDate, setStartDate] = useState(new Date());
-	const [endDate, setEndDate] = useState('');
 	const [location, setLocation] = useState('');
 	const [open, setOpen] = useState(true);
 	const [showCalendar, setShowCalendar] = useState(false);
 	const [selectedDates, setSelectedDates] = useState([]);
 	const [date] = useState(new Date());
+	const [focusStart, setFocusStart] = useState(false);
+	const [focusLocation, setFocusLocation] = useState(false);
 
 	const startRef = useRef();
 
@@ -54,7 +54,15 @@ function Header({ selected }) {
 
 	const handleLocationSelect = (city) => {
 		setLocation(city.city);
+		setOpen(false);
+		setShowCalendar(!showCalendar);
+		setFocusStart(true);
+		setFocusLocation(false);
 	};
+
+	useEffect(() => {
+		startRef.current.focus();
+	}, [location]);
 
 	const handleChange = (e) => {
 		setInput(e.target.value);
@@ -77,6 +85,7 @@ function Header({ selected }) {
 	const handleShowCalendar = (e) => {
 		e.preventDefault();
 		setShowCalendar(!showCalendar);
+		setFocusStart(true);
 	};
 
 	function _handleOnDateSelected({ selected, selectable, date }) {
@@ -109,19 +118,26 @@ function Header({ selected }) {
 
 				<form>
 					<div className={navbar ? 'formdiv-active' : 'formdiv'}>
-						<div className="flex flex-col justify-center h-full ml-4 pr-2 group btn-header ">
-							<p>Location</p>
+						<div
+							className={
+								focusLocation
+									? 'btn-location-focus flex flex-col justify-center h-full pr-2 group w-full'
+									: 'btn-header flex flex-col justify-center h-full pr-2 group w-full'
+							}
+						>
+							<div className="font-medium">Location</div>
 							<input
 								onChange={handleChange}
+								onFocus={() => setFocusLocation(true)}
 								type="text"
 								value={location ? location : input}
-								className="outline-none"
+								className="outline-none bg-gray-50"
 								placeholder="Where are you going?"
 							></input>
 						</div>
 						<div className="bdr-header"></div>
-						<div className="btn-header">
-							<div>Check in</div>
+						<div className={focusStart ? 'btn-header-focus' : 'btn-header'}>
+							<div className="font-medium">Check in</div>
 							{selectedDates.length > 0 ? (
 								<button
 									onClick={handleShowCalendar}
@@ -133,6 +149,7 @@ function Header({ selected }) {
 								<button
 									onClick={handleShowCalendar}
 									className=" text-sm font-light"
+									ref={startRef}
 								>
 									Add dates
 								</button>
@@ -140,7 +157,7 @@ function Header({ selected }) {
 						</div>
 						<div className="bdr-header"></div>
 						<div className="btn-header">
-							<div>Check out</div>
+							<div className="font-medium">Check out</div>
 							{selectedDates.length > 1 ? (
 								<button
 									onClick={handleShowCalendar}

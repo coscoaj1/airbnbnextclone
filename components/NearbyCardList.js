@@ -59,7 +59,7 @@ export default function NearbyCardList() {
 			className="relative mt-4 mx-12 
 		 h-full"
 		>
-			<p className="text-lg sm:text-xl md:text-3xl font-bold">Explore nearby</p>
+			<p className="text-lg sm:text-xl md:text-4xl font-bold">Explore nearby</p>
 			<div
 				id="cardlist"
 				className="relative grid  gap-x-3 grid-cols-2 sm:grid-cols-3 

@@ -25,7 +25,7 @@ const discoverList = [
 function Discover() {
 	return (
 		<div className="my-8 mx-12">
-			<h2 className="text-xl sm:text-2xl md:text-3xl mb-4 font-bold">
+			<h2 className="text-xl sm:text-2xl md:text-4xl mb-4 font-bold">
 				Discover things to do
 			</h2>
 			<div className="flex flex-row gap-4 items-center justify-center ">

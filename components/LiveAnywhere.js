@@ -63,7 +63,7 @@ function LiveAnywhere() {
 					</button>
 				</span>
 			</div>
-			<h2 className="text-xl sm:text-2xl md:text-3xl font-bold">
+			<h2 className="text-xl sm:text-2xl md:text-4xl font-bold">
 				Live anywhere
 			</h2>
 			<div

@@ -23,14 +23,14 @@ function TryHosting() {
 				className="flex flex-col items-center sm:h-4/5 w-full sm:items-start 
                 sm:justify-center px-20 text-white absolute top-8"
 			>
-				<h2 className="text-3xl md:text-5xl md:leading-relaxed font-medium">
+				<h2 className="text-3xl md:text-5xl md:leading-relaxed font-bold">
 					Try hosting
 				</h2>
-				<p className="font-light sm:px-0 text-base md:text-lg">
+				<p className="sm:px-0 text-base md:text-lg">
 					Earn extra income and unlock new <br /> opportunities by sharing your
 					space.
 				</p>
-				<button className="flex bg-white text-black text-sm font-normal mt-4 px-4 py-1.5 rounded-md">
+				<button className="flex bg-white text-black  font-medium mt-4 px-6 py-2.5 rounded-md">
 					Learn More
 				</button>
 			</div>
