@@ -10,11 +10,7 @@ import RangePicker from './RangePicker';
 
 const url = 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities';
 
-const handleClick = (e) => {
-	e.preventDefault();
-};
-
-function Header({ selected }) {
+function Header() {
 	const [cities, setCities] = useState(null);
 	const [input, setInput] = useState('');
 	const [navbar, setNavbar] = useState(false);
@@ -24,9 +20,8 @@ function Header({ selected }) {
 	const [selectedDates, setSelectedDates] = useState([]);
 	const [date] = useState(new Date());
 	const [focusStart, setFocusStart] = useState(false);
+	const [focusEnd, setFocusEnd] = useState(false);
 	const [focusLocation, setFocusLocation] = useState(false);
-
-	const startRef = useRef();
 
 	const hook = () => {
 		const config = {
@@ -60,10 +55,6 @@ function Header({ selected }) {
 		setFocusLocation(false);
 	};
 
-	useEffect(() => {
-		startRef.current.focus();
-	}, [location]);
-
 	const handleChange = (e) => {
 		setInput(e.target.value);
 		setOpen(true);
@@ -96,6 +87,8 @@ function Header({ selected }) {
 		if (selectedDates.length) {
 			if (selectedDates.length === 1) {
 				let firstTime = selectedDates[0].getTime();
+				setFocusEnd(true);
+				setShowCalendar(false);
 
 				if (firstTime < dateTime) newDates.push(date);
 				else newDates.unshift(date);
@@ -109,6 +102,9 @@ function Header({ selected }) {
 			setSelectedDates(newDates);
 		}
 	}
+	const onClick = () => {
+		console.log('click');
+	};
 
 	return (
 		<div className={navbar ? 'navbar-active' : 'navbar'}>
@@ -149,14 +145,13 @@ function Header({ selected }) {
 								<button
 									onClick={handleShowCalendar}
 									className=" text-sm font-light"
-									ref={startRef}
 								>
 									Add dates
 								</button>
 							)}
 						</div>
 						<div className="bdr-header"></div>
-						<div className="btn-header">
+						<div className={focusEnd ? 'btn-header-focus' : 'btn-header'}>
 							<div className="font-medium">Check out</div>
 							{selectedDates.length > 1 ? (
 								<button
@@ -218,6 +213,7 @@ function Header({ selected }) {
 			) : null}
 			{showCalendar ? (
 				<RangePicker
+					onClick={() => console.log('onClick')}
 					date={date}
 					selected={selectedDates}
 					onDateSelected={_handleOnDateSelected}

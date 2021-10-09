@@ -20,9 +20,7 @@ function LogoHeader({ navbar }) {
 						alt="logo"
 					/>
 				</div>
-				<div className="hidden md:block font-semibold text-2xl pl-1">
-					airbnb
-				</div>
+				<div className="hidden md:block font-medium text-2xl pl-1">airbnb</div>
 			</div>
 			<div className="flex-6 w-84">
 				<button
@@ -32,7 +30,7 @@ function LogoHeader({ navbar }) {
 							: 'hidden'
 					}
 				>
-					<span className="font-light pl-2">Start your search</span>
+					<span className=" pl-2">Start your search</span>
 					<span className="bg-red-500 relative rounded-full w-7 h-7 ml-20">
 						<div className="relative w-3 top-1.5 left-2">
 							<Image src={searchIcon} />
@@ -41,7 +39,7 @@ function LogoHeader({ navbar }) {
 				</button>
 			</div>
 			<div className="flex items-center justify-end flex-5">
-				<button className="mx-2 pt-1 text-sm font-light hover:bg-gray-50 hover:bg-opacity-20 px-2 rounded-lg">
+				<button className="mx-2 pt-1 text-sm  hover:bg-gray-50 hover:bg-opacity-20 px-2 rounded-lg">
 					Become a host
 				</button>
 				<button>

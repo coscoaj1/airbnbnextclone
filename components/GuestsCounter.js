@@ -1,7 +1,6 @@
 import React, { useState, useReducer } from 'react';
 import Minus from '../public/images/minus-svgrepo-com.svg';
 import Plus from '../public/images/icons8-plus-+.svg';
-import Image from 'next/image';
 
 const initialCount = { count: 0 };
 
