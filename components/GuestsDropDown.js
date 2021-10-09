@@ -3,7 +3,7 @@ import searchIcon from '../public/images/Untitledsearch (1).png';
 import GuestsCounter from './GuestsCounter';
 import Image from 'next/image';
 import { Popover } from '@headlessui/react';
-import CancelX from '../public/images/12555439561530177266.svg';
+import CancelX from '../public/images/x-svgrepo-com (1).svg';
 
 function GuestsDropDown() {
 	const [totalGuests, setTotalGuests] = useState(null);

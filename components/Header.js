@@ -68,6 +68,7 @@ function Header() {
 	const changeHeader = () => {
 		if (window.scrollY >= 80) {
 			setNavbar(true);
+			setShowCalendar(false);
 		} else {
 			setNavbar(false);
 		}
@@ -213,7 +214,6 @@ function Header() {
 			) : null}
 			{showCalendar ? (
 				<RangePicker
-					onClick={() => console.log('onClick')}
 					date={date}
 					selected={selectedDates}
 					onDateSelected={_handleOnDateSelected}
