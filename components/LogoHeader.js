@@ -71,8 +71,8 @@ function LogoHeader({ navbar }) {
 							: 'flex flex-row items-center mr-6 bg-white rounded-full border'
 					}
 				>
-					<button className="w-4 h-auto mt-3 mb-1 ml-2 z-10">
-						<Image src={menuIcon} width={16} height={16} alt="" />
+					<button className="w-4 h-auto mt-2 mb-1 ml-2 z-10">
+						<Image src={menuIcon} width={16} height={18} alt="" />
 					</button>
 					<button className="w-7 mx-2 mt-1">
 						<Image src={userIcon} alt="" />

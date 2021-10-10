@@ -79,10 +79,10 @@ function GuestsDropDown({ sendTotal }) {
 			{totalGuests ? (
 				<div className="ml-5">
 					<button
-						className="mt-3 w-6 h-6 bg-gray-200 hover:bg-gray-300 rounded-full"
+						className="w-6 h-6 bg-gray-200 hover:bg-gray-300 rounded-full transform translate-y-4"
 						onClick={() => setTotalGuests(null)}
 					>
-						<CancelX width={18} height={18} className="rounded-full pl-0.5" />
+						<CancelX width={18} height={18} className="rounded-full pl-1.5" />
 					</button>
 				</div>
 			) : null}
@@ -92,7 +92,7 @@ function GuestsDropDown({ sendTotal }) {
 					onClick={() => {
 						sendTotal(totalGuests);
 					}}
-					className="relative w-12 h-12 pt-1"
+					className="relative w-12 h-12 pt-1 active:scale-90 transform duration-200"
 				>
 					<Image width={108} height={108} src={searchIcon} alt="search icon" />
 				</button>

@@ -7,8 +7,7 @@ import GuestsDropDown from './GuestsDropDown';
 import locationicon from '../public/images/locationicon.png';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import RangePicker from './RangePicker';
-import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
+import CancelX from '../public/images/x-svgrepo-com (1).svg';
 
 const url = 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities';
 
@@ -51,7 +50,7 @@ function Header() {
 	};
 
 	const handleLocationSelect = (city) => {
-		setLocation(city.city);
+		setLocation(`${city.city}, ${city.regionCode}`);
 		setOpen(false);
 		setShowCalendar(!showCalendar);
 		setFocusStart(true);
@@ -109,7 +108,10 @@ function Header() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log('submit');
+		console.log(location);
+		console.log(selectedDates[0].toLocaleString().split(',')[0])
+		console.log(selectedDates[1].toLocaleString().split(',')[0])
+		console.log(`${totalGuests} guests`)
 	};
 
 	const sendTotal = (total) => {
@@ -118,10 +120,10 @@ function Header() {
 	};
 	return (
 		<div className={navbar ? 'navbar-active' : 'navbar'}>
-			<form onSubmit={handleSubmit}>
-				<header className="mx-auto">
+				{/* <header className="mx-auto border-red-500 border-1"> */}
 					<LogoHeader navbar={navbar} />
 					<HeaderTabs navbar={navbar} />
+			<form onSubmit={handleSubmit}>
 
 					<div className={navbar ? 'formdiv-active' : 'formdiv'}>
 						<div
@@ -137,7 +139,7 @@ function Header() {
 								onFocus={() => setFocusLocation(true)}
 								type="text"
 								value={location ? location : input}
-								className="outline-none bg-gray-50"
+								className="outline-none bg-gray-50 font-medium text-sm"
 								placeholder="Where are you going?"
 							></input>
 						</div>
@@ -145,13 +147,21 @@ function Header() {
 						<div className={focusStart ? 'btn-header-focus' : 'btn-header'}>
 							<div className="font-medium">Check in</div>
 							{selectedDates.length > 0 ? (
-								<button
-									onClick={handleShowCalendar}
-									className="text-sm font-medium"
-									value={selectedDates[0].toLocaleString().split(',')[0]}
-								>
-									{selectedDates[0].toLocaleString().split(',')[0]}
-								</button>
+								<div className="flex items-start gap-3">
+									<button
+										onClick={handleShowCalendar}
+										className="text-sm font-medium"
+										value={selectedDates[0].toLocaleString().split(',')[0]}
+									>
+										{selectedDates[0].toLocaleString().split(',')[0]}
+									</button>
+									{selectedDates.length === 1 && <button
+									className="w-6 h-6  bg-gray-200 hover:bg-gray-300 rounded-full transform -translate-y-3"
+									onClick={() => setSelectedDates([])}
+																>
+									<CancelX width={18} height={18} className="rounded-full pl-1.5" />
+									</button>}
+								</div>
 							) : (
 								<button
 									onClick={handleShowCalendar}
@@ -165,13 +175,21 @@ function Header() {
 						<div className={focusEnd ? 'btn-header-focus' : 'btn-header'}>
 							<div className="font-medium">Check out</div>
 							{selectedDates.length > 1 ? (
-								<button
-									onClick={handleShowCalendar}
-									className="text-sm font-medium"
-									value={selectedDates[1].toLocaleString().split(',')[0]}
-								>
-									{selectedDates[1].toLocaleString().split(',')[0]}
-								</button>
+								<div className="flex items-start gap-3">
+									<button
+										onClick={handleShowCalendar}
+										className="text-sm font-medium"
+										value={selectedDates[1].toLocaleString().split(',')[0]}
+									>
+										{selectedDates[1].toLocaleString().split(',')[0]}
+									</button>
+										<button
+										className="w-6 h-6 bg-gray-200 hover:bg-gray-300 rounded-full transform -translate-y-3"
+										onClick={() => setSelectedDates([])}
+																	>
+										<CancelX width={18} height={18} className="rounded-full pl-1.5" />
+										</button>
+								</div>
 							) : (
 								<button
 									onClick={handleShowCalendar}
@@ -189,7 +207,7 @@ function Header() {
 							/>
 						</div>
 					</div>
-				</header>
+				{/* </header> */}
 				{input.length > 0 ? (
 					<ClickAwayListener onClickAway={handleClickAway}>
 						{open ? (
@@ -201,7 +219,7 @@ function Header() {
 												key={city.city}
 												className="flex flex-row items-center gap-1"
 											>
-												<div className="border border-gray-200 rounded-lg py-2 px-3 m-1">
+												<div className="border border-gray-200 bg-gray-100 rounded-lg py-2 px-3 m-1">
 													<Image
 														src={locationicon}
 														width={18}
@@ -213,7 +231,7 @@ function Header() {
 													value={city}
 													onClick={() => handleLocationSelect(city)}
 												>
-													{city.city}
+													{city.city}, {city.regionCode}
 												</button>
 											</li>
 										);
