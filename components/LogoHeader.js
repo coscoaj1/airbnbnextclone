@@ -11,7 +11,7 @@ import menuIcon from '../public/images/icons8-menu-24.png';
 function LogoHeader({ navbar }) {
 	return (
 		<div className="relative flex flex-row mx-24">
-			<div className="flex-5 flex flex-row items-center">
+			<button className="flex-5 flex flex-row items-center">
 				<div className={navbar ? 'mt-2' : 'flex '}>
 					<Image
 						src={navbar ? redLogo : logo}
@@ -21,12 +21,12 @@ function LogoHeader({ navbar }) {
 					/>
 				</div>
 				<div className="hidden md:block font-medium text-2xl pl-1">airbnb</div>
-			</div>
+			</button>
 			<div className="flex-6 w-84">
 				<button
 					className={
 						navbar
-							? 'flex justify-between items-center my-3 py-2 px-2 rounded-full border border-gray-300 shadow-md text-sm font-normal'
+							? 'flex justify-between items-center my-3 py-2 px-2 rounded-full border border-gray-300 shadow-sm text-sm font-normal hover:shadow-md'
 							: 'hidden'
 					}
 				>
@@ -39,11 +39,23 @@ function LogoHeader({ navbar }) {
 				</button>
 			</div>
 			<div className="flex items-center justify-end flex-5">
-				<button className="mx-2 pt-1 text-sm  hover:bg-gray-50 hover:bg-opacity-20 px-2 rounded-lg">
+				<button
+					className={
+						navbar
+							? 'py-2 px-3 text-sm  hover:bg-gray-100 rounded-2xl'
+							: 'py-2 px-3 text-sm  hover:bg-gray-50 hover:bg-opacity-20  rounded-2xl'
+					}
+				>
 					Become a host
 				</button>
 				<button>
-					<div className="ml-2 mr-5 px-2 pt-2 hover:bg-gray-50 hover:bg-opacity-20 rounded-full">
+					<div
+						className={
+							navbar
+								? 'ml-1 mr-4 px-3 pt-2 hover:bg-gray-100 rounded-full'
+								: 'ml-1 mr-4 px-3 pt-2 hover:bg-gray-50 hover:bg-opacity-20 rounded-full'
+						}
+					>
 						<Image
 							src={navbar ? blackGlobe : globe}
 							alt="globe icon"
@@ -52,7 +64,13 @@ function LogoHeader({ navbar }) {
 						/>
 					</div>
 				</button>
-				<div className="flex flex-row mr-6 bg-white rounded-full border items-center">
+				<div
+					className={
+						navbar
+							? 'flex flex-row items-center mr-6 bg-white rounded-full border hover:shadow-md'
+							: 'flex flex-row items-center mr-6 bg-white rounded-full border'
+					}
+				>
 					<button className="w-4 h-auto mt-3 mb-1 ml-2 z-10">
 						<Image src={menuIcon} width={16} height={16} alt="" />
 					</button>
