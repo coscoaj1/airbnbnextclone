@@ -4,6 +4,7 @@ import {
 	monthNamesFull,
 	weekdayNamesShort,
 } from '../public/data/calendarUtils';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Right from '../public/images/chevron-right-svgrepo-com (2).svg';
 import Left from '../public/images/chevron-left-svgrepo-com.svg';
 
@@ -18,9 +19,9 @@ function Month(props) {
 function DayOfMonth(props) {
 	const { selected, unavailable, today, isinrange } = props;
 
-	let cellStyle = 'hover:border-black border-2 border-white rounded-full';
+	let cellStyle = 'hover:border-black border-2 border-transparent rounded-full';
 	if (today)
-		cellStyle = 'hover:border-black border-2 border-white rounded-full';
+		cellStyle = 'hover:border-black border-2 border-transparent rounded-full';
 	if (selected) cellStyle = 'rounded-full text-white bg-black';
 	if (isinrange) cellStyle = 'bg-gray-200';
 	if (unavailable) cellStyle = 'opacity-25 cursor-not-allowed';
@@ -120,57 +121,59 @@ function RangeDatepicker(props) {
 	if (calendars.length) {
 		return (
 			<Calendar onMouseLeave={onMouseLeave}>
-				<div className="flex mt-3 mb-3 max-w-3xl max-h-lg rounded-3xl mx-auto bg-white  text-black overflow-y-auto">
-						<div>
-							<button className="pt-20 pl-6" {...getBackProps({ calendars })}>
-								<Left />
-							</button>
-						</div>
-						{calendars.map((calendar) => (
-							<Month key={`${calendar.month}${calendar.year}`}>
-								<div className="col-span-7 flex justify-center pt-20 pb-6">
-									{monthNamesFull[calendar.month]} {calendar.year}
-								</div>
-								{weekdayNamesShort.map((weekday) => (
-									<DayOfMonthEmpty
-										key={`${calendar.month}${calendar.year}${weekday}`}
-									>
-										{weekday}
-									</DayOfMonthEmpty>
-								))}
-								{calendar.weeks.map((week, windex) =>
-									week.map((dateObj, index) => {
-										let key = `${calendar.month}${calendar.year}${windex}${index}`;
-										if (!dateObj) {
-											return <DayOfMonthEmpty key={key} />;
-										}
-										let { date, selected, selectable, today } = dateObj;
-										return (
-											<DayOfMonth
-												key={key}
-												{...getDateProps({
-													dateObj,
-													onMouseEnter: () => onMouseEnter(date),
-												})}
-												selected={selected}
-												unavailable={!selectable ? 1 : 0}
-												today={today ? 1 : 0}
-												isinrange={isInRange(date) ? 1 : 0}
-											>
-												{date.getDate()}
-											</DayOfMonth>
-										);
-									})
-								)}
-							</Month>
-						))}
-						<div>
-							<button className="pt-20 pr-6" {...getForwardProps({ calendars })}>
-								<Right />
-							</button>
-						</div>
-				</div>
-			</Calendar>
+					<ClickAwayListener onClickAway={props.onClickAway}>
+					<div className="flex mt-3 mb-3 max-w-3.5xl justify-center max-h-lg rounded-3xl mx-auto gap-8 bg-white  text-black overflow-y-auto">
+							<div>
+								<button className="pt-32 pl-5" {...getBackProps({ calendars })}>
+									<Left />
+								</button>
+							</div>
+							{calendars.map((calendar) => (
+								<Month key={`${calendar.month}${calendar.year}`}>
+									<div className="col-span-7 flex justify-center pt-20 pb-6">
+										{monthNamesFull[calendar.month]} {calendar.year}
+									</div>
+									{weekdayNamesShort.map((weekday) => (
+										<DayOfMonthEmpty
+											key={`${calendar.month}${calendar.year}${weekday}`}
+										>
+											{weekday}
+										</DayOfMonthEmpty>
+									))}
+									{calendar.weeks.map((week, windex) =>
+										week.map((dateObj, index) => {
+											let key = `${calendar.month}${calendar.year}${windex}${index}`;
+											if (!dateObj) {
+												return <DayOfMonthEmpty key={key} />;
+											}
+											let { date, selected, selectable, today } = dateObj;
+											return (
+												<DayOfMonth
+													key={key}
+													{...getDateProps({
+														dateObj,
+														onMouseEnter: () => onMouseEnter(date),
+													})}
+													selected={selected}
+													unavailable={!selectable ? 1 : 0}
+													today={today ? 1 : 0}
+													isinrange={isInRange(date) ? 1 : 0}
+												>
+													{date.getDate()}
+												</DayOfMonth>
+											);
+										})
+									)}
+								</Month>
+							))}
+							<div>
+								<button className="pt-32 pr-5" {...getForwardProps({ calendars })}>
+									<Right />
+								</button>
+							</div>
+					</div>
+			</ClickAwayListener>
+				</Calendar>
 		);
 	}
 
@@ -180,15 +183,17 @@ function RangeDatepicker(props) {
 function Range(props) {
 	let minDate = new Date();
 	minDate.setDate(minDate.getDate() - 1);
+	
 	return (
 		<>
-			<RangeDatepicker
-				minDate={minDate}
-				date={props.date}
-				selected={props.selected}
-				onDateSelected={props.onDateSelected}
-				monthsToDisplay={2}
-			/>
+				<RangeDatepicker
+				onClickAway={props.onClickAway}
+					minDate={minDate}
+					date={props.date}
+					selected={props.selected}
+					onDateSelected={props.onDateSelected}
+					monthsToDisplay={2}
+				/>
 		</>
 	);
 }

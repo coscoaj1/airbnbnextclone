@@ -47,6 +47,8 @@ function Header() {
 		setOpen(!open);
 	};
 
+	
+
 	const handleLocationSelect = (city) => {
 		setLocation(city.city);
 		setOpen(false);
@@ -89,7 +91,7 @@ function Header() {
 			if (selectedDates.length === 1) {
 				let firstTime = selectedDates[0].getTime();
 				setFocusEnd(true);
-				setShowCalendar(false);
+				// setShowCalendar(false);
 
 				if (firstTime < dateTime) newDates.push(date);
 				else newDates.unshift(date);
@@ -213,11 +215,12 @@ function Header() {
 				</ClickAwayListener>
 			) : null}
 			{showCalendar ? (
-				<RangePicker
-					date={date}
-					selected={selectedDates}
-					onDateSelected={_handleOnDateSelected}
-				/>
+						<RangePicker
+							onClickAway={() => setShowCalendar(false)}
+							date={date}
+							selected={selectedDates}
+							onDateSelected={_handleOnDateSelected}
+						/>
 			) : null}
 		</div>
 	);

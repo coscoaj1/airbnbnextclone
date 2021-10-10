@@ -58,6 +58,10 @@ module.exports = {
 			},
 			width: {
 				82: '20.625rem',
+				
+			},
+			maxWidth: {
+				'3.5xl': '800px'
 			},
 
 			flex: {
