@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Popover } from '@headlessui/react';
 import CancelX from '../public/images/x-svgrepo-com (1).svg';
 
-function GuestsDropDown({ sendDataToParent }) {
+function GuestsDropDown({ sendTotal }) {
 	const [totalGuests, setTotalGuests] = useState(null);
 	return (
 		<div className="grid grid-cols-3 h-24 ">
@@ -90,7 +90,7 @@ function GuestsDropDown({ sendDataToParent }) {
 				<button
 					type="submit"
 					onClick={() => {
-						sendDataToParent(totalGuests);
+						sendTotal(totalGuests);
 					}}
 					className="relative w-12 h-12 pt-1"
 				>

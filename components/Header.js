@@ -112,8 +112,7 @@ function Header() {
 		console.log('submit');
 	};
 
-	const sendDataToParent = (total) => {
-		// the callback. Use a better name
+	const sendTotal = (total) => {
 		console.log(total);
 		setTotalGuests(total);
 	};
@@ -186,7 +185,7 @@ function Header() {
 						<div className="flex flex-4 my-auto focus:border-gray-300  px-2 py-1">
 							<GuestsDropDown
 								totalGuests={totalGuests}
-								sendDataToParent={sendDataToParent}
+								sendTotal={sendTotal}
 							/>
 						</div>
 					</div>
