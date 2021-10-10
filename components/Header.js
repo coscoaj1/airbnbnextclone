@@ -10,7 +10,6 @@ import RangePicker from './RangePicker';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
-
 const url = 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities';
 
 function Header() {
@@ -25,6 +24,7 @@ function Header() {
 	const [focusStart, setFocusStart] = useState(false);
 	const [focusEnd, setFocusEnd] = useState(false);
 	const [focusLocation, setFocusLocation] = useState(false);
+	const [totalGuests, setTotalGuests] = useState(null);
 
 	const hook = () => {
 		const config = {
@@ -49,8 +49,6 @@ function Header() {
 	const handleClickAway = () => {
 		setOpen(!open);
 	};
-
-	
 
 	const handleLocationSelect = (city) => {
 		setLocation(city.city);
@@ -108,18 +106,23 @@ function Header() {
 			setSelectedDates(newDates);
 		}
 	}
-	
 
 	const handleSubmit = (e) => {
-		e.preventDefault()
-		console.log('submit')
-	}
+		e.preventDefault();
+		console.log('submit');
+	};
+
+	const sendDataToParent = (total) => {
+		// the callback. Use a better name
+		console.log(total);
+		setTotalGuests(total);
+	};
 	return (
 		<div className={navbar ? 'navbar-active' : 'navbar'}>
-				<form onSubmit={handleSubmit}>
-			<header className="mx-auto">
-				<LogoHeader navbar={navbar} />
-				<HeaderTabs navbar={navbar} />
+			<form onSubmit={handleSubmit}>
+				<header className="mx-auto">
+					<LogoHeader navbar={navbar} />
+					<HeaderTabs navbar={navbar} />
 
 					<div className={navbar ? 'formdiv-active' : 'formdiv'}>
 						<div
@@ -181,55 +184,57 @@ function Header() {
 						</div>
 						<div className="bdr-header"></div>
 						<div className="flex flex-4 my-auto focus:border-gray-300  px-2 py-1">
-							<GuestsDropDown />
+							<GuestsDropDown
+								totalGuests={totalGuests}
+								sendDataToParent={sendDataToParent}
+							/>
 						</div>
 					</div>
-			</header>
-			{input.length > 0 ? (
-				<ClickAwayListener onClickAway={handleClickAway}>
-					{open ? (
-						<div className="absolute ml-40 transform translate-x-2 bg-white shadow-lg rounded-2xl w-1/3 p-2 mt-2 text-black text-base font-light">
-							<ul>
-								{cities.map((city) => {
-									return (
-										<li
-										key={city.city}
-										className="flex flex-row items-center gap-1"
-										>
-											<div className="border border-gray-200 rounded-lg py-2 px-3 m-1">
-												<Image
-													src={locationicon}
-													width={18}
-													height={18}
-													alt=""
+				</header>
+				{input.length > 0 ? (
+					<ClickAwayListener onClickAway={handleClickAway}>
+						{open ? (
+							<div className="absolute ml-40 transform translate-x-2 bg-white shadow-lg rounded-2xl w-1/3 p-2 mt-2 text-black text-base font-light">
+								<ul>
+									{cities.map((city) => {
+										return (
+											<li
+												key={city.city}
+												className="flex flex-row items-center gap-1"
+											>
+												<div className="border border-gray-200 rounded-lg py-2 px-3 m-1">
+													<Image
+														src={locationicon}
+														width={18}
+														height={18}
+														alt=""
 													></Image>
-											</div>
-											<button
-												value={city}
-												onClick={() => handleLocationSelect(city)}
+												</div>
+												<button
+													value={city}
+													onClick={() => handleLocationSelect(city)}
 												>
-												{city.city}
-											</button>
-										</li>
-									);
-								})}
-							</ul>
-						</div>
-					) : (
-						<></>
+													{city.city}
+												</button>
+											</li>
+										);
+									})}
+								</ul>
+							</div>
+						) : (
+							<></>
 						)}
-				</ClickAwayListener>
-			) : null}
-			{showCalendar ? (
-				<RangePicker
-				onClickAway={() => setShowCalendar(false)}
-				date={date}
-				selected={selectedDates}
-				onDateSelected={_handleOnDateSelected}
-				/>
+					</ClickAwayListener>
 				) : null}
-				</form>
-				
+				{showCalendar ? (
+					<RangePicker
+						onClickAway={() => setShowCalendar(false)}
+						date={date}
+						selected={selectedDates}
+						onDateSelected={_handleOnDateSelected}
+					/>
+				) : null}
+			</form>
 		</div>
 	);
 }
