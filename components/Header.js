@@ -7,6 +7,9 @@ import GuestsDropDown from './GuestsDropDown';
 import locationicon from '../public/images/locationicon.png';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import RangePicker from './RangePicker';
+import { Formik, Form } from 'formik';
+import * as Yup from 'yup';
+
 
 const url = 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities';
 
@@ -105,17 +108,19 @@ function Header() {
 			setSelectedDates(newDates);
 		}
 	}
-	const onClick = () => {
-		console.log('click');
-	};
+	
 
+	const handleSubmit = (e) => {
+		e.preventDefault()
+		console.log('submit')
+	}
 	return (
 		<div className={navbar ? 'navbar-active' : 'navbar'}>
+				<form onSubmit={handleSubmit}>
 			<header className="mx-auto">
 				<LogoHeader navbar={navbar} />
 				<HeaderTabs navbar={navbar} />
 
-				<form>
 					<div className={navbar ? 'formdiv-active' : 'formdiv'}>
 						<div
 							className={
@@ -140,14 +145,15 @@ function Header() {
 							{selectedDates.length > 0 ? (
 								<button
 									onClick={handleShowCalendar}
-									className=" text-sm font-light"
+									className="text-sm font-medium"
+									value={selectedDates[0].toLocaleString().split(',')[0]}
 								>
 									{selectedDates[0].toLocaleString().split(',')[0]}
 								</button>
 							) : (
 								<button
 									onClick={handleShowCalendar}
-									className=" text-sm font-light"
+									className="text-sm font-light"
 								>
 									Add dates
 								</button>
@@ -159,14 +165,15 @@ function Header() {
 							{selectedDates.length > 1 ? (
 								<button
 									onClick={handleShowCalendar}
-									className=" text-sm font-light"
+									className="text-sm font-medium"
+									value={selectedDates[1].toLocaleString().split(',')[0]}
 								>
 									{selectedDates[1].toLocaleString().split(',')[0]}
 								</button>
 							) : (
 								<button
 									onClick={handleShowCalendar}
-									className=" text-sm font-light"
+									className="text-sm font-light"
 								>
 									Add dates
 								</button>
@@ -177,7 +184,6 @@ function Header() {
 							<GuestsDropDown />
 						</div>
 					</div>
-				</form>
 			</header>
 			{input.length > 0 ? (
 				<ClickAwayListener onClickAway={handleClickAway}>
@@ -187,8 +193,8 @@ function Header() {
 								{cities.map((city) => {
 									return (
 										<li
-											key={city.city}
-											className="flex flex-row items-center gap-1"
+										key={city.city}
+										className="flex flex-row items-center gap-1"
 										>
 											<div className="border border-gray-200 rounded-lg py-2 px-3 m-1">
 												<Image
@@ -196,12 +202,12 @@ function Header() {
 													width={18}
 													height={18}
 													alt=""
-												></Image>
+													></Image>
 											</div>
 											<button
 												value={city}
 												onClick={() => handleLocationSelect(city)}
-											>
+												>
 												{city.city}
 											</button>
 										</li>
@@ -211,17 +217,19 @@ function Header() {
 						</div>
 					) : (
 						<></>
-					)}
+						)}
 				</ClickAwayListener>
 			) : null}
 			{showCalendar ? (
-						<RangePicker
-							onClickAway={() => setShowCalendar(false)}
-							date={date}
-							selected={selectedDates}
-							onDateSelected={_handleOnDateSelected}
-						/>
-			) : null}
+				<RangePicker
+				onClickAway={() => setShowCalendar(false)}
+				date={date}
+				selected={selectedDates}
+				onDateSelected={_handleOnDateSelected}
+				/>
+				) : null}
+				</form>
+				
 		</div>
 	);
 }

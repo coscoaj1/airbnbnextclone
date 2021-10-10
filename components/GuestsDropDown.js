@@ -5,14 +5,14 @@ import Image from 'next/image';
 import { Popover } from '@headlessui/react';
 import CancelX from '../public/images/x-svgrepo-com (1).svg';
 
-function GuestsDropDown() {
+function GuestsDropDown(props) {
 	const [totalGuests, setTotalGuests] = useState(null);
 	return (
 		<div className="grid grid-cols-3 h-24 ">
 			<Popover>
 				<Popover.Button className="grid grid-cols-2 w-24 ">
 					<div className="col-span-1 text-left px-4 bg-opacity-40 ">
-						<div className="pt-2.5 h-full col-span-1 text-xs tracking-wider ">
+						<div className="pt-2.5 h-full col-span-1 text-xs font-medium tracking-wider">
 							Guests
 						</div>
 						{(() => {
@@ -21,13 +21,13 @@ function GuestsDropDown() {
 									return <div className="h-full text-sm font-light">Add</div>;
 								case 1:
 									return (
-										<div className="text left font-light w-24">
+										<div className="text left font-medium text-sm w-24">
 											{totalGuests} Guest
 										</div>
 									);
 								default:
 									return (
-										<div className="text-left font-light w-24">
+										<div className="text-left font-medium text-sm w-24">
 											{totalGuests} Guests
 										</div>
 									);
@@ -84,9 +84,9 @@ function GuestsDropDown() {
 				</Popover.Panel>
 			</Popover>
 			<div className=" col-start-3  mr-1">
-				<div className="relative  w-12 h-12 pt-1">
+				<button type="submit" className="relative  w-12 h-12 pt-1">
 					<Image width={108} height={108} src={searchIcon} alt="search icon" />
-				</div>
+				</button>
 			</div>
 		</div>
 	);
