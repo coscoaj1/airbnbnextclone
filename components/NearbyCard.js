@@ -8,13 +8,13 @@ export default function NearbyCard({ card }) {
 				className="rounded-md"
 				src={card.img}
 				alt=""
-				width={60}
-				height={60}
+				width={65}
+				height={65}
 			/>
 			<div className="flex items-center text-base ml-3">
 				<ul>
-					<li className="font-normal">{card.name}</li>
-					<li className="font-light">{card.drive}</li>
+					<li className="font-medium">{card.name}</li>
+					<li>{card.drive}</li>
 				</ul>
 			</div>
 		</div>

@@ -39,7 +39,7 @@ function Hero() {
 
 				<MobileHeader />
 				<div className="absolute w-full top-1/2 text-center ">
-					<p className="text-lg font-normal">
+					<p className="text-lg font-medium">
 						Not sure where to go?{' '}
 						<span className="block sm:inline">Perfect.</span>
 					</p>
