@@ -30,7 +30,7 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 airbnbnextclone-d481c-firebase-adminsdk-lz3qk-467dcdcb16.json
+secrets.json
 # vercel
 .vercel
-
 CityApi.js
