@@ -1,5 +1,5 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
+import React
 const auth = getAuth();
 createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
