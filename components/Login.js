@@ -1,20 +1,36 @@
 import React, { useState } from "react";
-import firebaseClient from "../firebase/firebaseClient";
-import firebase from "firebase/app";
-import "firebase/auth";
-import cancelX from "../public/images/x-svgrepo-com (1).svg";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import CancelX from "../public/images/x-svgrepo-com (1).svg";
 
-function Login() {
+const SignIn = () => {
+  const signInWithFirebase = () => {
+    const google_provider = new firebase.auth.GoogleAuthProvider();
+    firebase
+      .auth()
+      .signInWithPopup(google_provider)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="flex flex-col h-auto w-96">
       <header className="flex flex-0 items-center">
         <button className="bg-gray-100 rounded-full">
-          <cancelX width={18} className="px-1 py-1"></cancelX>
+          <CancelX width={18} className="px-1 py-1"></CancelX>
         </button>
-        <div>Log in or sign up</div>
+        <button
+          className="h-12 w-24 bg-gray-500 mb-4"
+          onClick={signInWithFirebase}
+        >
+          Google sign in
+        </button>
       </header>
     </div>
   );
-}
+};
 
-export default Login;
+export default SignIn;

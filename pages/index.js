@@ -9,15 +9,15 @@ import Header from "../components/Header";
 import TryHosting from "../components/TryHosting";
 import TabsList from "../components/TabsList";
 import Footer from "../components/Footer";
-import Link from "next/link";
-import LoginContainer from "../components/Login";
+import { useAuth } from "../firebase/auth";
+import Login from "../components/Login";
 
 export default function Home() {
   const { user } = useAuth();
-  const [homes, setHomes] = useState([]);
 
   return (
     <div className="font-circular box-border">
+      <Login />
       <Header />
       <Hero />
       <Bottombar />
