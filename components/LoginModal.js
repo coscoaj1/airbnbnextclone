@@ -5,13 +5,13 @@ function LoginModal() {
 	let [isOpen, setIsOpen] = useState(true);
 
 	return (
-		<div className="flex items-center border border-red-500 justify-center w-screen h-auto">
+		<div>
 			<Dialog
-				className="bg-white mx-auto text-black z-30 inset-0 w-96 h-96"
+				className="bg-white mx-auto my-auto text-black z-30 fixed inset-0 w-96 h-96"
 				open={isOpen}
 				onClose={() => setIsOpen(false)}
 			>
-				<Dialog.Overlay className="z-20 opacity-50 w-screen" />
+				<Dialog.Overlay />
 				<Dialog.Title>Deactivate account</Dialog.Title>
 				<Dialog.Description>
 					This will permanently deactivate your account
