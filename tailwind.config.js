@@ -58,10 +58,9 @@ module.exports = {
 			},
 			width: {
 				82: '20.625rem',
-				
 			},
 			maxWidth: {
-				'3.5xl': '800px'
+				'3.5xl': '800px',
 			},
 
 			flex: {
@@ -71,6 +70,9 @@ module.exports = {
 				5: '1 0 140px',
 				6: '0 1 auto',
 				7: '0 1 50%',
+			},
+			lineHeight: {
+				2: '.1rem',
 			},
 		},
 	},

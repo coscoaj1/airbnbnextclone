@@ -48,21 +48,26 @@ export default function UserDropDown({ navbar }) {
 											active ? ' bg-gray-100' : 'bg-white'
 										} w-full font-medium px-3 py-2.5 mx-0 rounded-lg list-none`}
 									>
-										<button onClick={onClick}>Sign up</button>
+										<button className="w-full text-left" onClick={onClick}>
+											Sign up
+										</button>
 									</li>
 								)}
 							</Menu.Item>
 							<Menu.Item>
 								{({ active }) => (
-									<a
+									<li
 										as=""
 										className={`${
 											active ? 'bg-gray-100' : 'bg-white'
-										} w-full px-3 py-2.5 mx-0 rounded-lg`}
+										} w-full px-3 py-2.5 mx-0 rounded-lg list-none`}
 										href="#"
 									>
-										Log in
-									</a>
+										{' '}
+										<button className="w-full text-left" onClick={onClick}>
+											Log in
+										</button>
+									</li>
 								)}
 							</Menu.Item>
 						</div>

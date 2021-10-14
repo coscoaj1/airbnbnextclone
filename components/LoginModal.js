@@ -20,29 +20,36 @@ function LoginModal({ open, onClose }) {
 					</button>
 					<div className="font-bold mr-48 py-4">Log in or sign up</div>
 				</Dialog.Title>
-				<div className="border-b border-gray-200"></div>
+				<div className="border-b border-gray-200 mt-1"></div>
 				<Dialog.Description className="text-3xl font-medium py-4 ml-4">
 					Welcome to Airbnb
 				</Dialog.Description>
 				<div className="flex flex-col">
-					<label for="email" className="pl-4">
+					<label htmlFor="email" className="pl-4">
 						Email:
 					</label>
 					<input
 						id="email"
 						type="email"
-						className="w-lg mx-4 py-1 pl-1 border border-black rounded-md"
+						className="w-lg mx-4 my-1 py-2 pl-1 border border-black rounded-md"
 					/>
-					<label for="password" className="pl-4">
+					<label htmlFor="password" className="pl-4">
 						Password:
 					</label>
 					<input
 						id="password"
 						type="password"
-						className="w-lg ml-4 mr-4 py-1 pl-1 border border-black rounded-md"
+						className="w-lg mx-4 my-1 py-2 pl-1 border border-black rounded-md bg-white"
 					/>
-					<button onClick={() => setIsOpen(false)}>Deactivate</button>
-					<button onClick={() => setIsOpen(false)}>Cancel</button>
+					<button className="w-lg mx-4 my-5 py-3 pl-1 bg-red-500 text-white text-base font-medium rounded-md active:scale-95 transform duration-200">
+						Continue
+					</button>
+					<div
+						className="border-b border-gray-30 mx-4 mt-3 leading-2
+                     w-lg text-center "
+					>
+						<span className="px-2 bg-white">or</span>
+					</div>
 				</div>
 			</Dialog>
 		</div>
