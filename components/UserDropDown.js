@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Menu } from "@headlessui/react";
 import Image from "next/image";
+import Link from "next/link";
+import { signOut } from "next-auth/client";
 import userIcon from "../public/images/profile-user.png";
 import menuIcon from "../public/images/icons8-menu-24.png";
 import LoginModal from "./LoginModal";
@@ -112,6 +114,28 @@ export default function UserDropDown({ navbar }) {
                   >
                     Help
                   </a>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <li
+                    as=""
+                    className={`${
+                      active ? " bg-gray-100" : "bg-white"
+                    } w-full font-medium px-3 py-2.5 mx-0 rounded-lg list-none`}
+                  >
+                    <Link href="/api/auth/signout">
+                      <a
+                        className="w-full font-medium text-left"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          signOut();
+                        }}
+                      >
+                        Sign out
+                      </a>
+                    </Link>
+                  </li>
                 )}
               </Menu.Item>
             </div>
