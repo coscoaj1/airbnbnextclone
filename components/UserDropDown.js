@@ -20,6 +20,11 @@ export default function UserDropDown({ navbar }) {
     setIsOpen(false);
   };
 
+  const handleLogout = (e) => {
+    e.preventDefault();
+    signOut();
+  };
+
   return (
     <>
       <div className="-mr-6">
@@ -128,8 +133,7 @@ export default function UserDropDown({ navbar }) {
                       <a
                         className="w-full font-medium text-left"
                         onClick={(e) => {
-                          e.preventDefault();
-                          signOut();
+                          handleLogout;
                         }}
                       >
                         Sign out
