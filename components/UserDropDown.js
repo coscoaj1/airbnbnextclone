@@ -18,7 +18,7 @@ export default function UserDropDown({ navbar }) {
 		setIsOpen(true);
 	};
 
-	const handleClose = () => {
+	const handleClose = (e) => {
 		setIsOpen(false);
 	};
 
@@ -154,7 +154,7 @@ export default function UserDropDown({ navbar }) {
 				<LoginModal
 					open={isOpen}
 					onClose={(e) => {
-						handleClose;
+						handleClose(e);
 					}}
 				/>
 			)}

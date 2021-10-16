@@ -1,7 +1,6 @@
 import React from 'react';
-import Dayzed, { useDayzed } from 'dayzed';
+import { useDayzed } from 'dayzed';
 import {
-	monthNamesFull,
 	weekdayNamesShort,
 	monthNamesShort,
 } from '../public/data/calendarUtils';

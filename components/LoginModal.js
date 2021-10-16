@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import Link from 'next/link';
-import { signIn, signOut } from 'next-auth/client';
-import { Dialog } from '@headlessui/react';
+import { signIn } from 'next-auth/client';
+import { Dialog, Transition } from '@headlessui/react';
 import CancelIcon from '../public/images/x-svgrepo-com (1).svg';
 import GithubIcon from '../public/images/iconmonstr-github-1.svg';
 
 function LoginModal({ open, onClose }) {
 	return (
-		<div className="">
+		<div className={open ? 'z-10 fixed inset-0 bg-black opacity-40' : ''}>
 			<Dialog
-				className="bg-white mx-auto my-auto text-black z-30 fixed inset-0 max-w-lg h-xl rounded-lg overflow-y-auto"
+				className="bg-white mx-auto my-auto text-black z-30 fixed inset-0 max-w-lg h-xl rounded-xl "
 				open={open}
 				onClose={onClose}
 			>
@@ -24,7 +23,7 @@ function LoginModal({ open, onClose }) {
 					<div className="font-bold mr-48 py-4">Log in or sign up</div>
 				</Dialog.Title>
 				<div className="border-b border-gray-200 mt-1"></div>
-				<Dialog.Description className="text-2xl font-medium py-4 ml-4">
+				<Dialog.Description className="text-2xl font-medium py-4 ml-4 overflow-y-auto">
 					Welcome to Airbnb
 				</Dialog.Description>
 				<div className="flex flex-col h-lg w-full ">
