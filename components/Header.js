@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import Image from 'next/image';
 import React, { useState, useEffect, useRef } from 'react';
 import LogoHeader from './LogoHeader';
@@ -104,13 +106,17 @@ function Header() {
 			setSelectedDates(newDates);
 		}
 	}
-
+	let obj = {};
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(location);
-		console.log(selectedDates[0].toLocaleString().split(',')[0]);
-		console.log(selectedDates[1].toLocaleString().split(',')[0]);
-		console.log(`${totalGuests} guests`);
+		// console.log(location);
+		// console.log(selectedDates[0].toLocaleString().split(',')[0]);
+		// console.log(selectedDates[1].toLocaleString().split(',')[0]);
+		// console.log(`${totalGuests} guests`);
+		obj.location = location;
+		obj.selectedDates = selectedDates;
+		obj.guestCount = totalGuests;
+		console.log(obj);
 	};
 
 	const sendTotal = (total) => {
