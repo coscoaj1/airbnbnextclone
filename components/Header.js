@@ -9,8 +9,6 @@ import ClickAwayListener from '@mui/material/ClickAwayListener';
 import RangePicker from './RangePicker';
 import CancelX from '../public/images/x-svgrepo-com (1).svg';
 
-const url = 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities';
-
 function Header() {
 	const [cities, setCities] = useState(null);
 	const [input, setInput] = useState('');
@@ -25,6 +23,7 @@ function Header() {
 	const [focusLocation, setFocusLocation] = useState(false);
 	const [totalGuests, setTotalGuests] = useState(null);
 
+	const url = 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities';
 	const hook = () => {
 		const config = {
 			headers: {
@@ -109,9 +108,9 @@ function Header() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(location);
-		console.log(selectedDates[0].toLocaleString().split(',')[0])
-		console.log(selectedDates[1].toLocaleString().split(',')[0])
-		console.log(`${totalGuests} guests`)
+		console.log(selectedDates[0].toLocaleString().split(',')[0]);
+		console.log(selectedDates[1].toLocaleString().split(',')[0]);
+		console.log(`${totalGuests} guests`);
 	};
 
 	const sendTotal = (total) => {
@@ -120,93 +119,98 @@ function Header() {
 	};
 	return (
 		<div className={navbar ? 'navbar-active' : 'navbar'}>
-				{/* <header className="mx-auto border-red-500 border-1"> */}
-					<LogoHeader navbar={navbar} />
-					<HeaderTabs navbar={navbar} />
+			<LogoHeader navbar={navbar} />
+			<HeaderTabs navbar={navbar} />
 			<form onSubmit={handleSubmit}>
-
-					<div className={navbar ? 'formdiv-active' : 'formdiv'}>
-						<div
-							className={
-								focusLocation
-									? 'btn-location-focus flex flex-col justify-center h-full pr-2 group w-full'
-									: 'btn-header flex flex-col justify-center h-full pr-2 group w-full'
-							}
-						>
-							<div className="font-medium">Location</div>
-							<input
-								onChange={handleChange}
-								onFocus={() => setFocusLocation(true)}
-								type="text"
-								value={location ? location : input}
-								className="outline-none bg-gray-50 font-medium text-sm"
-								placeholder="Where are you going?"
-							></input>
-						</div>
-						<div className="bdr-header"></div>
-						<div className={focusStart ? 'btn-header-focus' : 'btn-header'}>
-							<div className="font-medium">Check in</div>
-							{selectedDates.length > 0 ? (
-								<div className="flex items-start gap-3">
-									<button
-										onClick={handleShowCalendar}
-										className="text-sm font-medium"
-										value={selectedDates[0].toLocaleString().split(',')[0]}
-									>
-										{selectedDates[0].toLocaleString().split(',')[0]}
-									</button>
-									{selectedDates.length === 1 && <button
-									className="w-6 h-6  bg-gray-200 hover:bg-gray-300 rounded-full transform -translate-y-3"
-									onClick={() => setSelectedDates([])}
-																>
-									<CancelX width={18} height={18} className="rounded-full pl-1.5" />
-									</button>}
-								</div>
-							) : (
-								<button
-									onClick={handleShowCalendar}
-									className="text-sm font-light"
-								>
-									Add dates
-								</button>
-							)}
-						</div>
-						<div className="bdr-header"></div>
-						<div className={focusEnd ? 'btn-header-focus' : 'btn-header'}>
-							<div className="font-medium">Check out</div>
-							{selectedDates.length > 1 ? (
-								<div className="flex items-start gap-3">
-									<button
-										onClick={handleShowCalendar}
-										className="text-sm font-medium"
-										value={selectedDates[1].toLocaleString().split(',')[0]}
-									>
-										{selectedDates[1].toLocaleString().split(',')[0]}
-									</button>
-										<button
-										className="w-6 h-6 bg-gray-200 hover:bg-gray-300 rounded-full transform -translate-y-3"
-										onClick={() => setSelectedDates([])}
-																	>
-										<CancelX width={18} height={18} className="rounded-full pl-1.5" />
-										</button>
-								</div>
-							) : (
-								<button
-									onClick={handleShowCalendar}
-									className="text-sm font-light"
-								>
-									Add dates
-								</button>
-							)}
-						</div>
-						<div className="bdr-header"></div>
-						<div className="flex flex-4 my-auto focus:border-gray-300  px-2 py-1">
-							<GuestsDropDown
-								totalGuests={totalGuests}
-								sendTotal={sendTotal}
-							/>
-						</div>
+				<div className={navbar ? 'formdiv-active' : 'formdiv'}>
+					<div
+						className={
+							focusLocation
+								? 'btn-location-focus flex flex-col justify-center h-full pr-2 group w-full'
+								: 'btn-header flex flex-col justify-center h-full pr-2 group w-full'
+						}
+					>
+						<div className="font-medium">Location</div>
+						<input
+							onChange={handleChange}
+							onFocus={() => setFocusLocation(true)}
+							type="text"
+							value={location ? location : input}
+							className="outline-none bg-gray-50 font-medium text-sm"
+							placeholder="Where are you going?"
+						></input>
 					</div>
+					<div className="bdr-header"></div>
+					<div className={focusStart ? 'btn-header-focus' : 'btn-header'}>
+						<div className="font-medium">Check in</div>
+						{selectedDates.length > 0 ? (
+							<div className="flex items-start gap-3">
+								<button
+									onClick={handleShowCalendar}
+									className="text-sm font-medium"
+									value={selectedDates[0].toLocaleString().split(',')[0]}
+								>
+									{selectedDates[0].toLocaleString().split(',')[0]}
+								</button>
+								{selectedDates.length === 1 && (
+									<button
+										className="w-6 h-6  bg-gray-200 hover:bg-gray-300 rounded-full transform -translate-y-3"
+										onClick={() => setSelectedDates([])}
+									>
+										<CancelX
+											width={18}
+											height={18}
+											className="rounded-full pl-1.5"
+										/>
+									</button>
+								)}
+							</div>
+						) : (
+							<button
+								onClick={handleShowCalendar}
+								className="text-sm font-light"
+							>
+								Add dates
+							</button>
+						)}
+					</div>
+					<div className="bdr-header"></div>
+					<div className={focusEnd ? 'btn-header-focus' : 'btn-header'}>
+						<div className="font-medium">Check out</div>
+						{selectedDates.length > 1 ? (
+							<div className="flex items-start gap-3">
+								<button
+									onClick={handleShowCalendar}
+									className="text-sm font-medium"
+									value={selectedDates[1].toLocaleString().split(',')[0]}
+								>
+									{selectedDates[1].toLocaleString().split(',')[0]}
+								</button>
+								<button
+									className="w-6 h-6 bg-gray-200 hover:bg-gray-300 rounded-full transform -translate-y-3"
+									onClick={() => setSelectedDates([])}
+								>
+									<CancelX
+										width={18}
+										height={18}
+										className="rounded-full pl-1.5"
+									/>
+								</button>
+							</div>
+						) : (
+							<button
+								onClick={handleShowCalendar}
+								className="text-sm font-light"
+							>
+								Add dates
+							</button>
+						)}
+					</div>
+					<div className="bdr-header"></div>
+					<div className="flex flex-4 my-auto focus:border-gray-300  px-2 py-1">
+						<GuestsDropDown totalGuests={totalGuests} sendTotal={sendTotal} />
+					</div>
+				</div>
 				{/* </header> */}
 				{input.length > 0 ? (
 					<ClickAwayListener onClickAway={handleClickAway}>

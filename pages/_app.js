@@ -1,12 +1,12 @@
-import "../styles/globals.css";
-import { AuthProvider } from "../firebase/auth";
+import { Provider } from 'next-auth/client';
+import '../styles/globals.css';
 
-function MyApp({ Component, pageProps }) {
-  return (
-    <AuthProvider>
-      <Component {...pageProps} />
-    </AuthProvider>
-  );
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+	return (
+		<Provider session={session}>
+			<Component {...pageProps} />
+		</Provider>
+	);
 }
 
 export default MyApp;
