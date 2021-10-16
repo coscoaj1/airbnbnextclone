@@ -1,26 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
-function getStoredData() {
-  const homesList = localStorage.getItem("searchParams");
-  return JSON.parse(homesList);
-}
 function HomeListings() {
-  const [homes, setHomes] = useState(localStorage.getItem("searchParams"));
-  console.log(homes);
-  useEffect(() => {
-    localStorage.setItem("searchParams", JSON.stringify(homes));
-  }, [homes]);
-  return (
-    <div>
-      <div>
-        Homes available in {homes.location} for {homes.guestCount} guest between{" "}
-        {homes.selectedDates[0].toLocaleString().split("T")[0]} and{" "}
-        {homes.selectedDates[1].toLocaleString().split("T")[0]}
-      </div>
-      <div>home2</div>
-      <div>home3</div>
-    </div>
-  );
+	const router = useRouter();
+	const { startDate, endDate, location, totalGuests } = router.query;
+
+	const formattedStartDate = startDate.split(',')[0];
+	const formattedEndDate = endDate.split(',')[0];
+
+	return (
+		<div>
+			<Header />
+			<div className="text-lg">
+				Homes available in {location} for {totalGuests} guests between{' '}
+				{formattedStartDate} and {formattedEndDate}
+			</div>
+
+			<div>home2</div>
+			<div>home3</div>
+			<Footer />
+		</div>
+	);
 }
 
 export default HomeListings;
