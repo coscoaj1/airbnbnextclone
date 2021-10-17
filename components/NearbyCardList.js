@@ -56,13 +56,13 @@ const nearbyList = [
 export default function NearbyCardList() {
 	return (
 		<div
-			className="relative mt-4 mx-12 
+			className="relative mt-4 mx-6 sm:mx-12 
 		 h-full"
 		>
 			<p className="text-lg sm:text-xl md:text-4xl font-bold">Explore nearby</p>
 			<div
 				id="cardlist"
-				className="relative grid  gap-x-3 grid-cols-2 sm:grid-cols-3 
+				className="relative grid gap-x-8 sm:gap-x-3 grid-cols-2 sm:grid-cols-3 
 				lg:grid-cols-4 grid-rows-2 lg:grid-rows-2 "
 			>
 				{nearbyList.map((card) => (

@@ -58,6 +58,7 @@ module.exports = {
 			},
 			width: {
 				82: '20.625rem',
+				110: '800px',
 			},
 			maxWidth: {
 				'3.5xl': '800px',
@@ -73,6 +74,9 @@ module.exports = {
 			},
 			lineHeight: {
 				2: '.1rem',
+			},
+			backgroundImage: {
+				mobileHero: "url('/public/images/bnbheromobile.webp')",
 			},
 		},
 	},

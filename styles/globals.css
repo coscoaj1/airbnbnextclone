@@ -61,7 +61,7 @@
 		@apply sm:hidden fixed top-0 z-10 bg-white w-full;
 	}
 	.mobileNav {
-		@apply sm:hidden absolute top-10 flex justify-center items-center w-full;
+		@apply sm:hidden w-full mx-auto absolute  border border-red-500  top-10 flex justify-center items-center;
 	}
 	.mobileNavButton-active {
 		@apply relative z-10 flex justify-center w-11/12 rounded-full 
@@ -69,7 +69,7 @@
 		md:hidden;
 	}
 	.mobileNavButton {
-		@apply relative z-10 flex justify-center w-11/12 rounded-full 
+		@apply relative z-10 flex flex-shrink-0 justify-center w-11/12 rounded-full 
 		bg-white text-center py-3 my-3 mx-auto text-xs text-gray-600 cursor-text
 		md:hidden;
 	}

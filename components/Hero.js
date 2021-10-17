@@ -9,7 +9,7 @@ import MobileHeader from './MobileHeader';
 
 function Hero() {
 	return (
-		<div>
+		<div className=" overflow-hidden overscroll-none h-auto ">
 			<div className="relative">
 				<div className="hidden lg:block ">
 					<Image
@@ -28,9 +28,10 @@ function Hero() {
 						height={720}
 					/>
 				</div>
-				<div className="relative sm:hidden block">
+				<div className="sm:hidden block relative w-full">
 					<Image
-						layout="responsive"
+						className="object-cover"
+						layout="fixed"
 						src={mobileHero}
 						width={800}
 						height={1000}
@@ -38,7 +39,7 @@ function Hero() {
 				</div>
 
 				<MobileHeader />
-				<div className="absolute w-full top-1/2 text-center ">
+				<div className="absolute top-1/2 w-screen text-center">
 					<p className="text-lg font-medium">
 						Not sure where to go?{' '}
 						<span className="block sm:inline">Perfect.</span>
