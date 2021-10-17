@@ -13,7 +13,7 @@ module.exports = {
 			PlusJakartaSans: [
 				'PlusJakartaSans-Light',
 				'PlusJakartaSans-Regular',
-				'PlusJakartaSans-Medium',
+				'PlusJakartaDisplay-Medium',
 				'PlusJakartaSans-Bold',
 				'PlusJakartaSans-ExtraBold',
 				'ui-sans-serif',
