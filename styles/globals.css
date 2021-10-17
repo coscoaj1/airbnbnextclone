@@ -3,60 +3,59 @@
 @tailwind utilities;
 
 @layer components {
-  .btn-header {
-    @apply flex-4 h-full text-left text-xs tracking-wider my-auto hover:shadow-3xl  hover:bg-gray-50  focus:border-gray-300 rounded-full px-6 py-3;
-  }
-  .btn-header-focus {
-    @apply flex-4 h-full text-left text-xs tracking-wider my-auto shadow-3xl  hover:bg-gray-50  focus:border-gray-300 rounded-full px-6 py-3;
-  }
-  .btn-location-focus {
-    @apply flex-4 h-full text-left text-xs tracking-wider my-auto shadow-3xl  hover:bg-gray-50  focus:border-gray-300 rounded-full px-6 py-3;
-  }
+	.btn-header {
+		@apply flex-4 h-full text-left text-xs tracking-wider my-auto hover:shadow-3xl  hover:bg-gray-50  focus:border-gray-300 rounded-full px-6 py-3;
+	}
+	.btn-header-focus {
+		@apply flex-4 h-full text-left text-xs tracking-wider my-auto shadow-3xl  hover:bg-gray-50  focus:border-gray-300 rounded-full px-6 py-3;
+	}
+	.btn-location-focus {
+		@apply flex-4 h-full text-left text-xs tracking-wider my-auto shadow-3xl  hover:bg-gray-50  focus:border-gray-300 rounded-full px-6 py-3;
+	}
 
-  .bdr-header {
-    @apply border-r border-gray-300 h-8 self-center;
-  }
+	.bdr-header {
+		@apply border-r border-gray-300 h-8 self-center;
+	}
 
-  .footer-div {
-    @apply flex-2 border-b border-gray-300 md:border-none;
-  }
+	.footer-div {
+		@apply flex-2 border-b border-gray-300 md:border-none;
+	}
 
-  .footer-ul {
-    @apply flex flex-wrap  h-auto md:block  text-sm;
-  }
-  .footer-li {
-    @apply py-1 cursor-pointer flex-3 leading-6;
-  }
+	.footer-ul {
+		@apply flex flex-wrap  h-auto md:block  text-sm;
+	}
+	.footer-li {
+		@apply py-1 cursor-pointer flex-3 leading-6;
+	}
 
-  .tabslist-div {
-    @apply flex flex-row flex-wrap mb-12;
-  }
+	.tabslist-div {
+		@apply flex flex-row flex-wrap mb-12;
+	}
 
-  .tabslist-ul {
-    @apply w-1/4 py-2 text-sm my-1;
-  }
+	.tabslist-ul {
+		@apply w-1/4 py-2 text-sm my-1;
+	}
 
-  .navbar-active {
-    @apply hidden sm:block fixed top-0 z-10 bg-white w-full;
-  }
+	.navbar-active {
+		@apply hidden sm:block fixed top-0 z-10 bg-white w-full;
+	}
 
-  .navbar {
-    @apply hidden sm:block absolute z-10 top-5 text-white text-base w-full;
-  }
+	.navbar {
+		@apply hidden sm:block absolute z-10 top-5 text-white text-base w-full;
+	}
 
-  .navsearch-active {
-    @apply hidden;
-  }
-  .navsearch {
-    @apply lg:-mt-6 mb-4 flex flex-row justify-center w-full text-base;
-  }
-  .formdiv-active {
-    @apply hidden;
-  }
-  .formdiv {
-    @apply bg-gray-50 rounded-full flex flex-row justify-between 
+	.navsearch-active {
+		@apply hidden;
+	}
+	.navsearch {
+		@apply lg:-mt-6 mb-4 flex flex-row justify-center w-full text-base;
+	}
+	.formdiv-active {
+		@apply hidden;
+	}
+	.formdiv {
+		@apply bg-gray-50 rounded-full flex flex-row justify-between 
 		h-16 max-w-3xl mx-auto text-black text-sm;
-<<<<<<< HEAD
 	}
 	.mobileNav-active {
 		@apply sm:hidden fixed top-0 z-10 bg-white w-full;
@@ -71,108 +70,92 @@
 	}
 	.mobileNavButton {
 		@apply relative z-10 flex flex-shrink-0 justify-center w-11/12 rounded-full 
-=======
-  }
-  .mobileNav-active {
-    @apply sm:hidden fixed top-0 z-10 bg-white w-full;
-  }
-  .mobileNav {
-    @apply sm:hidden absolute top-10 flex justify-center items-center w-full;
-  }
-  .mobileNavButton-active {
-    @apply relative z-10 flex justify-center w-11/12 rounded-full 
-		bg-gray-50 text-center py-3 my-3 mx-auto text-xs text-gray-600 cursor-text
-		md:hidden;
-  }
-  .mobileNavButton {
-    @apply relative z-10 flex justify-center w-11/12 rounded-full 
->>>>>>> 530daef14686a3554f4f4e3e5adabf6cfdf4341b
 		bg-white text-center py-3 my-3 mx-auto text-xs text-gray-600 cursor-text
 		md:hidden;
-  }
+	}
 }
 
 @layer base {
-  @font-face {
-    font-family: "PlusJakartaSans-Light";
-    font-weight: 300;
-    src: local("PlusJakartaSans"),
-      url("../public/fonts/PlusJakartaSans-Light.woff") format("Web Open Font");
-  }
+	@font-face {
+		font-family: 'PlusJakartaSans-Light';
+		font-weight: 300;
+		src: local('PlusJakartaSans'),
+			url('../public/fonts/PlusJakartaSans-Light.woff') format('Web Open Font');
+	}
 }
 @layer base {
-  @font-face {
-    font-family: "PlusJakartaSans-Regular";
-    font-weight: 400;
-    src: local("PlusJakartaSans"),
-      url("../public/fonts/PlusJakartaSans-Regular.woff")
-        format("Web Open Font");
-  }
+	@font-face {
+		font-family: 'PlusJakartaSans-Regular';
+		font-weight: 400;
+		src: local('PlusJakartaSans'),
+			url('../public/fonts/PlusJakartaSans-Regular.woff')
+				format('Web Open Font');
+	}
 }
 @font-face {
-  font-family: "PlusJakartaDisplay-Medium";
-  font-weight: 500;
-  src: local("PlusJakartaSans"),
-    url("../public/fonts/PlusJakartaDisplay-Medium.otf")
-      format("Open Type Font");
+	font-family: 'PlusJakartaDisplay-Medium';
+	font-weight: 500;
+	src: local('PlusJakartaSans'),
+		url('../public/fonts/PlusJakartaDisplay-Medium.otf')
+			format('Open Type Font');
 }
 @font-face {
-  font-family: "PlusJakartaSans-Bold";
-  font-weight: 600;
-  src: local("PlusJakartaSans"),
-    url("../public/fonts/PlusJakartaSans-Bold.woff") format("Web Open Font");
+	font-family: 'PlusJakartaSans-Bold';
+	font-weight: 600;
+	src: local('PlusJakartaSans'),
+		url('../public/fonts/PlusJakartaSans-Bold.woff') format('Web Open Font');
 }
 @font-face {
-  font-family: "PlusJakartaSans-ExtraBold";
-  font-weight: 700;
-  src: local("PlusJakartaSans"),
-    url("../public/fonts/PlusJakartaSans-ExtraBold.woff")
-      format("Web Open Font");
+	font-family: 'PlusJakartaSans-ExtraBold';
+	font-weight: 700;
+	src: local('PlusJakartaSans'),
+		url('../public/fonts/PlusJakartaSans-ExtraBold.woff')
+			format('Web Open Font');
 }
 
 #cardlist {
-  grid-auto-rows: 0;
-  overflow-y: hidden;
+	grid-auto-rows: 0;
+	overflow-y: hidden;
 }
 
 @media only screen and (min-width: 300px) {
-  #liveAnywhereList {
-    grid-auto-columns: max-content;
-    scroll-behavior: smooth;
-  }
+	#liveAnywhereList {
+		grid-auto-columns: max-content;
+		scroll-behavior: smooth;
+	}
 }
 @media only screen and (min-width: 960px) {
-  #liveAnywhereList {
-    max-width: 100%;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
+	#liveAnywhereList {
+		max-width: 100%;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
 }
 
 #liveAnywhereList::-webkit-scrollbar {
-  display: none;
-  scroll-padding: 0 0 0 25px;
+	display: none;
+	scroll-padding: 0 0 0 25px;
 }
 
 #card {
-  scroll-snap-align: start;
+	scroll-snap-align: start;
 }
 
 .currentTab {
-  color: rgba(0, 0, 0, 0.85);
-  padding-bottom: 0.5rem;
-  font: normal;
-  border-bottom: 2px solid black;
+	color: rgba(0, 0, 0, 0.85);
+	padding-bottom: 0.5rem;
+	font: normal;
+	border-bottom: 2px solid black;
 }
 
 .guestsButton {
-  fill: rgb(168, 168, 168);
+	fill: rgb(168, 168, 168);
 }
 .guestsButton :hover {
-  fill: rgb(44, 44, 44);
+	fill: rgb(44, 44, 44);
 }
 
 input::placeholder {
-  color: black;
-  font-size: 14px;
-  font-weight: 400;
+	color: black;
+	font-size: 14px;
+	font-weight: 400;
 }
