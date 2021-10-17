@@ -43,6 +43,7 @@ module.exports = {
 				fuchsia: colors.fuchsia,
 				footerPink: '#f7f7f7',
 				buttonPink: '#ebebeb',
+				airbnb: '#ef4444',
 			},
 			boxShadow: {
 				'3xl': '-3px 8px 13px -1px rgba(0, 0, 0, 0.3)',
