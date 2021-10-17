@@ -13,16 +13,11 @@ import { useSession } from "next-auth/client";
 
 export default function Home() {
   const [session, loading] = useSession();
-  const [searchData, setSearchData] = useState();
-  const sendSearchParams = (searchParams) => {
-    setSearchData(searchParams);
-  };
-  console.log(searchData);
 
   console.log({ session, loading });
   return (
     <div className="font-circular box-border">
-      <Header sendSearchParams={sendSearchParams} />
+      <Header />
       <Hero />
       <Bottombar />
       <div className="px-14">

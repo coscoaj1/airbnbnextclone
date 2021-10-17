@@ -12,6 +12,7 @@
     "@headlessui/react": "^1.4.1",
     "@mui/material": "^5.0.2",
     "axios": "^0.22.0",
+    "date-fns": "^2.25.0",
     "dayzed": "^3.2.2",
     "dotenv": "^10.0.0",
     "firebase": "^9.1.2",
