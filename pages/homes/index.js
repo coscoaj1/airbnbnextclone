@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 const { format } = require('date-fns');
 import Footer from '../../components/Footer';
 import SearchHeader from '../../components/SearchHeader';
 
-function HomeListings() {
+function HomeListings({ data }) {
 	const router = useRouter();
 	const { startDate, endDate, location, totalGuests } = router.query;
 
@@ -15,7 +16,7 @@ function HomeListings() {
 	const start = format(headerStart, 'MMM d');
 	const headerEnd = new Date(endDate);
 	const end = format(headerEnd, 'd');
-	console.log(start);
+
 	return (
 		<div className="box-border">
 			<SearchHeader
@@ -31,7 +32,16 @@ function HomeListings() {
 						guests
 					</div>
 					<div className="text-3xl font-bold">Stays in {formattedLocation}</div>
-					<div>home3</div>
+					<div>
+						{data.map((item) => {
+							return (
+								<div key={item.id}>
+									<div>{item.description}</div>
+									<Image width={300} height={200} src={item.pictureUrl} />
+								</div>
+							);
+						})}
+					</div>
 				</section>
 				<Footer />
 			</div>
@@ -40,3 +50,25 @@ function HomeListings() {
 }
 
 export default HomeListings;
+export async function getServerSideProps(context) {
+	const response = await fetch('http://localhost:3001/api/homes');
+	const data = await response.json();
+	console.log(data);
+	return {
+		props: { data },
+	};
+}
+
+// export async function getStaticProps() {
+// 	const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+// 	const data = await response.json();
+// 	console.log(data);
+// 	if (!data) {
+// 		return {
+// 			notFound: true,
+// 		};
+// 	}
+// 	return {
+// 		props: { data }, // will be passed to the page component as props
+// 	};
+// }
