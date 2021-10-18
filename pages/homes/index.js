@@ -45,9 +45,7 @@ function HomeListings({ data }) {
       Geocode.fromAddress(location).then(
         (response) => {
           const { lat, lng } = response.results[0].geometry.location;
-          console.log(lat, lng);
           setGeoLocation({ lat: +lat, lng: +lng });
-          console.log(location);
         },
         (error) => {
           console.error(error);

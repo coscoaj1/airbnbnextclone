@@ -37,11 +37,11 @@
   }
 
   .navbar-active {
-    @apply hidden sm:block fixed top-0 z-10 bg-white w-full;
+    @apply hidden sm:block fixed top-0 bg-white w-full;
   }
 
   .navbar {
-    @apply hidden sm:block absolute z-10 top-5 text-white text-base w-full;
+    @apply hidden sm:block absolute top-5 text-white text-base w-full;
   }
 
   .navsearch-active {
