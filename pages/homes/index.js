@@ -34,7 +34,7 @@ function HomeListings({ data }) {
     "More filters",
   ];
 
-  const zoom = 13;
+  const zoom = 14;
   console.log(location);
   useEffect(() => {
     function GeoCoder() {
@@ -55,7 +55,7 @@ function HomeListings({ data }) {
       );
     }
     GeoCoder();
-  }, []);
+  }, [location]);
   console.log(geoLocation);
 
   return (
@@ -67,7 +67,7 @@ function HomeListings({ data }) {
         guestCount={totalGuests}
       />
       <div className="flex flex-row">
-        <div>
+        <div className="w-7/12">
           <div className="mx-6 my-24">
             <section>
               <div className="text-sm text-gray-900">
@@ -94,7 +94,7 @@ function HomeListings({ data }) {
             </main>
           </div>
         </div>
-        <div className="fixed right-6 w-2/5">
+        <div className="sticky top-16 w-5/12 h-72">
           {geoLocation && <GoogleMap center={geoLocation} zoom={zoom} />}
         </div>
       </div>

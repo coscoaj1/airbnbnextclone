@@ -21,7 +21,7 @@ function MyMapComponent({ center, zoom }) {
     new window.google.maps.Map(ref.current, mapOptions);
   });
 
-  return <div ref={ref} className="w-full h-screen mx-6" />;
+  return <div ref={ref} className="w-full h-screen" />;
 }
 
 function GoogleMap({ center, zoom }) {
