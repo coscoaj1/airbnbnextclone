@@ -8,6 +8,7 @@ function HomeDetail({ item, dayCount }) {
 			<div className="border-t border-gray-300 my-5"></div>
 			<div className="flex">
 				<Image
+					alt=""
 					className="rounded-xl"
 					src={item.pictureUrl}
 					height={200}
@@ -33,7 +34,7 @@ function HomeDetail({ item, dayCount }) {
 						<div className="mt-16 flex justify-between w-82">
 							<div className="flex flex-row items-end">
 								<div>
-									<Image className="" src={star} width={14} height={14} />
+									<Image alt="star icon" src={star} width={14} height={14} />
 								</div>
 								<div>
 									<span className="pl-1 font-medium">{item.rating}</span>

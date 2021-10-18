@@ -13,6 +13,7 @@ function Hero() {
 			<div className="relative">
 				<div className="hidden lg:block ">
 					<Image
+						alt="hero"
 						className="h-full w-full"
 						src={Hero1440}
 						width={2560}
@@ -21,6 +22,7 @@ function Hero() {
 				</div>
 				<div className="relative hidden lg:hidden sm:block">
 					<Image
+						alt="hero"
 						className="center relative"
 						layout="responsive"
 						src={Hero960}
@@ -30,6 +32,7 @@ function Hero() {
 				</div>
 				<div className="sm:hidden block relative w-full">
 					<Image
+						alt="hero"
 						className="object-cover"
 						layout="fixed"
 						src={mobileHero}

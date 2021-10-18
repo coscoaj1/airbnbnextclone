@@ -13,6 +13,7 @@ function TryHosting() {
 					width={1440}
 					height={620}
 					layout="responsive"
+					alt=""
 				/>
 			</div>
 			<div className="block sm:hidden">

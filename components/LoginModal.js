@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
+import Link from 'next/link';
 import { signIn } from 'next-auth/client';
-import { Dialog, Transition } from '@headlessui/react';
+import { Dialog } from '@headlessui/react';
 import CancelIcon from '../public/images/x-svgrepo-com (1).svg';
 import GithubIcon from '../public/images/iconmonstr-github-1.svg';
 
@@ -18,7 +19,7 @@ function LoginModal({ open, onClose }) {
 						onClick={onClose}
 						className="text-left ml-4 rounded-full hover:bg-gray-200 w-6 h-6 border-none"
 					>
-						<CancelIcon className="pl-1" width="20" height="20" />
+						<CancelIcon className="pl-1" width="20" height="20" alt="" />
 					</button>
 					<div className="font-bold mr-48 py-4">Log in or sign up</div>
 				</Dialog.Title>
@@ -52,21 +53,20 @@ function LoginModal({ open, onClose }) {
 					>
 						<span className="px-2 bg-white">or</span>
 					</div>
-					{/* <Link href="/api/auth/signin"> */}
-					<a
-						href="/api/auth/signin"
-						onClick={(e) => {
-							e.preventDefault();
-							signIn('github');
-						}}
-						className="flex items-start gap-28 w-lg mx-4 my-5 pl-1 text-base font-medium border border-black rounded-md active:scale-95 transform duration-200"
-					>
-						<div className="flex justify-center items-center h-full mr-2">
-							<GithubIcon width={24} height={24} />
-						</div>
-						<div className="py-3 text-center">Continue with Github</div>
-					</a>
-					{/* </Link> */}
+					<Link href="/api/auth/signin">
+						<button
+							onClick={(e) => {
+								e.preventDefault();
+								signIn('github');
+							}}
+							className="flex items-start gap-28 w-lg mx-4 my-5 pl-1 text-base font-medium border border-black rounded-md active:scale-95 transform duration-200"
+						>
+							<div className="flex justify-center items-center h-full mr-2">
+								<GithubIcon width={24} height={24} alt="" />
+							</div>
+							<div className="py-3 text-center">Continue with Github</div>
+						</button>
+					</Link>
 				</div>
 			</Dialog>
 		</div>

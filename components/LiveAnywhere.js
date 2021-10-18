@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import Image from 'next/image';
 import LiveAnywhereCard from './LiveAnywhereCard';
 import OutdoorImg from '../public/images/OutdoorGetaways.jpg';
 import UniqueImg from '../public/images/UniqueStays.jpg';
@@ -49,7 +50,7 @@ function LiveAnywhere() {
 						onClick={() => scrollRight()}
 						className="flex justify-center items-center bg-gray-100 rounded-full w-6 h-6 shadow-3xl border border-gray-200"
 					>
-						<img className="w-2" src={rightArrow} alt="" />
+						<Image width={10} height={10} src={rightArrow} alt="" />
 					</button>
 				</span>
 			</div>
@@ -59,7 +60,7 @@ function LiveAnywhere() {
 						onClick={() => scrollLeft()}
 						className="flex justify-center items-center bg-gray-100 rounded-full w-6 h-6 shadow-3xl border border-gray-200"
 					>
-						<img className="w-2" src={leftArrow} alt="" />
+						<Image width={10} height={10} src={leftArrow} alt="" />
 					</button>
 				</span>
 			</div>
