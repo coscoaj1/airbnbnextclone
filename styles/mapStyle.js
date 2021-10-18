@@ -22,7 +22,7 @@ const mapStyle = [
 		elementType: 'labels.text',
 		stylers: [
 			{
-				visibility: 'off',
+				visibility: 'on',
 			},
 		],
 	},
