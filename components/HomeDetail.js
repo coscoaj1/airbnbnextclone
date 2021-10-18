@@ -7,14 +7,16 @@ function HomeDetail({ item, dayCount }) {
 		<div>
 			<div className="border-t border-gray-300 my-5"></div>
 			<div className="flex">
-				<Image
-					alt=""
-					className="rounded-xl"
-					src={item.pictureUrl}
-					height={200}
-					width={300}
-				/>
-				<div className="flex flex-col ml-4">
+				<button className="h-48 w-82 mt-3 flex-7 ">
+					<Image
+						alt=""
+						className="rounded-xl"
+						src={item.pictureUrl}
+						height={200}
+						width={300}
+					/>
+				</button>
+				<div className="flex flex-col ml-4 w-96">
 					<div className="flex flex-col">
 						<div className="text-gray-500 text-smbase">{item.description}</div>
 						<div className=" text-lg">{item.title}</div>

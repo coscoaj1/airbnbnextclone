@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { format, differenceInDays } from 'date-fns';
 import Footer from '../../components/Footer';
 import SearchHeader from '../../components/SearchHeader';
 import HomeDetail from '../../components/HomeDetail';
+import SearchButton from '../../components/Buttons/SearchButton';
+import GoogleMap from '../../components/GoogleMap';
+import Geocode from 'react-geocode';
 
 function HomeListings({ data }) {
+	const [geoLocation, setGeoLocation] = useState(null);
+
 	const router = useRouter();
 	const { startDate, endDate, location, totalGuests } = router.query;
 
@@ -23,8 +27,37 @@ function HomeListings({ data }) {
 			? format(headerEnd, 'd')
 			: format(headerEnd, 'MMM d');
 
-	console.log(start.split(' ')[0]);
-	console.log(end.split(' ')[0]);
+	const actionList = [
+		'Free cancellation',
+		'Type of Place',
+		'Price',
+		'Instant Book',
+		'More filters',
+	];
+
+	const zoom = 13;
+	console.log(location);
+	useEffect(() => {
+		function GeoCoder() {
+			Geocode.setApiKey(process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY);
+
+			Geocode.setLocationType('ROOFTOP');
+
+			Geocode.fromAddress(location).then(
+				(response) => {
+					const { lat, lng } = response.results[0].geometry.location;
+					console.log(lat, lng);
+					setGeoLocation({ lat: +lat, lng: +lng });
+					console.log(location);
+				},
+				(error) => {
+					console.error(error);
+				}
+			);
+		}
+		GeoCoder();
+	}, []);
+	console.log(geoLocation);
 
 	return (
 		<div className="box-border">
@@ -34,25 +67,38 @@ function HomeListings({ data }) {
 				end={end}
 				guestCount={totalGuests}
 			/>
-			<div className="mx-6 my-24">
-				<section>
-					<div className="text-sm text-gray-900">
-						18 stays · {start}-{end} · {totalGuests}{' '}
-						{totalGuests == 1 ? <span>guest</span> : <span>guests</span>}
+			<div className="flex flex-row">
+				<div>
+					<div className="mx-6 my-24">
+						<section>
+							<div className="text-sm text-gray-900">
+								18 stays · {start}-{end} · {totalGuests}{' '}
+								{totalGuests == 1 ? <span>guest</span> : <span>guests</span>}
+							</div>
+							<div className="text-3xl font-bold">
+								Stays in {formattedLocation}
+							</div>
+							<div className="flex my-4">
+								{actionList.map((item) => (
+									<SearchButton key={item} action={item} />
+								))}
+							</div>
+						</section>
+						<main>
+							{data.map((item) => {
+								return (
+									<div key={item.id}>
+										<HomeDetail item={item} dayCount={dayCount} />
+									</div>
+								);
+							})}
+						</main>
 					</div>
-					<div className="text-3xl font-bold">Stays in {formattedLocation}</div>
-					<div>
-						{data.map((item) => {
-							return (
-								<div key={item.id}>
-									<HomeDetail item={item} dayCount={dayCount} />
-								</div>
-							);
-						})}
-					</div>
-				</section>
-				<Footer />
+				</div>
+				{geoLocation && <GoogleMap center={geoLocation} zoom={zoom} />}
 			</div>
+
+			<Footer />
 		</div>
 	);
 }
@@ -61,22 +107,7 @@ export default HomeListings;
 export async function getServerSideProps(context) {
 	const response = await fetch('http://localhost:3001/api/homes');
 	const data = await response.json();
-	console.log(data);
 	return {
 		props: { data },
 	};
 }
-
-// export async function getStaticProps() {
-// 	const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-// 	const data = await response.json();
-// 	console.log(data);
-// 	if (!data) {
-// 		return {
-// 			notFound: true,
-// 		};
-// 	}
-// 	return {
-// 		props: { data }, // will be passed to the page component as props
-// 	};
-// }

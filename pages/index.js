@@ -1,5 +1,4 @@
-import React, { useState, useEffect, createContext, useContext } from 'react';
-import homeService from '../services/homes';
+import React from 'react';
 import Discover from '../components/Discover';
 import Bottombar from '../components/Bottombar';
 import LiveAnywhere from '../components/LiveAnywhere';
@@ -31,8 +30,3 @@ export default function Home() {
 		</div>
 	);
 }
-// useEffect(() => {
-// 	homeService.getAll().then((homes) => setHomes(homes));
-// }, []);
-
-// console.log(homes);
