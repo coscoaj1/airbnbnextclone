@@ -27,13 +27,7 @@ export default function UserDropDown({ navbar }) {
       <div className="-mr-6">
         <Menu>
           <Menu.Button>
-            <div
-              className={
-                navbar
-                  ? "flex flex-row items-center mr-6 bg-white rounded-full border hover:shadow-md"
-                  : "flex flex-row items-center mr-6 bg-white rounded-full border"
-              }
-            >
+            <div className="flex flex-row items-center mr-6 bg-white rounded-full border transition-shadow hover:shadow-md">
               <div className="w-5 h-auto mt-2 mb-1 ml-2 z-10">
                 <Image src={menuIcon} width={16} height={18} alt="" />
               </div>
