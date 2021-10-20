@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Menu } from "@headlessui/react";
 import Image from "next/image";
 import Link from "next/link";
-import { signOut, useSession } from "next-auth/client";
+import { signOut, useSession } from "next-auth/react";
 import userIcon from "../public/images/profile-user.png";
 import menuIcon from "../public/images/icons8-menu-24.png";
 import LoginModal from "./LoginModal";
@@ -11,7 +11,8 @@ import loggedInIcon from "../public/images/user_pic-50x50.png";
 export default function UserDropDown({ navbar }) {
   const [showModal, setShowModal] = useState(false);
   const [isOpen, setIsOpen] = useState(true);
-  const [session, loading] = useSession();
+  const { data: session, status } = useSession();
+  const loading = status === "loading";
 
   const onClick = () => {
     setShowModal(true);

@@ -7,10 +7,11 @@ import Hero from "../components/Hero";
 import Header from "../components/Header";
 import TryHosting from "../components/TryHosting";
 import TabsList from "../components/TabsList";
-import { useSession } from "next-auth/client";
+import { useSession } from "next-auth/react";
 
 export default function Home() {
-  const [session, loading] = useSession();
+  const { data: session, status } = useSession();
+  const loading = status === "loading";
 
   console.log({ session, loading });
   return (

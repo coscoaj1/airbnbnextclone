@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { signIn } from "next-auth/client";
+import { signIn } from "next-auth/react";
 import { Dialog } from "@headlessui/react";
 import CancelIcon from "../public/images/x-svgrepo-com (1).svg";
 import GithubIcon from "../public/images/iconmonstr-github-1.svg";
