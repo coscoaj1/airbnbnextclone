@@ -43,7 +43,7 @@ function LiveAnywhere() {
     //hideScrollLeft;
   };
   return (
-    <div className="relative my-4 mx-12 h-auto ">
+    <div className="relative my-4 h-auto w-full">
       <div className="hidden sm:block md:hidden  absolute top-36 right-0 z-10">
         <span className="top-1/2">
           <button
