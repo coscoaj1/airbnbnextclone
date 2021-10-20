@@ -20,7 +20,7 @@ export default function Home() {
 			<Hero />
 			<Bottombar />
 			<div className="flex flex-col items-center">
-				<div className=" px-14 max-w-screen-lg lg:px-0">
+				<div className=" sm:px-14 sm:max-w-screen-lg lg:px-0 max-w-lg">
 					<NearbyCardList />
 					<LiveAnywhere />
 					<TryHosting />
