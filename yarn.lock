@@ -1612,10 +1612,10 @@
   resolved "https://registry.yarnpkg.com/@napi-rs/triples/-/triples-1.0.3.tgz#76d6d0c3f4d16013c61e45dfca5ff1e6c31ae53c"
   integrity sha512-jDJTpta+P4p1NZTFVLHJ/TLFVYVcOqv6l8xwOeBKNPMgY/zDYH/YH7SJbvrr/h1RcS9GzbPcLKGzpuK9cV56UA==
 
-"@next-auth/mongodb-adapter@^0.0.2-next.281":
-  version "0.0.2-next.281"
-  resolved "https://registry.yarnpkg.com/@next-auth/mongodb-adapter/-/mongodb-adapter-0.0.2-next.281.tgz#e1680088dfdd5bb5be058d2a54dcbd5cbbb256f4"
-  integrity sha512-86teWHF1V0rUi1Z4qp+wvcwvdpPTAtcN9LMpFgCVrkdPKFh5AkyRMvgWVEnlVlEatBMsALqqhtFzhDGn8ZigTA==
+"@next-auth/mongodb-adapter@^0.0.2-next.285":
+  version "0.0.2-next.285"
+  resolved "https://registry.yarnpkg.com/@next-auth/mongodb-adapter/-/mongodb-adapter-0.0.2-next.285.tgz#67f123404f9dc794f4d8f8d66211eeae7de8274d"
+  integrity sha512-pcPezsPwoRCBpTVhackQJUTqGsCtWZUcdL+KWkHKxbb7LVudEwNiHbJG1iyWrUGxNABMv9xVKDEf3PDsZyF30Q==
 
 "@next/env@11.1.2":
   version "11.1.2"
@@ -5256,7 +5256,7 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-next-auth@4.0.0-beta.4:
+next-auth@^4.0.0-beta.4:
   version "4.0.0-beta.4"
   resolved "https://registry.yarnpkg.com/next-auth/-/next-auth-4.0.0-beta.4.tgz#f69438c92e06da3b9e2331b71f65e58076b13b2e"
   integrity sha512-1KRkRUenCbtTv2Y1KiuX8e0T+KBKv94Nt8KFv52xnqc1Ye3giy02J03htd2U+O3uE+hnqE44KBUa0GoHn2727g==
