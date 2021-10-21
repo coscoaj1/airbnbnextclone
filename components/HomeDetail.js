@@ -4,12 +4,13 @@ import star from '../public/images/icons8-star-50.png';
 
 function HomeDetail({ item, dayCount }) {
 	return (
-		<div>
+		<div className="w-screen md:w-full">
 			<div className="border-t border-gray-300 my-5"></div>
 			<div className="flex">
 				<button className="h-48 w-82 mt-3 flex-7 ">
 					<Image
 						alt=""
+						layout="fixed"
 						className="rounded-xl"
 						src={item.pictureUrl}
 						height={200}
