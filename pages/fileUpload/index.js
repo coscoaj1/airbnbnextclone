@@ -9,9 +9,9 @@ export default function HomeForm() {
 	const validationSchema = Yup.object().shape({
 		image: Yup.mixed().required('Image required'),
 		description: Yup.string()
-			.required('Description required')
 			.min(8, 'Must be at least 8 characters')
-			.matches(/^[a-zA-Z0-9]+$/, 'Cannot contain special characters or spaces'),
+			.matches(/^[a-zA-Z0-9]+$/, 'Cannot contain special characters or spaces')
+			.required('Description required'),
 		title: Yup.string()
 			.required('Title required.')
 			.min(6, 'Must be at least 6 characters')
@@ -38,8 +38,8 @@ export default function HomeForm() {
 					return result.data;
 				}}
 			>
-				{(props) => (
-					<Form className="flex flex-col items-center justify-center">
+				{({ props, errors, touched }) => (
+					<Form className="h-screen w-screen flex flex-col items-center justify-center">
 						<input
 							onChange={(event) =>
 								props.setFieldValue('image', event.target.files[0])
@@ -53,7 +53,10 @@ export default function HomeForm() {
 							type="text"
 							id="description"
 							name="description"
-						></Field>
+						/>{' '}
+						{errors.description && touched.description ? (
+							<div>{errors.description}</div>
+						) : null}
 						<label htmlFor="title">title</label>
 						<Field
 							className="border border-gray-700 py-1 px-2"
