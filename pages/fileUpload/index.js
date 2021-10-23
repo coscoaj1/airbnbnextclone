@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import Camera from '../../public/images/camera-symbol-svgrepo-com.svg';
 
 const baseUrl = 'http://localhost:3001/api/homes';
 
 export default function HomeForm() {
+	const [imageValue, setImageValue] = useState('');
+
 	const validationSchema = Yup.object().shape({
 		image: Yup.mixed().required('Image required'),
 		description: Yup.string()
 			.min(8, 'Must be at least 8 characters')
-			.matches(/^[a-zA-Z0-9]+$/, 'Cannot contain special characters or spaces')
 			.required('Description required'),
 		title: Yup.string()
 			.required('Title required.')
-			.min(6, 'Must be at least 6 characters')
-			.matches(/^[a-zA-Z0-9]+$/, 'Cannot contain special characters or spaces'),
+			.min(6, 'Must be at least 6 characters'),
 		price: Yup.number().required('Price required'),
 	});
 
@@ -31,7 +32,19 @@ export default function HomeForm() {
 			</div>
 			<div className="flex-7 w-full">
 				<Formik
-					initialValues={{ image: '', description: '', title: '', price: '' }}
+					initialValues={{
+						image: '',
+						description: '',
+						title: '',
+						price: '',
+						bedrooms: 0,
+						beds: 0,
+						baths: 0,
+						kitchens: 0,
+						wifi: false,
+						air_conditioning: false,
+						parking: false,
+					}}
 					validationSchema={validationSchema}
 					onSubmit={async (values) => {
 						const formData = new FormData();
@@ -39,7 +52,14 @@ export default function HomeForm() {
 						formData.append('description', values.description);
 						formData.append('title', values.title);
 						formData.append('price', values.price);
-						console.log(values);
+						formData.append('bedrooms', values.bedrooms);
+						formData.append('beds', values.beds);
+						formData.append('baths', values.baths);
+						formData.append('kitchens', values.kitchens);
+						formData.append('wifi', values.wifi);
+						formData.append('air_conditioning', values.air_conditioning);
+						formData.append('parking', values.parking);
+						console.log(formData);
 						const result = await axios.post(`${baseUrl}/homeImage`, formData, {
 							headers: { 'Content-Type': 'multipart/form-data' },
 						});
@@ -47,19 +67,31 @@ export default function HomeForm() {
 					}}
 				>
 					{(props) => (
-						<Form className="h-screen flex flex-col items-center justify-center font-medium text-lg">
-							<label htmlFor="image">Enter a description</label>
+						<Form className="h-screen flex flex-col gap-1 items-center justify-center font-medium text-lg">
+							<label
+								className="flex flex-row gap-5 px-5 py-1 border border-black cursor-pointer italic"
+								htmlFor="image"
+							>
+								<span>
+									<Camera width={30} height={30} />
+								</span>
+								Choose an image
+							</label>
+							{imageValue ?? <div>{imageValue}</div>}
 							<input
+								className="hidden"
 								type="file"
+								id="image"
 								name="image"
-								onChange={(event) =>
-									props.setFieldValue('image', event.target.files[0])
-								}
+								onChange={(event) => {
+									props.setFieldValue('image', event.target.files[0]);
+									setImageValue(event.target.files[0].name);
+								}}
 								accept="image/*"
 							></input>
 							<label htmlFor="description">Enter a description</label>
 							<Field
-								className="border border-gray-700 py-1 px-2"
+								className="border border-black py-1 px-2 rounded-lg"
 								type="text"
 								id="description"
 								name="description"
@@ -69,24 +101,127 @@ export default function HomeForm() {
 							) : null}
 							<label htmlFor="title">Enter a listing title</label>
 							<Field
-								className="border border-gray-700 py-1 px-2"
+								className="border border-black py-1 px-2 rounded-lg"
 								type="text"
 								id="title"
 								name="title"
 							/>
-							{/* {errors.title && touched.title ? (
-								<div className="text-red-500">{errors.title}</div>
-							) : null} */}
+							{props.errors.title && props.touched.title ? (
+								<div className="text-red-500">{props.errors.title}</div>
+							) : null}
 							<label htmlFor="price">Price per night</label>
 							<Field
-								className="border border-gray-700 py-1 px-2"
+								className="border border-black py-1 px-2 rounded-lg"
 								type="text"
 								id="price"
 								name="price"
 							/>
-							{/* {errors.price && touched.price ? (
-								<div className="text-red-500">{errors.price}</div>
-							) : null} */}
+							{props.errors.price && props.touched.price ? (
+								<div className="text-red-500">{props.errors.price}</div>
+							) : null}
+							<div id="bedrooms">Bedrooms:</div>
+							<div role="group" aria-labelledby="bedrooms">
+								<label className="px-1">
+									<Field type="radio" name="bedrooms" value="1" />
+									One
+								</label>
+								<label className="px-1">
+									<Field type="radio" name="bedrooms" value="2" />
+									Two
+								</label>
+								<label className="px-1">
+									<Field type="radio" name="bedrooms" value="3" />
+									Three
+								</label>
+								<label className="px-1">
+									<Field type="radio" name="bedrooms" value="4" />
+									Four
+								</label>
+								<label className="px-1">
+									<Field type="radio" name="bedrooms" value="5" />
+									Five
+								</label>
+								<label className="px-1">
+									<Field type="radio" name="bedrooms" value="6" />
+									Six
+								</label>
+								<label className="px-1">
+									<Field type="radio" name="bedrooms" value="7" />
+									Seven
+								</label>
+								<label className="px-1">
+									<Field type="radio" name="bedrooms" value="8" />
+									Eight
+								</label>
+							</div>
+							<div id="beds">Beds:</div>
+							<div role="group" aria-labelledby="beds">
+								<label className="px-1">
+									<Field type="radio" name="beds" value="1" />
+									One
+								</label>
+								<label className="px-1">
+									<Field type="radio" name="beds" value="2" />
+									Two
+								</label>
+								<label className="px-1">
+									<Field type="radio" name="beds" value="3" />
+									Three
+								</label>
+								<label className="px-1">
+									<Field type="radio" name="beds" value="4" />
+									Four
+								</label>
+							</div>
+							<div id="baths">Baths:</div>
+							<div role="group" aria-labelledby="baths">
+								<label className="px-1">
+									<Field type="radio" name="baths" value="1" />
+									One
+								</label>
+								<label className="px-1">
+									<Field type="radio" name="baths" value="2" />
+									Two
+								</label>
+								<label className="px-1">
+									<Field type="radio" name="baths" value="3" />
+									Three
+								</label>
+								<label className="px-1">
+									<Field type="radio" name="baths" value="4" />
+									Four
+								</label>
+							</div>
+							<div id="kitchens">Kitchens:</div>
+							<div role="group" aria-labelledby="kitchens">
+								<label className="px-1">
+									<Field type="radio" name="kitchens" value="1" />
+									One
+								</label>
+								<label className="px-1">
+									<Field type="radio" name="kitchens" value="2" />
+									Two
+								</label>
+							</div>
+							<div>Amenities:</div>
+							<div role="checkbox" aria-labelledby="wifi">
+								<label>
+									<Field type="checkbox" name="wifi" />
+									Wifi
+								</label>
+							</div>
+							<div role="checkbox" aria-labelledby="air_conditioning">
+								<label>
+									<Field type="checkbox" name="air_conditioning" />
+									Air Conditioning
+								</label>
+							</div>
+							<div role="checkbox" aria-labelledby="parking">
+								<label>
+									<Field type="checkbox" name="parking" />
+									Free Parking
+								</label>
+							</div>
 							<button
 								className="transform active:scale-90 duration-150 px-4 py-2 border border-black rounded-lg"
 								type="submit"
