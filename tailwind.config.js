@@ -44,7 +44,11 @@ module.exports = {
 				footerPink: '#f7f7f7',
 				buttonPink: '#ebebeb',
 				airbnb: '#ef4444',
+				gradient1: '#d32677',
+				gradient2: '#431b82',
+				gradient3: '#962195',
 			},
+
 			boxShadow: {
 				'3xl': '-3px 8px 13px -1px rgba(0, 0, 0, 0.3)',
 			},
