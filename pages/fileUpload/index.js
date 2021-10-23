@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import Camera from '../../public/images/camera-symbol-svgrepo-com.svg';
+import airbnbLogo from '../../public/images/airbnb-48.ico';
+import Image from 'next/image';
 
 const baseUrl = 'http://localhost:3001/api/homes';
 
@@ -15,17 +17,19 @@ export default function HomeForm() {
 			.min(8, 'Must be at least 8 characters')
 			.required('Description required'),
 		title: Yup.string()
-			.required('Title required.')
+			.required('Title required')
 			.min(6, 'Must be at least 6 characters'),
-		price: Yup.number().required('Price required'),
+		price: Yup.number()
+			.typeError('Must specify a price')
+			.required('Price required'),
 	});
 
 	return (
-		<div
-			className="flex flex-row h-auto w-screen
-		"
-		>
+		<div className="flex flex-row h-auto w-screen">
 			<div className="flex-7 h-auto bg-gradient-to-b from-gradient1 via-gradient3 to-gradient2">
+				<div className="px-3 py-3">
+					<Image src={airbnbLogo} width={36} height={36} />
+				</div>
 				<div className="h-full flex items-center justify-center text-5xl text-white font-medium">
 					<span className="px-10 ">What kind of place will you host?</span>
 				</div>
@@ -67,7 +71,8 @@ export default function HomeForm() {
 					}}
 				>
 					{(props) => (
-						<Form className="h-screen flex flex-col gap-1 items-center justify-center font-medium text-lg">
+						<Form className="h-screen flex flex-col gap-3 items-center justify-center font-medium text-lg">
+							<div>Enter main listing photo</div>
 							<label
 								className="flex flex-row gap-5 px-5 py-1 border border-black cursor-pointer italic"
 								htmlFor="image"
@@ -223,7 +228,7 @@ export default function HomeForm() {
 								</label>
 							</div>
 							<button
-								className="transform active:scale-90 duration-150 px-4 py-2 border border-black rounded-lg"
+								className="bg-black text-white transform active:scale-90 duration-150 px-5 py-2 border border-black rounded-lg"
 								type="submit"
 							>
 								Submit
