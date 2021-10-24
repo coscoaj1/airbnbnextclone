@@ -12,7 +12,7 @@ function HomeDetail({ item, dayCount }) {
 						alt=""
 						layout="fixed"
 						className="rounded-xl"
-						src={item.pictureUrl}
+						src={item.photoUrl}
 						height={200}
 						width={300}
 					/>

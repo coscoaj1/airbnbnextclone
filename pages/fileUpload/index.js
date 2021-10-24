@@ -5,11 +5,14 @@ import * as Yup from 'yup';
 import Camera from '../../public/images/camera-symbol-svgrepo-com.svg';
 import airbnbLogo from '../../public/images/airbnb-48.ico';
 import Image from 'next/image';
+import Link from 'next/link';
+import router, { useRouter } from 'next/router';
+import Loader from 'react-loader-spinner';
 
 const baseUrl = 'http://localhost:3001/api/homes';
-const bedroomValues = [1, 2, 3, 4, 5, 6, 7, 8];
 export default function HomeForm() {
 	const [imageValue, setImageValue] = useState('');
+	const [loading, setLoading] = useState(false);
 
 	const validationSchema = Yup.object().shape({
 		image: Yup.mixed().required('Image required'),
@@ -25,13 +28,24 @@ export default function HomeForm() {
 	});
 
 	return (
-		<div className="flex flex-row h-auto w-screen">
+		<div className="flex flex-row h-auto w-screen mb-16 relative">
+			{loading && (
+				<Loader
+					className="absolute grid h-full w-full place-items-center"
+					type="Grid"
+					color="#000"
+					height={80}
+					width={80}
+				/>
+			)}
 			<div className="flex-7 h-auto bg-gradient-to-b from-gradient1 via-gradient3 to-gradient2">
-				<div className="px-3 py-3">
-					<Image src={airbnbLogo} width={36} height={36} />
-				</div>
+				<Link to="/" href="/">
+					<button className="px-3 py-3">
+						<Image src={airbnbLogo} width={36} height={36} />
+					</button>
+				</Link>
 				<div className="h-full flex items-center justify-center text-5xl text-white font-medium">
-					<span className="px-10 ">Tell us about the place will you host.</span>
+					<span className="px-10 ">Tell us about the place you will host.</span>
 				</div>
 			</div>
 			<div className="flex-7 w-full">
@@ -51,7 +65,16 @@ export default function HomeForm() {
 						parking: false,
 					}}
 					validationSchema={validationSchema}
-					onSubmit={async (values) => {
+					onSubmit={async (values, { resetForm }) => {
+						setLoading(true);
+
+						setTimeout(() => {
+							alert('listing confirmed!');
+							setLoading(false);
+							resetForm();
+							setImageValue('');
+							router.push('/');
+						}, 2000);
 						const formData = new FormData();
 						formData.append('image', values.image);
 						formData.append('description', values.description);
@@ -73,8 +96,8 @@ export default function HomeForm() {
 					}}
 				>
 					{(props) => (
-						<Form className="h-screen flex flex-col gap-3 items-center justify-center  text-lg">
-							<div className="text-3xl font-medium">
+						<Form className="h-screen flex flex-col gap-2 items-center justify-center  text-lg">
+							<div className="text-2xl font-medium">
 								Enter main listing photo
 							</div>
 							<label
@@ -99,7 +122,7 @@ export default function HomeForm() {
 								accept="image/*"
 							></input>
 							<label htmlFor="description" className="text-2xl font-medium">
-								Enter a description
+								Enter a description of your place
 							</label>
 							<Field
 								className="border border-black py-1 px-2 rounded-lg"
