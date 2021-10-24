@@ -269,24 +269,6 @@ export default function HomeForm() {
 									/>
 									Six
 								</label>
-								<label className="px-1">
-									<Field
-										type="radio"
-										name="bedrooms"
-										value="7"
-										className="mr-2"
-									/>
-									Seven
-								</label>
-								<label className="px-1">
-									<Field
-										type="radio"
-										name="bedrooms"
-										value="8"
-										className="mr-2"
-									/>
-									Eight
-								</label>
 							</div>
 							<div id="beds" className="text-2xl font-medium">
 								Beds
@@ -307,6 +289,22 @@ export default function HomeForm() {
 								<label className="px-1">
 									<Field type="radio" name="beds" value="4" className="mr-2" />
 									Four
+								</label>
+								<label className="px-1">
+									<Field type="radio" name="beds" value="5" className="mr-2" />
+									Five
+								</label>
+								<label className="px-1">
+									<Field type="radio" name="beds" value="6" className="mr-2" />
+									Six
+								</label>
+								<label className="px-1">
+									<Field type="radio" name="beds" value="7" className="mr-2" />
+									Seven
+								</label>
+								<label className="px-1">
+									<Field type="radio" name="beds" value="8" className="mr-2" />
+									Eight
 								</label>
 							</div>
 							<div id="baths" className="text-2xl font-medium">
