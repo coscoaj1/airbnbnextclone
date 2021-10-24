@@ -7,7 +7,7 @@ import airbnbLogo from '../../public/images/airbnb-48.ico';
 import Image from 'next/image';
 
 const baseUrl = 'http://localhost:3001/api/homes';
-
+const bedroomValues = [1, 2, 3, 4, 5, 6, 7, 8];
 export default function HomeForm() {
 	const [imageValue, setImageValue] = useState('');
 
@@ -31,7 +31,7 @@ export default function HomeForm() {
 					<Image src={airbnbLogo} width={36} height={36} />
 				</div>
 				<div className="h-full flex items-center justify-center text-5xl text-white font-medium">
-					<span className="px-10 ">What kind of place will you host?</span>
+					<span className="px-10 ">Tell us about the place will you host.</span>
 				</div>
 			</div>
 			<div className="flex-7 w-full">
@@ -41,6 +41,7 @@ export default function HomeForm() {
 						description: '',
 						title: '',
 						price: '',
+						guests: 0,
 						bedrooms: 0,
 						beds: 0,
 						baths: 0,
@@ -56,6 +57,7 @@ export default function HomeForm() {
 						formData.append('description', values.description);
 						formData.append('title', values.title);
 						formData.append('price', values.price);
+						formData.append('guests', values.guests);
 						formData.append('bedrooms', values.bedrooms);
 						formData.append('beds', values.beds);
 						formData.append('baths', values.baths);
@@ -71,8 +73,10 @@ export default function HomeForm() {
 					}}
 				>
 					{(props) => (
-						<Form className="h-screen flex flex-col gap-3 items-center justify-center font-medium text-lg">
-							<div>Enter main listing photo</div>
+						<Form className="h-screen flex flex-col gap-3 items-center justify-center  text-lg">
+							<div className="text-3xl font-medium">
+								Enter main listing photo
+							</div>
 							<label
 								className="flex flex-row gap-5 px-5 py-1 border border-black cursor-pointer italic"
 								htmlFor="image"
@@ -94,7 +98,9 @@ export default function HomeForm() {
 								}}
 								accept="image/*"
 							></input>
-							<label htmlFor="description">Enter a description</label>
+							<label htmlFor="description" className="text-2xl font-medium">
+								Enter a description
+							</label>
 							<Field
 								className="border border-black py-1 px-2 rounded-lg"
 								type="text"
@@ -104,7 +110,9 @@ export default function HomeForm() {
 							{props.errors.description && props.touched.description ? (
 								<div className="text-red-500">{props.errors.description}</div>
 							) : null}
-							<label htmlFor="title">Enter a listing title</label>
+							<label htmlFor="title" className="text-2xl font-medium">
+								Enter a listing title
+							</label>
 							<Field
 								className="border border-black py-1 px-2 rounded-lg"
 								type="text"
@@ -114,7 +122,9 @@ export default function HomeForm() {
 							{props.errors.title && props.touched.title ? (
 								<div className="text-red-500">{props.errors.title}</div>
 							) : null}
-							<label htmlFor="price">Price per night</label>
+							<label htmlFor="price" className="text-2xl font-medium">
+								Price per night
+							</label>
 							<Field
 								className="border border-black py-1 px-2 rounded-lg"
 								type="text"
@@ -124,108 +134,245 @@ export default function HomeForm() {
 							{props.errors.price && props.touched.price ? (
 								<div className="text-red-500">{props.errors.price}</div>
 							) : null}
-							<div id="bedrooms">Bedrooms:</div>
-							<div role="group" aria-labelledby="bedrooms">
+							<div id="guests" className="text-2xl font-medium">
+								Guests
+							</div>
+							<div role="group" aria-labelledby="guests">
 								<label className="px-1">
-									<Field type="radio" name="bedrooms" value="1" />
+									<Field
+										type="radio"
+										name="guests"
+										value="1"
+										className="mr-2"
+									/>
 									One
 								</label>
 								<label className="px-1">
-									<Field type="radio" name="bedrooms" value="2" />
+									<Field
+										type="radio"
+										name="guests"
+										value="2"
+										className="mr-2"
+									/>
 									Two
 								</label>
 								<label className="px-1">
-									<Field type="radio" name="bedrooms" value="3" />
+									<Field
+										type="radio"
+										name="guests"
+										value="3"
+										className="mr-2"
+									/>
 									Three
 								</label>
 								<label className="px-1">
-									<Field type="radio" name="bedrooms" value="4" />
+									<Field
+										type="radio"
+										name="guests"
+										value="4"
+										className="mr-2"
+									/>
 									Four
 								</label>
 								<label className="px-1">
-									<Field type="radio" name="bedrooms" value="5" />
+									<Field
+										type="radio"
+										name="guests"
+										value="5"
+										className="mr-2"
+									/>
 									Five
 								</label>
 								<label className="px-1">
-									<Field type="radio" name="bedrooms" value="6" />
+									<Field
+										type="radio"
+										name="guests"
+										value="6"
+										className="mr-2"
+									/>
 									Six
 								</label>
 								<label className="px-1">
-									<Field type="radio" name="bedrooms" value="7" />
+									<Field
+										type="radio"
+										name="guests"
+										value="7"
+										className="mr-2"
+									/>
 									Seven
 								</label>
 								<label className="px-1">
-									<Field type="radio" name="bedrooms" value="8" />
+									<Field
+										type="radio"
+										name="guests"
+										value="8"
+										className="mr-2"
+									/>
 									Eight
 								</label>
 							</div>
-							<div id="beds">Beds:</div>
+							<div id="bedrooms" className="text-2xl font-medium">
+								Bedrooms
+							</div>
+							<div role="group" aria-labelledby="bedrooms">
+								<label className="px-1">
+									<Field
+										type="radio"
+										name="bedrooms"
+										value="1"
+										className="mr-2"
+									/>
+									One
+								</label>
+								<label className="px-1">
+									<Field
+										type="radio"
+										name="bedrooms"
+										value="2"
+										className="mr-2"
+									/>
+									Two
+								</label>
+								<label className="px-1">
+									<Field
+										type="radio"
+										name="bedrooms"
+										value="3"
+										className="mr-2"
+									/>
+									Three
+								</label>
+								<label className="px-1">
+									<Field
+										type="radio"
+										name="bedrooms"
+										value="4"
+										className="mr-2"
+									/>
+									Four
+								</label>
+								<label className="px-1">
+									<Field
+										type="radio"
+										name="bedrooms"
+										value="5"
+										className="mr-2"
+									/>
+									Five
+								</label>
+								<label className="px-1">
+									<Field
+										type="radio"
+										name="bedrooms"
+										value="6"
+										className="mr-2"
+									/>
+									Six
+								</label>
+								<label className="px-1">
+									<Field
+										type="radio"
+										name="bedrooms"
+										value="7"
+										className="mr-2"
+									/>
+									Seven
+								</label>
+								<label className="px-1">
+									<Field
+										type="radio"
+										name="bedrooms"
+										value="8"
+										className="mr-2"
+									/>
+									Eight
+								</label>
+							</div>
+							<div id="beds" className="text-2xl font-medium">
+								Beds
+							</div>
 							<div role="group" aria-labelledby="beds">
 								<label className="px-1">
-									<Field type="radio" name="beds" value="1" />
+									<Field type="radio" name="beds" value="1" className="mr-2" />
 									One
 								</label>
 								<label className="px-1">
-									<Field type="radio" name="beds" value="2" />
+									<Field type="radio" name="beds" value="2" className="mr-2" />
 									Two
 								</label>
 								<label className="px-1">
-									<Field type="radio" name="beds" value="3" />
+									<Field type="radio" name="beds" value="3" className="mr-2" />
 									Three
 								</label>
 								<label className="px-1">
-									<Field type="radio" name="beds" value="4" />
+									<Field type="radio" name="beds" value="4" className="mr-2" />
 									Four
 								</label>
 							</div>
-							<div id="baths">Baths:</div>
+							<div id="baths" className="text-2xl font-medium">
+								Baths
+							</div>
 							<div role="group" aria-labelledby="baths">
 								<label className="px-1">
-									<Field type="radio" name="baths" value="1" />
+									<Field type="radio" name="baths" value="1" className="mr-2" />
 									One
 								</label>
 								<label className="px-1">
-									<Field type="radio" name="baths" value="2" />
+									<Field type="radio" name="baths" value="2" className="mr-2" />
 									Two
 								</label>
 								<label className="px-1">
-									<Field type="radio" name="baths" value="3" />
+									<Field type="radio" name="baths" value="3" className="mr-2" />
 									Three
 								</label>
 								<label className="px-1">
-									<Field type="radio" name="baths" value="4" />
+									<Field type="radio" name="baths" value="4" className="mr-2" />
 									Four
 								</label>
 							</div>
-							<div id="kitchens">Kitchens:</div>
+							<div id="kitchens" className="text-2xl font-medium">
+								Kitchens
+							</div>
 							<div role="group" aria-labelledby="kitchens">
 								<label className="px-1">
-									<Field type="radio" name="kitchens" value="1" />
+									<Field
+										type="radio"
+										name="kitchens"
+										value="1"
+										className="mr-2"
+									/>
 									One
 								</label>
 								<label className="px-1">
-									<Field type="radio" name="kitchens" value="2" />
+									<Field
+										type="radio"
+										name="kitchens"
+										value="2"
+										className="mr-2"
+									/>
 									Two
 								</label>
 							</div>
-							<div>Amenities:</div>
-							<div role="checkbox" aria-labelledby="wifi">
-								<label>
-									<Field type="checkbox" name="wifi" />
-									Wifi
-								</label>
-							</div>
-							<div role="checkbox" aria-labelledby="air_conditioning">
-								<label>
-									<Field type="checkbox" name="air_conditioning" />
-									Air Conditioning
-								</label>
-							</div>
-							<div role="checkbox" aria-labelledby="parking">
-								<label>
-									<Field type="checkbox" name="parking" />
-									Free Parking
-								</label>
+							<div className="text-2xl font-medium">Amenities</div>
+							<div className="flex gap-6">
+								<div role="checkbox" aria-labelledby="wifi">
+									<label>
+										<Field type="checkbox" name="wifi" />
+										Wifi
+									</label>
+								</div>
+								<div role="checkbox" aria-labelledby="air_conditioning">
+									<label>
+										<Field type="checkbox" name="air_conditioning" />
+										Air Conditioning
+									</label>
+								</div>
+								<div role="checkbox" aria-labelledby="parking">
+									<label>
+										<Field type="checkbox" name="parking" />
+										Free Parking
+									</label>
+								</div>
 							</div>
 							<button
 								className="bg-black text-white transform active:scale-90 duration-150 px-5 py-2 border border-black rounded-lg"
