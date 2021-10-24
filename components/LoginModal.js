@@ -35,12 +35,11 @@ function LoginModal({ open, onClose, crsfToken }) {
 						action="/api/auth/signin/email"
 					>
 						<input
-							className="text-lg"
 							id="email"
 							type="email"
 							name="email"
 							placeholder="Enter your Email"
-							className="w-lg h-14 mx-4 my-1 py-2 pl-1 border border-black rounded-md"
+							className="text-lg w-lg h-14 mx-4 my-1 py-2 pl-1 border border-black rounded-md"
 						/>
 						<button
 							type="sumbit"

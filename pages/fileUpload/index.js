@@ -39,9 +39,9 @@ export default function HomeForm() {
 				/>
 			)}
 			<div className="flex-7 h-auto bg-gradient-to-b from-gradient1 via-gradient3 to-gradient2">
-				<Link to="/" href="/">
+				<Link to="/" href="/" passHref>
 					<button className="px-3 py-3">
-						<Image src={airbnbLogo} width={36} height={36} />
+						<Image src={airbnbLogo} width={36} height={36} alt="" />
 					</button>
 				</Link>
 				<div className="h-full flex items-center justify-center text-5xl text-white font-medium">
@@ -379,19 +379,31 @@ export default function HomeForm() {
 							</div>
 							<div className="text-2xl font-medium">Amenities</div>
 							<div className="flex gap-6">
-								<div role="checkbox" aria-labelledby="wifi">
+								<div
+									role="checkbox"
+									aria-checked="false"
+									aria-labelledby="wifi"
+								>
 									<label>
 										<Field type="checkbox" name="wifi" />
 										Wifi
 									</label>
 								</div>
-								<div role="checkbox" aria-labelledby="air_conditioning">
+								<div
+									role="checkbox"
+									aria-checked="false"
+									aria-labelledby="air_conditioning"
+								>
 									<label>
 										<Field type="checkbox" name="air_conditioning" />
 										Air Conditioning
 									</label>
 								</div>
-								<div role="checkbox" aria-labelledby="parking">
+								<div
+									role="checkbox"
+									aria-checked="false"
+									aria-labelledby="parking"
+								>
 									<label>
 										<Field type="checkbox" name="parking" />
 										Free Parking
