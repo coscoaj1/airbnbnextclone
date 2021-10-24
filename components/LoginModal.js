@@ -54,7 +54,7 @@ function LoginModal({ open, onClose, crsfToken }) {
 					>
 						<span className="px-2 bg-white">or</span>
 					</div>
-					<Link href="/api/auth/callback/github" passHref>
+					<Link href="/api/auth/signin" passHref>
 						<button
 							onClick={(e) => {
 								e.preventDefault();
