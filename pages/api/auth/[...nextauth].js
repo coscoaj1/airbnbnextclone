@@ -1,6 +1,6 @@
 import NextAuth, { User as NextAuthUser } from 'next-auth';
 import EmailProvider from 'next-auth/providers/email';
-import GithubProvider from 'next-auth/providers/github';
+import TwitterProvider from 'next-auth/providers/twitter';
 import { MongoDBAdapter } from '@next-auth/mongodb-adapter';
 import clientPromise from '../../../lib/mongodb';
 
@@ -10,17 +10,9 @@ export default async function auth(req, res) {
 			db: (await clientPromise).db('airbnbclone'),
 		}),
 		providers: [
-			GithubProvider({
-				clientId: process.env.GITHUB_ID,
-				clientSecret: process.env.GITHUB_SECRET,
-				profile(profile) {
-					return {
-						id: profile.id.toString(),
-						name: profile.name || profile.login,
-						email: profile.email,
-						image: profile.avatar_url,
-					};
-				},
+			TwitterProvider({
+				clientId: process.env.TWITTER_ID,
+				clientSecret: process.env.TWITTER_SECRET,
 			}),
 			EmailProvider({
 				server: {
