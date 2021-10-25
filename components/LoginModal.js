@@ -38,7 +38,7 @@ function LoginModal({ open, onClose, crsfToken }) {
 					>
 						Continue with Email
 					</button>
-					<button
+					{/* <button
 						onClick={(e) => {
 							e.preventDefault();
 							signIn();
@@ -46,7 +46,7 @@ function LoginModal({ open, onClose, crsfToken }) {
 						className="w-lg mx-4 my-5 py-3 pl-1 bg-red-500 text-white text-base font-medium rounded-md active:scale-95 transform duration-200"
 					>
 						Continue with Email
-					</button>
+					</button> */}
 					<div
 						className="border-b border-gray-30 mx-4 mt-3 leading-2
 											 w-lg text-center "
@@ -56,7 +56,7 @@ function LoginModal({ open, onClose, crsfToken }) {
 					<button
 						onClick={(e) => {
 							e.preventDefault();
-							signIn();
+							signIn('github', { redirect: false });
 						}}
 						className="flex items-start gap-28 w-lg mx-4 my-5 pl-1 text-base font-medium border border-black rounded-md active:scale-95 transform duration-200"
 					>
