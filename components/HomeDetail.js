@@ -7,7 +7,7 @@ function HomeDetail({ item, dayCount }) {
 		<div className="w-screen md:w-full">
 			<div className="border-t border-gray-300 my-5"></div>
 			<div className="flex">
-				<button className="h-48 w-82 mt-3 flex-7 ">
+				<button className="h-48 mt-3 px-4">
 					<Image
 						alt=""
 						layout="fixed"

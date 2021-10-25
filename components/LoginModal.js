@@ -1,10 +1,10 @@
 import React from 'react';
-import Link from 'next/link';
 import { getCrsfToken } from 'next-auth/react';
 import { signIn } from 'next-auth/react';
 import { Dialog } from '@headlessui/react';
 import CancelIcon from '../public/images/x-svgrepo-com (1).svg';
-import GithubIcon from '../public/images/iconmonstr-github-1.svg';
+import TwitterIcon from '../public/images/icons8-twitter-30.png';
+import Image from 'next/image';
 
 function LoginModal({ open, onClose, crsfToken }) {
 	return (
@@ -50,16 +50,16 @@ function LoginModal({ open, onClose, crsfToken }) {
 					<button
 						onClick={(e) => {
 							e.preventDefault();
-							signIn('github', {
+							signIn('twitter', {
 								callbackUrl: 'https://airbnbnextclone.vercel.app',
 							});
 						}}
 						className="flex items-start gap-28 w-lg mx-4 my-5 pl-1 text-base font-medium border border-black rounded-md active:scale-95 transform duration-200"
 					>
 						<div className="flex justify-center items-center h-full mr-2">
-							<GithubIcon width={24} height={24} alt="" />
+							<Image src={TwitterIcon} width={32} height={32} alt="" />
 						</div>
-						<div className="py-3 text-center">Continue with Github</div>
+						<div className="py-3 text-center">Continue with Twitter</div>
 					</button>
 				</div>
 			</Dialog>

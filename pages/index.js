@@ -19,7 +19,7 @@ export default function Home() {
 			<Header />
 			<Hero />
 			<Bottombar />
-			<div className=" border flex flex-col justify-center items-center sm:max-w-screen-lg max-w-lg sm:px-14 lg:mx-auto">
+			<div className="flex flex-col justify-center items-center sm:max-w-screen-lg max-w-lg sm:px-14 lg:mx-auto">
 				<NearbyCardList />
 				<LiveAnywhere />
 				<TryHosting />
