@@ -1,4 +1,4 @@
-import NextAuth from 'next-auth';
+import NextAuth, { User as NextAuthUser } from 'next-auth';
 import EmailProvider from 'next-auth/providers/email';
 import GithubProvider from 'next-auth/providers/github';
 import { MongoDBAdapter } from '@next-auth/mongodb-adapter';
@@ -13,6 +13,14 @@ export default async function auth(req, res) {
 			GithubProvider({
 				clientId: process.env.GITHUB_ID,
 				clientSecret: process.env.GITHUB_SECRET,
+				profile(profile) {
+					return {
+						id: profile.id.toString(),
+						name: profile.name || profile.login,
+						email: profile.email,
+						image: profile.avatar_url,
+					};
+				},
 			}),
 			EmailProvider({
 				server: {
