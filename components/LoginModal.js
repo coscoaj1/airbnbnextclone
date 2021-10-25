@@ -29,15 +29,17 @@ function LoginModal({ open, onClose, crsfToken }) {
 					Welcome to Airbnb
 				</Dialog.Description>
 				<div className="flex flex-col h-lg w-full ">
-					{/* <button
+					<button
 						onClick={(e) => {
 							e.preventDefault();
-							signIn();
+							signIn('email', {
+								callbackUrl: 'https://airbnbnextclone.vercel.app',
+							});
 						}}
 						className="w-lg mx-4 my-5 py-3 pl-1 bg-red-500 text-white text-base font-medium rounded-md active:scale-95 transform duration-200"
 					>
 						Continue with Email
-					</button> */}
+					</button>
 
 					<div
 						className="border-b border-gray-30 mx-4 mt-3 leading-2
