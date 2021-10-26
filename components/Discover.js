@@ -24,11 +24,11 @@ const discoverList = [
 
 function Discover() {
 	return (
-		<div className="my-8 h-auto w-full">
+		<div className="my-12 h-auto w-full">
 			<h2 className="text-xl sm:text-2xl md:text-4xl mb-4 font-bold text-center sm:text-left">
 				Discover things to do
 			</h2>
-			<div className="flex gap-1 items-center justify-center ">
+			<div className="flex flex-col sm:flex-rowgap-1 items-center justify-center ">
 				{discoverList.map((card) => (
 					<DiscoverCard key={card.title} card={card} />
 				))}
