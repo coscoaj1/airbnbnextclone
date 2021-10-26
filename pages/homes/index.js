@@ -64,10 +64,10 @@ function HomeListings({ data }) {
 				end={end}
 				guestCount={totalGuests}
 			/>
-			<div className="flex flex-row">
-				<div className="w-1/2">
-					<div className="mx-6 my-24">
-						<section className="flex md:block flex-col items-center justify-center w-screen">
+			<div className="sm:flex flex-row">
+				<div className="w-full sm:w-1/2">
+					<div className="mx-6 my-24 w-full">
+						<section className="flex md:block flex-col items-center justify-center w-full mx-auto">
 							<div className="text-sm text-gray-900">
 								18 stays · {start}-{end} · {totalGuests}{' '}
 								{totalGuests == 1 ? <span>guest</span> : <span>guests</span>}
