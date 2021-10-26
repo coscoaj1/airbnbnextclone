@@ -65,7 +65,7 @@ export default function NearbyCardList() {
 			<div
 				id="cardlist"
 				className="relative grid gap-x-6 sm:gap-x-3 grid-cols-2 sm:grid-cols-3 
-				lg:grid-cols-4 grid-rows-2 lg:grid-rows-2 overflow-hidde h-auto"
+				lg:grid-cols-4 grid-rows-4 lg:grid-rows-2 overflow-hidden h-auto"
 			>
 				{nearbyList.map((card) => (
 					<NearbyCard key={card.name} card={card} />
