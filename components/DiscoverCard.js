@@ -8,7 +8,7 @@ function DiscoverCard({ card }) {
 				className="rounded-md w-full"
 				height={400}
 				width={400}
-				layout="responsive"
+				layout="fixed"
 				src={card.img}
 				alt=""
 			/>
