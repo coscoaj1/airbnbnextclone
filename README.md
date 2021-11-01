@@ -1,6 +1,6 @@
 
 # This is an Airbnb clone
->Live demo [_here_](https://airbnbnextclone.vercel.app/)
+>Live demo [_here_](https://airbnbnextclone.vercel.app/){:target="_blank"}
 
 ## Table of contents
 * [General info](#general-info)
