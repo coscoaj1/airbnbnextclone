@@ -1,6 +1,7 @@
 
 # This is an Airbnb clone
->Live demo [_here_](https://airbnbnextclone.vercel.app/)
+* Live demo [_here_](https://airbnbnextclone.vercel.app/)
+* Backend repository [_here_](https://github.com/coscoaj1/airbnbclone_backend)
 
 ## Table of contents
 * [General info](#general-info)
