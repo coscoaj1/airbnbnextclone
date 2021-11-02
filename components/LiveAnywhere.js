@@ -74,7 +74,7 @@ function LiveAnywhere() {
 				 grid grid-col-4 grid-rows-1 gap-4 mx-2 "
 			>
 				{liveAnywhereList.map((item) => (
-					<LiveAnywhereCard key={item} card={item} />
+					<LiveAnywhereCard key={item.title} card={item} />
 				))}
 			</div>
 		</div>

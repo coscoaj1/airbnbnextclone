@@ -3,12 +3,13 @@ import Image from 'next/image';
 
 function DiscoverCard({ card }) {
 	return (
-		<div className="h-auto w-full" key={card.name}>
+		<div className="h-auto" key={card.name}>
 			<Image
 				className="rounded-md w-full"
-				height={400}
-				width={400}
+				height={500}
+				width={500}
 				src={card.img}
+				layout="intrinsic"
 				alt=""
 			/>
 			<ul>
