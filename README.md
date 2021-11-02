@@ -1,34 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# This is an Airbnb clone
+* Live demo [_here_](https://airbnbnextclone.vercel.app/)
+* Backend repository [_here_](https://github.com/coscoaj1/airbnbclone_backend)
 
-First, run the development server:
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Features](#features)
+* [Room for Improvement](#room-for-improvement)
+* [Acknowledgements](#acknowledgements)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## General info
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+I began undertaking this project after learning how to implement image uploads to S3 with Multer/Node.js 
+I figured it would be a great base for an Airbnb clone, and a great way to learn 
+some new technologies like Google Maps API, etc.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Technologies
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Project is created with:
 
-## Learn More
+* React/Next.js
+* Node.js
+* Express.js
+* Multer
+* MongoDB
+* Tailwind
+* Amazon S3
+* Google Maps API
+* Authentication with NextAuth
+* Frontend deployed on Vercel
+* Backend deployed on Heroku
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* Custom location and date range picker built with the dayzed library. 
+* Authentication built with NextAuth including email and Twitter sign in.
+* Search listing page includes Google Maps implementation for the correct location entered.
+* Create listing page takes an image upload, stores it in an S3 bucket, then references the link to the image in the database table.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Room for improvement:
+To do: 
+- Implement update and delete functionality, and a dynamic comment/rating system.
+- Mobile functionality.
 
-## Deploy on Vercel
+## Acknowledgements:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- This project was inpired by [_this tutorial_](https://www.youtube.com/watch?v=NZElg91l_ms&t=1121s) on uploading images to a backend.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
