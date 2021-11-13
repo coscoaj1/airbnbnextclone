@@ -8,18 +8,25 @@ import Header from "../components/Header";
 import TryHosting from "../components/TryHosting";
 import TabsList from "../components/TabsList";
 import { useSession } from "next-auth/react";
+import { useEffect } from "react";
+import axios from "axios";
 
 export default function Home() {
   const { data: session, status } = useSession();
   const loading = status === "loading";
 
+  useEffect(() => {
+    axios
+      .get("https://airbnbclone-backend.herokuapp.com/api/homes")
+      .then((res) => console.log(res.data));
+  });
   console.log({ session, loading });
   return (
-    <div className="font-circular overflow-hidden">
+    <div className="overflow-hidden font-circular">
       <Header />
       <Hero />
       <Bottombar />
-      <div className="flex flex-col justify-center items-center sm:max-w-screen-lg max-w-lg mx-auto">
+      <div className="flex flex-col items-center justify-center max-w-lg mx-auto sm:max-w-screen-lg">
         <NearbyCardList />
         <LiveAnywhere />
         <TryHosting />
