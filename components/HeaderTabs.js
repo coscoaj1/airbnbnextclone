@@ -6,7 +6,7 @@ function HeaderTabs({ navbar }) {
     <div className={navbar ? "navsearch-active" : "navsearch"}>
       <button className="relative mx-8 group hover:text-gray-300">
         <span>Places to stay</span>
-        <div className="absolute w-4 mt-1 transition duration-200 ease-in border-b-2 border-green-900 delay-50 group-hover:border-white left-10"></div>
+        <div className="absolute w-1 mt-1 transition duration-200 ease-in border-b-2 border-green-900 delay-50 group-hover:border-white left-10"></div>
       </button>
       <button className="relative mx-8 group hover:text-gray-300">
         <span>Experiences</span>
