@@ -64,10 +64,10 @@ function HomeListings({ data }) {
         end={end}
         guestCount={totalGuests}
       />
-      <div className="flex flex-row">
-        <div className="w-1/2 flex-grow">
+      <div className="flex flex-row justify-between">
+        <div className="relative z-10">
           <div className="mx-6 my-24">
-            <section className="flex md:block flex-col items-center justify-center">
+            <section className="flex flex-col items-center justify-center md:block">
               <div className="text-sm text-gray-900">
                 18 stays · {start}-{end} · {totalGuests}{" "}
                 {totalGuests == 1 ? <span>guest</span> : <span>guests</span>}
@@ -92,7 +92,7 @@ function HomeListings({ data }) {
             </main>
           </div>
         </div>
-        <div className="sticky top-16 w-5/12 h-72 hidden md:block">
+        <div className="sticky z-0 hidden w-1/2 top-16 h-72 md:block">
           {geoLocation && <GoogleMap center={geoLocation} zoom={zoom} />}
         </div>
       </div>
