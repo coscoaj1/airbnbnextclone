@@ -101,6 +101,7 @@ function HomeListings({ data }) {
 }
 
 export default HomeListings;
+
 export async function getServerSideProps(context) {
   const response = await fetch(
     "https://airbnbclone-backend.herokuapp.com/api/homes"
