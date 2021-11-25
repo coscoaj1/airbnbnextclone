@@ -155,6 +155,7 @@ function Header() {
             {selectedDates.length > 0 ? (
               <div className="flex items-start gap-3">
                 <button
+                  aria-label="show calendar"
                   onClick={handleShowCalendar}
                   className="text-sm font-medium"
                   value={selectedDates[0].toLocaleString().split(",")[0]}
@@ -163,6 +164,7 @@ function Header() {
                 </button>
                 {selectedDates.length === 1 && (
                   <button
+                    aria-label="set dates"
                     className="w-6 h-6  bg-gray-200 hover:bg-gray-300 rounded-full transform -translate-y-3"
                     onClick={() => setSelectedDates([])}
                   >
@@ -189,6 +191,7 @@ function Header() {
             {selectedDates.length > 1 ? (
               <div className="flex items-start gap-3">
                 <button
+                  aria-label="show calendar"
                   onClick={handleShowCalendar}
                   className="text-sm font-medium"
                   value={selectedDates[1].toLocaleString().split(",")[0]}
@@ -196,6 +199,7 @@ function Header() {
                   {selectedDates[1].toLocaleString().split(",")[0]}
                 </button>
                 <button
+                  aria-label="cancel"
                   className="w-6 h-6 bg-gray-200 hover:bg-gray-300 rounded-full transform -translate-y-3"
                   onClick={() => setSelectedDates([])}
                 >
@@ -241,6 +245,7 @@ function Header() {
                           ></Image>
                         </div>
                         <button
+                          aria-label="select location"
                           value={city}
                           onClick={() => handleLocationSelect(city)}
                         >

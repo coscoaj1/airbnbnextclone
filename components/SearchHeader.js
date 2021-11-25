@@ -10,7 +10,10 @@ function SearchHeader({ formattedLocation, start, end, guestCount }) {
   return (
     <header className="fixed top-0 z-20 flex w-full bg-white shadow-md px-14">
       <Link href="/" passHref>
-        <button className="flex flex-row items-center my-4 flex-3">
+        <button
+          aria-label="logo"
+          className="flex flex-row items-center my-4 flex-3"
+        >
           <div className="flex">
             <Image src={redLogo} width={32} height={32} alt="logo" />
           </div>
