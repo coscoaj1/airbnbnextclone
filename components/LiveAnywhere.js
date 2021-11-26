@@ -44,7 +44,7 @@ function LiveAnywhere() {
   };
   return (
     <div className="relative w-full h-auto my-4">
-      <div className="absolute right-0 z-10 hidden sm:block md:hidden top-36">
+      {/* <div className="absolute right-0 z-10 hidden sm:block md:hidden top-36">
         <span className="top-1/2">
           <button
             onClick={() => scrollRight()}
@@ -53,8 +53,8 @@ function LiveAnywhere() {
             <Image width={10} height={10} src={rightArrow} alt="" />
           </button>
         </span>
-      </div>
-      <div className="absolute left-0 z-10 hidden sm:block md:hidden top-36">
+      </div> */}
+      {/* <div className="absolute left-0 z-10 hidden sm:block md:hidden top-36">
         <span className="top-1/2">
           <button
             onClick={() => scrollLeft()}
@@ -63,7 +63,7 @@ function LiveAnywhere() {
             <Image width={10} height={10} src={leftArrow} alt="" />
           </button>
         </span>
-      </div>
+      </div> */}
       <h2 className="text-xl font-bold text-center sm:text-2xl md:text-4xl sm:text-left">
         Live anywhere
       </h2>
