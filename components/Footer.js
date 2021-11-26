@@ -13,10 +13,10 @@ import {
 
 function Footer() {
   return (
-    <div className="hidden sm:block bg-footerPink w-full px-16 sticky top-0">
-      <div className="flex flex-col md:flex-row text-sm mx-auto max-w-7xl py-8 border-b border-gray-300">
+    <div className="sticky top-0 hidden w-full px-16 sm:block bg-footerPink">
+      <div className="flex flex-col py-8 mx-auto text-sm border-b border-gray-300 md:flex-row max-w-7xl">
         <div className="footer-div">
-          <p className="py-4 uppercase text-xs">About</p>
+          <p className="py-4 text-xs uppercase">About</p>
           <ul className="footer-ul">
             {aboutList.map((item) => (
               <li key={item} className="footer-li">
@@ -26,7 +26,7 @@ function Footer() {
           </ul>
         </div>
         <div className="footer-div">
-          <p className="py-4 uppercase text-xs">Community</p>
+          <p className="py-4 text-xs uppercase">Community</p>
           <ul className="footer-ul">
             {communityList.map((item) => (
               <li key={item} className="footer-li ">
@@ -36,7 +36,7 @@ function Footer() {
           </ul>
         </div>
         <div className="footer-div">
-          <p className="py-4 uppercase text-xs">Host</p>
+          <p className="py-4 text-xs uppercase">Host</p>
           <ul className="footer-ul">
             {hostList.map((item) => (
               <li key={item} className="footer-li">
@@ -46,7 +46,7 @@ function Footer() {
           </ul>
         </div>
         <div className="flex-2 md:border-none">
-          <p className="py-4 uppercase text-xs">Support</p>
+          <p className="py-4 text-xs uppercase">Support</p>
           <ul className="footer-ul">
             {supportList.map((item) => (
               <li key={item} className="footer-li">
@@ -57,37 +57,49 @@ function Footer() {
         </div>
       </div>
       <div className="my-2">
-        <div className="flex flex-col md:flex-row justify-between items-center mx-12 text-sm font-light py-2">
+        <div className="flex flex-col items-center justify-between py-2 mx-12 text-sm font-light md:flex-row">
           <div>
             <div>
               &copy; 2021 Airbnb, Inc. <span>&#183;</span>{" "}
-              <button className="font-light px-1">Privacy</button>
+              <button className="px-1 font-light">Privacy</button>
               <span>&#183;</span>{" "}
-              <button className="font-light px-1">Terms</button>
+              <button className="px-1 font-light">Terms</button>
               <span>&#183;</span>{" "}
-              <button className="font-light px-1">Sitemap</button>
+              <button className="px-1 font-light">Sitemap</button>
             </div>
           </div>
-          <div className="flex flex-row gap-3 underline font-light">
+          <div className="flex flex-row gap-3 font-light underline">
             <button>
-              <Image alt="" width={22} height={20} src={globeIcon} />
+              <Image
+                aria-label="globe icon "
+                alt=""
+                width={22}
+                height={20}
+                src={globeIcon}
+              />
             </button>
             <button>
               <span className="font-medium">English(US)</span>
             </button>
             <button>
               <span className="px-1 font-medium">$</span>
-              <span className="font-medium mr-8">USD</span>
+              <span className="mr-8 font-medium">USD</span>
             </button>
-            <button>
+            <button aria-label="facebook icon">
               <Image alt="" width={28} height={28} src={facebookIcon} />
             </button>
             <button>
               <span>
-                <Image alt="" width={20} height={20} src={twitterIcon} />
+                <Image
+                  aria-label="twitter icon"
+                  alt=""
+                  width={20}
+                  height={20}
+                  src={twitterIcon}
+                />
               </span>
             </button>
-            <button>
+            <button aria-label="instagram logo">
               <Image alt="" src={instagramLogo} />
             </button>
           </div>

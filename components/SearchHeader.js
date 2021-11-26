@@ -45,7 +45,10 @@ function SearchHeader({ formattedLocation, start, end, guestCount }) {
           Become a host
         </button>
         <button>
-          <div className="px-3 pt-2 ml-1 mr-4 rounded-full hover:bg-gray-100">
+          <div
+            aria-label="globe icon"
+            className="px-3 pt-2 ml-1 mr-4 rounded-full hover:bg-gray-100"
+          >
             <Image src={blackGlobe} alt="globe icon" width={20} height={20} />
           </div>
         </button>

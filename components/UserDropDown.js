@@ -27,7 +27,7 @@ export default function UserDropDown({ navbar }) {
     <>
       <div className="-mr-6">
         <Menu>
-          <Menu.Button>
+          <Menu.Button aria-label="menu dropdown">
             <div className="flex flex-row items-center mr-6 transition-shadow bg-white border rounded-full hover:shadow-md">
               <div className="z-10 w-5 h-auto mt-2 mb-1 ml-2">
                 <Image src={menuIcon} width={16} height={18} alt="" />
