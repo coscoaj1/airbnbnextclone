@@ -45,7 +45,7 @@ export default function MobileHeader() {
         >
           <Popover.Panel className="z-50 flex flex-col items-center w-full h-screen gap-4 text-3xl font-bold text-black bg-white border border-purple-500">
             <div className="cursor">
-              <input className="outline-none" type="text" autofocus />
+              <input className="outline-none" type="text" autoFocus />
               <i></i>
             </div>
           </Popover.Panel>
