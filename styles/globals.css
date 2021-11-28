@@ -71,6 +71,8 @@
 }
 .cursor {
   position: relative;
+  margin-left: 1rem;
+  width: 150px;
 }
 .cursor i {
   position: absolute;
