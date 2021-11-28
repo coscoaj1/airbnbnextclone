@@ -3,6 +3,7 @@ import Image from "next/image";
 import searchIcon from "../public/images/magnifying-glass.png";
 import { Transition } from "@headlessui/react";
 import { Popover } from "@headlessui/react";
+import { HiChevronLeft } from "react-icons/hi";
 export default function MobileHeader() {
   const [mobileNav, setMobileNav] = useState(false);
   const [isShowing, setIsShowing] = useState(true);
@@ -43,10 +44,23 @@ export default function MobileHeader() {
           leaveFrom="translate-y-0"
           leaveTo="-translate-y-full"
         >
-          <Popover.Panel className="z-50 flex flex-col items-center w-full h-screen gap-4 text-3xl font-bold text-black bg-white border border-purple-500">
-            <div className="cursor">
-              <input className="pl-8 outline-none" type="text" autoFocus />
-              <i></i>
+          <Popover.Panel className="z-50 flex flex-col h-screen gap-2 font-bold text-black bg-white border border-purple-500 items center">
+            <div className="flex flex-row items-center p-2">
+              <HiChevronLeft className="w-10 h-10 pt-1" />
+              <div className="cursor">
+                <input
+                  className="p-1 text-base outline-none"
+                  type="text"
+                  placeholder="Enter Location"
+                  autoFocus
+                />
+                <i></i>
+              </div>
+            </div>
+            <div className="flex flex-col p-8">
+              <h4 className="text-xs font-bold uppercase">
+                Go anywhere, anytime.
+              </h4>
             </div>
           </Popover.Panel>
         </Transition>
