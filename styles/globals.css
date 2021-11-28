@@ -4,28 +4,28 @@
 
 @layer components {
   .btn-header {
-    @apply flex-4 h-full text-left text-xs tracking-wider my-auto hover:shadow-3xl  hover:bg-gray-50  focus:border-gray-300 rounded-full px-6 py-3;
+    @apply h-full px-6 py-3 my-auto text-xs tracking-wider text-left rounded-full flex-4 hover:shadow-3xl hover:bg-gray-50 focus:border-gray-300;
   }
   .btn-header-focus {
-    @apply flex-4 h-full text-left text-xs tracking-wider my-auto shadow-3xl  hover:bg-gray-50  focus:border-gray-300 rounded-full px-6 py-3;
+    @apply h-full px-6 py-3 my-auto text-xs tracking-wider text-left rounded-full flex-4 shadow-3xl hover:bg-gray-50 focus:border-gray-300;
   }
   .btn-location-focus {
-    @apply flex-4 h-full text-left text-xs tracking-wider my-auto shadow-3xl  hover:bg-gray-50  focus:border-gray-300 rounded-full px-6 py-3;
+    @apply h-full px-6 py-3 my-auto text-xs tracking-wider text-left rounded-full flex-4 shadow-3xl hover:bg-gray-50 focus:border-gray-300;
   }
 
   .bdr-header {
-    @apply border-r border-gray-300 h-8 self-center;
+    @apply self-center h-8 border-r border-gray-300;
   }
 
   .footer-div {
-    @apply flex-2 border-b border-gray-300 md:border-none;
+    @apply border-b border-gray-300 flex-2 md:border-none;
   }
 
   .footer-ul {
-    @apply flex flex-wrap  h-auto md:block  text-sm;
+    @apply flex flex-wrap h-auto text-sm md:block;
   }
   .footer-li {
-    @apply py-1 cursor-pointer flex-3 leading-6;
+    @apply py-1 leading-6 cursor-pointer flex-3;
   }
 
   .tabslist-div {
@@ -33,45 +33,68 @@
   }
 
   .tabslist-ul {
-    @apply w-1/4 py-2 text-sm my-1;
+    @apply w-1/4 py-2 my-1 text-sm;
   }
 
   .navbar-active {
-    @apply hidden sm:block fixed top-0 bg-white w-full;
+    @apply fixed top-0 hidden w-full bg-white sm:block;
   }
 
   .navbar {
-    @apply hidden sm:block absolute top-5 text-white text-base w-full;
+    @apply absolute hidden w-full text-base text-white sm:block top-5;
   }
 
   .navsearch-active {
     @apply hidden;
   }
   .navsearch {
-    @apply lg:-mt-6 mb-4 flex flex-row justify-center w-full text-base;
+    @apply flex flex-row justify-center w-full mb-4 text-base lg:-mt-6;
   }
   .formdiv-active {
     @apply hidden;
   }
   .formdiv {
-    @apply bg-gray-50 rounded-full flex flex-row justify-between 
-		h-16 max-w-3xl mx-auto text-black text-sm;
+    @apply flex flex-row justify-between h-16 max-w-3xl mx-auto text-sm text-black rounded-full bg-gray-50;
   }
   .mobileNav-active {
-    @apply sm:hidden fixed top-0 z-10 bg-white w-full;
+    @apply fixed top-0 z-10 w-full bg-white sm:hidden;
   }
   .mobileNav {
-    @apply sm:hidden w-full mx-auto absolute top-10 flex justify-center items-center;
+    @apply absolute flex items-center justify-center w-full mx-auto text-black sm:hidden top-10;
   }
   .mobileNavButton-active {
-    @apply relative z-10 flex justify-center w-11/12 rounded-full 
-		bg-gray-50 text-center py-3 my-3 mx-auto text-xs text-gray-600 cursor-text
-		md:hidden;
+    @apply relative z-10 flex justify-center w-11/12 py-3 mx-auto my-3 text-xs text-center text-gray-600 rounded-full bg-gray-50 cursor-text md:hidden;
   }
   .mobileNavButton {
-    @apply relative z-10 flex flex-shrink-0 justify-center w-11/12 rounded-full 
-		bg-white text-center py-3 my-3 mx-auto text-xs text-gray-600 cursor-text
-		md:hidden;
+    @apply relative z-10 flex justify-center flex-shrink-0 w-11/12 py-3 mx-auto my-3 text-xs text-center text-gray-600 bg-white rounded-full cursor-text md:hidden;
+  }
+}
+.cursor {
+  position: relative;
+}
+.cursor i {
+  position: absolute;
+  width: 1px;
+  height: 80%;
+  background-color: gray;
+  left: 5px;
+  top: 10%;
+  animation-name: blink;
+  animation-duration: 800ms;
+  animation-iteration-count: infinite;
+  opacity: 1;
+}
+
+.cursor input:focus + i {
+  display: none;
+}
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 
