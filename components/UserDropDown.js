@@ -136,7 +136,7 @@ export default function UserDropDown({ navbar }) {
             <div className="flex flex-col px-1 py-1 text-sm">
               <Menu.Item>
                 {({ active }) => (
-                  <Link to="/fileUpload" href="/fileUpload">
+                  <Link to="/fileUpload" href="/fileUpload" passHref>
                     <a
                       as=""
                       className={`${
