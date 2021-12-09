@@ -5,6 +5,7 @@ import { Transition } from '@headlessui/react';
 import { Popover } from '@headlessui/react';
 import ChevronLeft from './icons/ChevronLeft';
 import MobileFlexibleButton from './Buttons/MobileFlexibleButton';
+import MobileGetawaysList from './MobileGetawaysList';
 
 export default function MobileHeader() {
 	const [mobileNav, setMobileNav] = useState(false);
@@ -65,6 +66,7 @@ export default function MobileHeader() {
 							</h4>
 						</div>
 						<MobileFlexibleButton />
+						<MobileGetawaysList />
 					</Popover.Panel>
 				</Transition>
 			</Popover>

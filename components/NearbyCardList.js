@@ -10,7 +10,7 @@ import MyrtleBeachImg from '../public/images/MyrtleBeach.webp';
 import NashvilleImg from '../public/images/Nashville.webp';
 import SavannahImg from '../public/images/savannahimg.jpg';
 
-const nearbyList = [
+export const nearbyList = [
 	{
 		img: AtlantaImg,
 		name: 'Atlanta',
@@ -55,10 +55,7 @@ const nearbyList = [
 
 export default function NearbyCardList() {
 	return (
-		<div
-			className="relative mt-4 w-full 
-		 h-auto"
-		>
+		<div className="relative mt-4 w-full h-auto">
 			<p className="text-lg sm:text-xl md:text-4xl text-center sm:text-left font-bold">
 				Explore nearby
 			</p>
