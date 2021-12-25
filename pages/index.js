@@ -26,7 +26,7 @@ export default function Home() {
       <Header />
       <Hero />
       <Bottombar />
-      <div className="flex flex-col items-center justify-center max-w-lg mx-auto sm:max-w-screen-lg">
+      <div className="flex flex-col items-center justify-center max-w-lg px-4 mx-auto sm:max-w-screen-lg">
         <NearbyCardList />
         <LiveAnywhere />
         <TryHosting />
