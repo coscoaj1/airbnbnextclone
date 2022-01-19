@@ -15,7 +15,7 @@
 
 I began undertaking this project after learning how to implement image uploads to S3 with Multer/Node.js 
 I figured it would be a great base for an Airbnb clone, and a great way to learn 
-some new technologies like Google Maps API, etc.
+some new technologies like Google Maps API, etc.  I did not follow a tutorial.
 
 ## Technologies
 
@@ -47,5 +47,5 @@ To do:
 
 ## Acknowledgements:
 
-- This project was inpired by [_this tutorial_](https://www.youtube.com/watch?v=NZElg91l_ms&t=1121s) on uploading images to a backend.
+- This project was inpired by this guide (https://www.youtube.com/watch?v=NZElg91l_ms&t=1121s) on uploading images to a backend.
 
