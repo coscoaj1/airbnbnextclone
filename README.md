@@ -27,7 +27,7 @@ Project is created with:
 * Multer
 * MongoDB
 * Tailwind
-* Amazon S3
+* AWS S3
 * Google Maps API
 * Authentication with NextAuth
 * Frontend deployed on Vercel
